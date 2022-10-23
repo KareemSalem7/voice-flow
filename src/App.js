@@ -24,7 +24,7 @@ function clickMeTwo(){
     "users": [
         {
           "intent": "Martin", 
-          "Content": "A cool intent and prompt"
+          "content": "A cool intent and prompt"
         }
     ]
   }
