@@ -6,7 +6,7 @@ function clickMe(){
     "users": [
         {
             "intent": "Kareem", 
-            "Content": "A cool intent and prompt"
+            "content": "A cool intent and prompt"
         }
     ]
   }
