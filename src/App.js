@@ -1,39 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 function clickMe(){ 
-  var jsonData = {
-    "users": [
-        {
-            "intent": "Kareem", 
-            "content": "A cool intent and prompt"
-        }
-    ]
+  const jsonData = 
+  {
+    "intent": "Kareem", 
+    "content": "A cool intent and prompt"
   }
   alert('click 1 detected')
   // Send data to the backend via POST
-  fetch('http://localhost:8080/api/v1/transcripts/create', {  // Enter your IP address here
-    method: 'POST',  
-    body: JSON.stringify(jsonData) // body data type must match "Content-Type" header
-  })
+  // axios for the request
+  axios.post('http://localhost:8080/api/v1/transcripts/create', jsonData)
+        .then(response => this.setState({ dataId: response.data.id }));
   console.log(jsonData);
 }
 
 function clickMeTwo(){
-  var jsonData = {
-    "users": [
-        {
-          "intent": "Martin", 
-          "content": "A cool intent and prompt"
-        }
-    ]
+  const jsonData = 
+  {
+    "intent": "Martin", 
+    "content": "A cool intent and prompt"
   }
   alert('click 2 detected')
   // Send data to the backend via POST
-  fetch('http://localhost:8080/api/v1/transcripts/create', {  // Enter your IP address here
-    method: 'POST',  
-    body: JSON.stringify(jsonData) // body data type must match "Content-Type" header
-  })
+  axios.post('http://localhost:8080/api/v1/transcripts/create', jsonData)
+        .then(response => this.setState({ dataId: response.data.id }));
   console.log(jsonData);
 }
 
