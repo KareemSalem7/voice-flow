@@ -5,7 +5,7 @@ import axios from 'axios';
 function clickMe(){ 
   const jsonData = 
   {
-    "intent": "Kareem", 
+    "intent": "Kareem Salem", 
     "content": "A cool intent and prompt"
   }
   alert('click 1 detected')
