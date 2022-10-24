@@ -1,11 +1,12 @@
 import logo from './logo.svg';
+import vfLogo from './images/voiceflowLogo.png'
 import './App.css';
 import axios from 'axios';
 
 function clickMe(){ 
   const jsonData = 
   {
-    "intent": "Kareem Salem", 
+    "intent": "Kareem", 
     "content": "A cool intent and prompt"
   }
   alert('click 1 detected')
@@ -33,6 +34,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <img src={vfLogo} className="voiceflow-logo" alt="vf-logo" />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Suggested Prompt A: Some prompt      
