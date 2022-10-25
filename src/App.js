@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import vfLogo from './images/voiceflowLogo.png'
 import './App.css';
 import axios from 'axios';
-import PromptList from './PromptList'
 
 function clickMe(){ 
   const jsonData = 
@@ -33,8 +32,8 @@ function clickMeTwo(){
 
 function App() {
   return (
-    <div id = "1">
-      <div className="App" id = "2">
+    <div>
+      <div className="App">
         <header className="App-header">
         <img src={vfLogo} className="voiceflow-logo" alt="vf-logo" />
           <img src={logo} className="App-logo" alt="logo" />
@@ -46,22 +45,6 @@ function App() {
           <button className="btn" onClick={clickMeTwo}>Prompt 2</button>
           </p>
         </header>
-      </div>
-
-      <div className="prompts" id="3">
-        <PromptList
-          name='Would you like to see this week’s sales?'
-          profitability='+++'
-          brand='+'
-          customer='+'
-        />
-        <PromptList
-          name='What do you need help with'
-          profitability='+++'
-          brand='+'
-          customer='+'
-        />
-        
       </div>
     </div>
   );
