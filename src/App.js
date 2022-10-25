@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import vfLogo from './images/voiceflowLogo.png'
 import './App.css';
 import axios from 'axios';
+import CssModules from "./CssModules";
 
 function clickMe(){ 
   const jsonData = 
@@ -36,7 +36,6 @@ function App() {
       <div className="App">
         <header className="App-header">
         <img src={vfLogo} className="voiceflow-logo" alt="vf-logo" />
-          <img src={logo} className="App-logo" alt="logo" />
           <p>
             Suggested Prompt A: Some prompt      
             <button className="btn" onClick={clickMe}>Prompt 1</button>
@@ -44,6 +43,7 @@ function App() {
             Suggested Prompt B: Some other prompt
           <button className="btn" onClick={clickMeTwo}>Prompt 2</button>
           </p>
+          <CssModules/>
         </header>
       </div>
     </div>
