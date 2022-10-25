@@ -1,12 +1,23 @@
 import React from "react";
 import styles from "./CssModules.module.css";
+import styled from "styled-components";
+
+const StyledDiv = styled.div`
+    padding-top: 1px;
+    padding-left: 20px;
+    text-align: center;
+    color: ${(props) => props.color};
+
+    p {
+        font-size: 25px;
+        text-align: center;
+    }
+`;
 
 const CssModules = () => (
-    <div>
-        <p className={styles.primary}>
-            This is a react component using CSS Modules.
-        </p>
-    </div>
+    <StyledDiv color="black">
+        <p> Here are your best first prompts curated on the transcript data provided, </p>
+    </StyledDiv>
 );
 
 export default CssModules;

@@ -1,7 +1,8 @@
-import vfLogo from './images/voiceflowLogo.png'
 import './App.css';
 import axios from 'axios';
 import CssModules from "./CssModules";
+import CssInJs from "./CssInJs"
+import StyledButton from "./StyledButton"
 
 function clickMe(){ 
   const jsonData = 
@@ -34,8 +35,11 @@ function App() {
   return (
     <div>
       <div className="App">
+      <CssInJs/>
+      <CssModules/>
+      <StyledButton/>
+      
         <header className="App-header">
-        <img src={vfLogo} className="voiceflow-logo" alt="vf-logo" />
           <p>
             Suggested Prompt A: Some prompt      
             <button className="btn" onClick={clickMe}>Prompt 1</button>
@@ -43,7 +47,8 @@ function App() {
             Suggested Prompt B: Some other prompt
           <button className="btn" onClick={clickMeTwo}>Prompt 2</button>
           </p>
-          <CssModules/>
+          
+          
         </header>
       </div>
     </div>
