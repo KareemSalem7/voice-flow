@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./CssModules.module.css";
+// import styles from "./StyledText.module.css";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
@@ -14,10 +14,10 @@ const StyledDiv = styled.div`
     }
 `;
 
-const CssModules = () => (
-    <StyledDiv color="black">
+const StyledText = () => (    
+    <StyledDiv>
         <p> Here are your best first prompts curated on the transcript data provided, </p>
     </StyledDiv>
 );
 
-export default CssModules;
+export default StyledText;

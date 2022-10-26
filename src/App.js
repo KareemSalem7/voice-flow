@@ -1,8 +1,8 @@
 import './App.css';
 import axios from 'axios';
-import CssModules from "./CssModules";
-import CssInJs from "./CssInJs"
-import StyledButton from "./StyledButton"
+import StyledHeader from "./StyledHeader";
+import StyledText from "./StyledText"
+//import StyledButton from "./StyledButton"
 
 function clickMe(){ 
   const jsonData = 
@@ -35,10 +35,8 @@ function App() {
   return (
     <div>
       <div className="App">
-      <CssInJs/>
-      <CssModules/>
-      <StyledButton/>
-      
+      <StyledHeader/>
+      <StyledText/>
         <header className="App-header">
           <p>
             Suggested Prompt A: Some prompt      
