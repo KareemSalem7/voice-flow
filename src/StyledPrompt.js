@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styled from 'styled-components';
 
+// different color themes we can set our buttons to
 const theme = {
     blue: {
         default: '#3f51b5',
@@ -12,6 +13,7 @@ const theme = {
     }
 }
 
+//Set css attributes for a button including hover which makes it tinted and disabled (opaque look)
 export const Button = styled.button`
     background-color: ${props => theme[props.theme].default};
     color: white;
@@ -24,7 +26,7 @@ export const Button = styled.button`
     box-shadow: 0px 2px 2px lightgray;
     transition: ease background-color 250ms;
     &:hover {
-        background-color: ${props => theme[props.theme].default}$;
+        background-color: ${props => theme[props.theme].hover};
     }
     &:disabled {
         cursor: default;
@@ -32,39 +34,23 @@ export const Button = styled.button`
     }
 `;
 
+// Set the default look of a button to blue theme
 Button.defaultProps = {
     theme: "blue"
 };
 
-// function clickMe(prompt){
-//     oldActive = sendActive; 
-//     if (oldActive !== prompt) {
-//         alert(prompt)
-//         oldActive = prompt;
-//       }
-// }
-
+// Update the sendActive prompt after tab has been changed
 function clickMe(prompt){
     sendActive = prompt; 
 }
 
+// Set a default list of prompts tbd: update these to be based on back-end
 const types = ['Prompt A', 'Prompt B', 'Prompt C'];
 export var sendActive = "Prompt A";
+// Keeps track of old prompt to be changed with tab changes
 var oldActive = "Prompt A";
 
-// function ToggleGroup() {
-//     const [active, setActive] = useState(types[0]);
-//     return (
-//         <div>
-//             {types.map(type => (
-//                 <Button>
-//                     {type}
-//                 </Button>
-//             ))}
-//         </div>
-//     );
-// }
-
+// Set css attributes of styled tab, changes look when it is active
 const Tab = styled.button`
     padding: 10px 60px;
     cursor: pointer;
@@ -82,9 +68,10 @@ const Tab = styled.button`
     `}
 `;
 
-
+// Switch tab functionality that allows user to tab between different 
 function TabGroup(){
     const [active, setActive] = useState(types[0]);
+    // limits clickMe to be called only once when the active tab is changed
     if(oldActive !== active){
         oldActive = active;
         clickMe(active);

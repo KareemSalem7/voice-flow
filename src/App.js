@@ -1,10 +1,7 @@
-// import React, {useState} from "react";
-// import styled from 'styled-components';
 import './App.css';
 import axios from 'axios';
 import StyledHeader from "./StyledHeader";
 import StyledText from "./StyledText";
-// import StyledPrompt from "./StyledPrompt";
 import TabGroup from "./StyledPrompt";
 import {Button, sendActive} from './StyledPrompt';
 
