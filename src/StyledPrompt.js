@@ -40,7 +40,7 @@ Button.defaultProps = {
 };
 
 // Update the sendActive prompt after tab has been changed
-function clickMe(prompt){
+function updateActivePrompt(prompt){
     sendActive = prompt; 
 }
 
@@ -53,7 +53,7 @@ var oldActive = "Prompt A";
 // Set css attributes of styled tab, changes look when it is active
 const Tab = styled.button`
     padding: 10px 60px;
-    cursor: pointer;
+    cursor: pointer;y
     opacity: 0.6;
     background: white;
     border: 0;
@@ -71,10 +71,10 @@ const Tab = styled.button`
 // Switch tab functionality that allows user to tab between different 
 function TabGroup(){
     const [active, setActive] = useState(types[0]);
-    // limits clickMe to be called only once when the active tab is changed
+    // limits updateActivePrompt to be called only once when the active tab is changed
     if(oldActive !== active){
         oldActive = active;
-        clickMe(active);
+        updateActivePrompt(active);
     } 
     return (
         <>
