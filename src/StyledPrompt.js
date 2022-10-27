@@ -12,7 +12,7 @@ const theme = {
     }
 }
 
-const Button = styled.button`
+export const Button = styled.button`
     background-color: ${props => theme[props.theme].default};
     color: white;
     padding: 5px 15px;
@@ -36,31 +36,34 @@ Button.defaultProps = {
     theme: "blue"
 };
 
-function clickMe(){
-    alert('You clicked me!');
-}
+// function clickMe(prompt){
+//     oldActive = sendActive; 
+//     if (oldActive !== prompt) {
+//         alert(prompt)
+//         oldActive = prompt;
+//       }
+// }
 
-// const ButtonToggle = styled(Button)`
-//     opacity: 0.7;
-//     ${({ active })} => active && `
-//         opacity: 1;
-//     `}
-// `;
+function clickMe(prompt){
+    sendActive = prompt; 
+}
 
 const types = ['Prompt A', 'Prompt B', 'Prompt C'];
+export var sendActive = "Prompt A";
+var oldActive = "Prompt A";
 
-function ToggleGroup() {
-    const [active, setActive] = useState(types[0]);
-    return (
-        <div>
-            {types.map(type => (
-                <Button>
-                    {type}
-                </Button>
-            ))}
-        </div>
-    );
-}
+// function ToggleGroup() {
+//     const [active, setActive] = useState(types[0]);
+//     return (
+//         <div>
+//             {types.map(type => (
+//                 <Button>
+//                     {type}
+//                 </Button>
+//             ))}
+//         </div>
+//     );
+// }
 
 const Tab = styled.button`
     padding: 10px 60px;
@@ -69,6 +72,8 @@ const Tab = styled.button`
     background: white;
     border: 0;
     outline: 0;
+    font-size: 50px;
+    
     ${({ active }) =>
         active &&
         `
@@ -77,11 +82,22 @@ const Tab = styled.button`
     `}
 `;
 
+
 function TabGroup(){
     const [active, setActive] = useState(types[0]);
+    if(oldActive !== active){
+        oldActive = active;
+        clickMe(active);
+    } 
     return (
         <>
-            <div>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+              }}
+            >
                 {types.map(type => (
                     <Tab
                         key={type}
@@ -92,7 +108,16 @@ function TabGroup(){
                     </Tab>
                 ))}
             </div>
-            <p> Your prompt selection is: {active} </p>
+            
+            <p
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 30
+                }}> 
+                Your prompt selection is: {active} 
+            </p>
         </>
     );
 }
@@ -101,16 +126,6 @@ function TabGroup(){
 export default function App(){
     return (
         <>
-        <div>
-            <Button onClick={clickMe}>
-                Button
-            </Button>
-        </div>
-            <div>
-            <Button theme= "pink" onClick={clickMe}>
-                Pink theme
-            </Button>
-        </div>
         <TabGroup/>
         </>
     );

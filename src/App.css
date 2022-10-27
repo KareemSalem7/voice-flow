@@ -11,6 +11,12 @@
   margin-left: 10px;
 }
 
+.App-inputThing {
+  margin: 20px;
+  height: 30px;
+  width: 300px;
+}
+
 .App-header {
   background-color: white;
   display: flex;
