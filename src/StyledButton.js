@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components'
 
 const Button = styled.button`
-  display: right;
   background: transparent;
   font-size: 20px;
   border-radius: 10px;

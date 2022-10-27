@@ -1,8 +1,8 @@
 import './App.css';
 import axios from 'axios';
 import StyledHeader from "./StyledHeader";
-import StyledText from "./StyledText"
-//import StyledButton from "./StyledButton"
+import StyledText from "./StyledText";
+import StyledPrompt from "./StyledPrompt";
 
 function clickMe(){ 
   const jsonData = 
@@ -37,6 +37,7 @@ function App() {
       <div className="App">
       <StyledHeader/>
       <StyledText/>
+      <StyledPrompt/>
         <header className="App-header">
           <p>
             Suggested Prompt A: Some prompt      
