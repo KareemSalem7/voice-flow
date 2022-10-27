@@ -23,6 +23,8 @@ function sendTranscriptData() {
     //id: transcriptOutput, //variable id
     intent: userIntent,
     content: contentBody,
+    //???????
+    //prompt: sendActive,
   });
 
   //the type of data sent

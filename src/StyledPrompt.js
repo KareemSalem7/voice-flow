@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // different color themes we can set our buttons to
 const theme = {
     blue: {
-        default: '#3f51b5',
+        default: '#000080',
         hover: '#283593'
     },
     pink :{

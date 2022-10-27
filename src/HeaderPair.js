@@ -1,11 +1,13 @@
 import styled, { css } from 'styled-components'
+// import {Button} from './StyledPrompt';
 
-const Button = styled.button`
+const ButtonPair = styled.button`
   background: transparent;
-  font-size: 20px;
   border-radius: 10px;
   border: 2px solid navy;
+  text-transform: uppercase;
   color: navy;
+  font-size: 20px;
   height: ${props => props.small ? 30 : 45}px;
   width: ${props => props.small ? 45 : 90}px;
   margin: 0.5em 1em;
@@ -21,12 +23,14 @@ const Button = styled.button`
 
 const Container = styled.div`
   text-align: center;
+  margin: 0.5em 1em;
+  padding: 0.25em 1em;
 `
-const StyledButton = () => (
+const HeaderPair = () => (
     <Container>
-        <Button>Help</Button>
-        <Button primary>Exit</Button>
+        <ButtonPair>Help</ButtonPair>
+        <ButtonPair primary>Exit</ButtonPair>
     </Container>
 );
 
-export default StyledButton;
+export default HeaderPair;

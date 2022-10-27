@@ -1,7 +1,7 @@
 import React from "react";
 import vfLogo from './images/voiceflowLogo.png'
 import styled from "styled-components";
-import StyledButton from "./StyledButton";
+import HeaderPair from "./HeaderPair";
 
 const StyledDiv = styled.div`
     background-color: whitesmoke;
@@ -22,7 +22,7 @@ const StyledHeader = () => (
             
             <td><img style={{ width: 150, height: 39, marginRight: 200}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
             
-            <td><StyledButton></StyledButton></td>
+            <td><HeaderPair></HeaderPair></td>
             
         </React.Fragment>
 
