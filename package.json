@@ -1,5 +1,5 @@
 {
-  "name": "react-flask-app",
+  "name": "react-spring-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,8 +13,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "start-api": "cd .. && PycharmProjects/flaskProject/venv/Scripts/flask run --no-debugger",
+    "start": "react-scripts start"/
+    "start-api": "cd ../../ && IdeaProjects/Team-NLU-Voiceflow-Extension/transcript/src/main/java/com/transcriptanalyzer/transcript/TranscriptApplication.java",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
