@@ -9,6 +9,10 @@ function App() {
 
   const [currentTime, setCurrentTime] = useState(0);
 
+  const [transcriptOutput, setTranscriptOutput] = useState(0);
+
+  //var transcriptOutput = 0;
+
   
 
   // currentTime is an updatable variable. setCurrentTime is a function, and setCurrentTime(x) changes the value of currentTime to x. 
@@ -34,7 +38,7 @@ function App() {
 
   }
 
-  // send text data to the backend
+  // send text data to the backend (for python)
   function sendMessage() {
 
     //store the text from the textbox down below
@@ -46,6 +50,53 @@ function App() {
     //set the textbox to empty
     document.getElementById("textbox1").value = "";
 
+  }
+
+
+  // send some json data to the backend, using the text in the textbox with id textbox2 as the content
+  function sendTranscriptData() {
+
+    //for debugging
+    alert('transcript data sent');
+
+    //retrieve the text content from the proper textbox.
+    var contentBody = document.getElementById("textbox2").value;
+
+    //the json data sent to the backend
+    //JSON.stringify is required for fetch, not axios
+    const fullEntry = JSON.stringify({
+      //if i don't provide an id, mongo will create one called Object(...). IDs have to be unique!
+      //id: "15", //constant id
+      //id: transcriptOutput, //variable id
+      intent: "MyIntent",
+      content: contentBody,
+    });
+
+    //the type of data sent
+    const headerData = {
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=UTF-8",
+    }
+
+    //create the fetch request
+    fetch(`http://localhost:8100/api/v1/transcripts/create`, {method: "POST", headers: headerData, body: fullEntry})
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    });
+
+    //empty the textbox
+    document.getElementById("textbox2").value = "";
+
+
+
+    // testing:
+
+    
+    //test variable incrememntation
+    setTranscriptOutput(transcriptOutput + 1);
+
+    //transcriptOutput = transcriptOutput + 1;
   }
     
   
@@ -82,9 +133,22 @@ function App() {
 
         {/* A name is required for the text box. If it does not have one, its entry will not be submitted 
         (i don't know what this means for my purposes; i'm not using a submit button anymore)*/}
-        <input type = "user" maxLength="8" id = "textbox1" name = "textdata"></input>
+        <input type="text" maxLength="8" id="textbox1" name="textdata"></input>
 
-        <button id = "button1" onClick={sendMessage}> Send text data to backend. </button>
+        <button id="button1" onClick={sendMessage}> Send text data to backend. </button>
+
+        <input type="text" maxLength="800" id="textbox2" placeholder="content body goes here"></input>
+
+        <button id="button2" onClick={sendTranscriptData}> Send transcript data to backend. </button>
+
+        <button id="button3" onClick={sendTranscriptData}> Get transcript data from backend. </button>
+
+        <input type="text" maxLength="800" id="textbox3" placeholder="output"></input>
+
+        {/* Note to self: use more css and button templates instead of harcoding.  */}
+
+
+        <p>The current value of transcriptOutput is {transcriptOutput}.</p>
       </header>
     </div>
   );

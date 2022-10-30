@@ -8,4 +8,12 @@ module.exports = function(app) {
       changeOrigin: true
     })
   );
+
+  app.use(
+    `/api/v1/transcripts/create`,
+    createProxyMiddleware({
+      target: `http://localhost:8100`,
+      changeOrigin: true
+    })
+  );
 }
