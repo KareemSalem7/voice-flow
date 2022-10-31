@@ -20,7 +20,7 @@ const StyledHeader = () => (
         <p>Prompt Suggestion Hub</p>
         <React.Fragment>
             
-            <td><img style={{ width: 150, height: 39, marginRight: 200}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
+            <td><img style={{ width: 150, height: 39, marginRight: 50}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
             
             <td><HeaderPair></HeaderPair></td>
             

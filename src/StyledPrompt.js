@@ -58,6 +58,8 @@ const Tab = styled.button`
     background: white;
     border: 0;
     outline: 0;
+    border-bottom: 2px solid transparent;
+    transition: ease border-bottom 250ms;
     font-size: 50px;
     
     ${({ active }) =>
