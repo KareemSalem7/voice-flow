@@ -1,14 +1,9 @@
- .App {
-  text-align: left;
+.App {
+  text-align: center;
 }
 
 .App-logo {
-  height: 10vmin;
-  pointer-events: none;
-}
-
-.voiceflow-logo {
-  height: 10vmin;
+  height: 40vmin;
   pointer-events: none;
 }
 
@@ -18,19 +13,15 @@
   }
 }
 
-.btn{
-  margin-left: 10px;
-}
-
 .App-header {
-  background-color: white;
+  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: black;
+  color: white;
 }
 
 .App-link {
