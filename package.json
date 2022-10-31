@@ -13,7 +13,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start"/
+    "start": "react-scripts start",
     "start-api": "cd ../../ && IdeaProjects/Team-NLU-Voiceflow-Extension/transcript/src/main/java/com/transcriptanalyzer/transcript/TranscriptApplication.java",
     "build": "react-scripts build",
     "test": "react-scripts test",
