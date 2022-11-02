@@ -74,7 +74,7 @@ function MainPage(){
         <TabGroup/>
           <header className="App-header">
             <p>
-            <Button className="btn" onClick={clickMe}>Confirm Choice</Button>
+            <Button onClick={clickMe}>Confirm Choice</Button>
             </p>
             {
               /*

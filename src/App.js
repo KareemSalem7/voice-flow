@@ -12,6 +12,7 @@ function App() {
           {/*Set the EnablePage as the default Route*/}
           <Route path="/mainpage" element={<MainPage />} />
           <Route path="/uploadpage" element={<UploadPage />} />
+          <Route path="/helppage" element={<UploadPage />} />
           <Route path="/" element={<EnablePage />} />
         </Routes>
       </div>
