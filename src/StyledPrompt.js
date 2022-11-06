@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import styled from 'styled-components';
+import {types} from './MainPage'; 
 
 // different color themes we can set our buttons to
 const theme = {
@@ -46,7 +47,7 @@ function updateActivePrompt(prompt){
 }
 
 // Set a default list of prompts tbd: update these to be based on back-end
-const types = ['Prompt A', 'Prompt B', 'Prompt C'];
+// const types = ['Prompt A', 'Prompt B', 'Prompt C'];
 export var sendActive = "Prompt A";
 // Keeps track of old prompt to be changed with tab changes
 var oldActive = "Prompt A";

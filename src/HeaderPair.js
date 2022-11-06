@@ -48,7 +48,7 @@ const Container = styled.div`
 const HeaderPair = () => (
   <Link to="/helppage">
     <ButtonPair primary >
-    <p>Help</p>
+      <p>Help</p>
     </ButtonPair>
   </Link>
 );

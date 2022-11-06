@@ -5,6 +5,8 @@ import StyledText from "./StyledText";
 import TabGroup from "./StyledPrompt";
 import {Button, sendActive} from './StyledPrompt';
 
+export var types = ['Prompt A', 'Prompt B', 'Prompt C'];
+
 // send some json data to the backend, using the text in the textbox with id textbox2 as the content
 function sendTranscriptData() {
 
@@ -50,18 +52,18 @@ function sendTranscriptData() {
   //transcriptOutput = transcriptOutput + 1;
 }
 
+// function getPrompts(){
+//   //create the fetch request
+//   fetch(`http://localhost:8080/api/v1/transcripts/getBestIntents`, {method: "GET", headers: headerData, body: fullEntry})
+//   .then((response) => response.json())
+//   .then((data) => {
+//     console.log(data);
+//   });
+
+// }
+
 function clickMe(){ 
-  const jsonData = 
-  {
-    "intent": "Kareem", 
-    "content": "A cool intent and prompt"
-  }
-  // Send data to the backend via POST
-  // axios for the request
   alert(sendActive);
-  axios.post('http://localhost:8080/api/v1/transcripts/create', jsonData)
-        .then(response => this.setState({ dataId: response.data.id }));
-  console.log(jsonData);
 }
 
 function MainPage(){
