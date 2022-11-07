@@ -46,11 +46,7 @@ const Container = styled.div`
 `
 
 const HeaderPair = () => (
-  <Link to="/helppage">
-    <ButtonPair primary >
-      <p>Help</p>
-    </ButtonPair>
-  </Link>
+
 );
 
 export default HeaderPair;

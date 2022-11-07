@@ -62,6 +62,12 @@ function sendTranscriptData() {
 
 // }
 
+const divStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  display: "flex"
+};
+
 function clickMe(){ 
   alert(sendActive);
 }
@@ -69,15 +75,11 @@ function clickMe(){
 function MainPage(){
   return (
     <>
-      <div>
-        <div className="App">
-        <StyledHeader/>
-        <StyledText/>
+      <div style={divStyle}>
         <TabGroup/>
+        <div className="App">
           <header className="App-header">
-            <p>
             <Button onClick={clickMe}>Confirm Choice</Button>
-            </p>
             {
               /*
               comments

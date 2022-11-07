@@ -1,16 +1,32 @@
+import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";
 import styled from 'styled-components';
 import {types} from './MainPage'; 
+import vfLogo from './images/voiceflowLogo.png'
+
+const StyledDiv = styled.div`
+    background-color: #11172b;
+    display:left;
+    padding: 20px;
+    flex-direction: column;
+    
+    color: ${(props) => props.color};
+
+    p {
+        font-size: 30px;
+        color: white;
+    }
+`;
 
 // different color themes we can set our buttons to
 const theme = {
     blue: {
-        default: '#000080',
+        default: '#11172b',
         hover: '#283593'
     },
-    pink :{
-        default: '#e91e63',
-        hover: '#ad1457'
+    white: {
+        default: '#808080',
+        hover: '#D3D3D3'
     }
 }
 
@@ -25,7 +41,6 @@ export const Button = styled.button`
     margin: 10px 0px;
     font-size: 20px;
     cursor: pointer;
-    box-shadow: 0px 2px 2px lightgray;
     transition: ease background-color 250ms;
     &:hover {
         background-color: ${props => theme[props.theme].hover};
@@ -54,20 +69,22 @@ var oldActive = "Prompt A";
 
 // Set css attributes of styled tab, changes look when it is active
 const Tab = styled.button`
-    padding: 10px 60px;
+    display: flex;
+    color: white;
+    padding: 20px 30px;
     cursor: pointer;y
     opacity: 0.6;
-    background: white;
+    background: #11172b;
     border: 0;
     outline: 0;
     border-bottom: 2px solid transparent;
     transition: ease border-bottom 250ms;
-    font-size: 50px;
+    font-size: 20px;
     
     ${({ active }) =>
         active &&
         `
-        border-bottom:2px solid black;
+        border-bottom:2px solid white;
         opacity: 1;
     `}
 `;
@@ -85,8 +102,10 @@ function TabGroup(){
             <div
                 style={{
                     display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    flexDirection: 'column',                
+                    alignItems: 'left',
+                    justifyContent: 'left',
+                    height: '100vh'
               }}
             >
                 {types.map(type => (
@@ -105,19 +124,27 @@ function TabGroup(){
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: 30
+                    fontSize: 20
                 }}> 
-                Your prompt selection is: {active} 
             </p>
         </>
     );
 }
-  
 
 export default function App(){
     return (
         <>
-        <TabGroup/>
+        <StyledDiv>
+            <td><img style={{ width: 182.75, height: 52.25}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
+            <TabGroup/>
+            <Link to="/helppage">
+            <Button theme="white">
+                <p>Help</p>
+            </Button>
+            </Link>
+            
+        </StyledDiv>
+
         </>
     );
 }

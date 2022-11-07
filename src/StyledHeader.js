@@ -1,30 +1,28 @@
 import React from "react";
 import vfLogo from './images/voiceflowLogo.png'
 import styled from "styled-components";
-import HeaderPair from "./HeaderPair";
+import StyledPrompt from "./StyledPrompt";
 
 const StyledDiv = styled.div`
-    background-color: whitesmoke;
-    display:center;
-    padding-left: 50px;
-    border: 1px solid black;
+    background-color: #11172b;
+    padding: 20px;
+    
     color: ${(props) => props.color};
 
     p {
         font-size: 30px;
+        color: white;
     }
 `;
 
 const StyledHeader = () => (
-    <StyledDiv color="dark navy">
-        <p>Prompt Suggestion Hub</p>
-        <React.Fragment>
+    <StyledDiv>
+        
             
-            <td><img style={{ width: 150, height: 39, marginRight: 50}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
+            <td><img style={{ width: 182.75, height: 52.25}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
+    
             
-            <td><HeaderPair></HeaderPair></td>
-            
-        </React.Fragment>
+        
 
         
     </StyledDiv>
