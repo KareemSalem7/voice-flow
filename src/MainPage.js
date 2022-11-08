@@ -1,11 +1,8 @@
 import './MainPage.css';
 import axios from 'axios';
-import StyledHeader from "./StyledHeader";
 import StyledText from "./StyledText";
 import TabGroup from "./StyledPrompt";
 import {Button, sendActive} from './StyledPrompt';
-
-export var types = ['Prompt A', 'Prompt B', 'Prompt C'];
 
 // send some json data to the backend, using the text in the textbox with id textbox2 as the content
 function sendTranscriptData() {
@@ -62,12 +59,6 @@ function sendTranscriptData() {
 
 // }
 
-const divStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  display: "flex"
-};
-
 function clickMe(){ 
   alert(sendActive);
 }
@@ -75,25 +66,25 @@ function clickMe(){
 function MainPage(){
   return (
     <>
-      <div style={divStyle}>
+      <div className="App-row">
         <TabGroup/>
-        <div className="App">
+        <div className="App-col">
           <header className="App-header">
             <Button onClick={clickMe}>Confirm Choice</Button>
             {
               /*
-              comments
+              <input className="App-inputThing" type="text" maxLength="800" id="textbox2" placeholder="content body goes here"></input>
+
+              <input className="App-inputThing" type="text" maxLength="800" id="textbox4" placeholder="Intent goes here"></input>
+
+              <button className="App-inputThing" id="button2" onClick={sendTranscriptData}> Send transcript data to backend. </button>
+
+              <button className="App-inputThing" id="button3" onClick={sendTranscriptData}> Get transcript data from backend. </button>
+
+              <input className="App-inputThing" type="text" maxLength="800" id="textbox3" placeholder="output"></input>
               */
             }
-            <input className="App-inputThing" type="text" maxLength="800" id="textbox2" placeholder="content body goes here"></input>
 
-            <input className="App-inputThing" type="text" maxLength="800" id="textbox4" placeholder="Intent goes here"></input>
-
-            <button className="App-inputThing" id="button2" onClick={sendTranscriptData}> Send transcript data to backend. </button>
-
-            <button className="App-inputThing" id="button3" onClick={sendTranscriptData}> Get transcript data from backend. </button>
-
-            <input className="App-inputThing" type="text" maxLength="800" id="textbox3" placeholder="output"></input>
           </header>
         </div>
       </div>

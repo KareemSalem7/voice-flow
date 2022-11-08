@@ -1,12 +1,13 @@
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";
 import styled from 'styled-components';
-import {types} from './MainPage'; 
 import vfLogo from './images/voiceflowLogo.png'
+
+var types = ['Profitability', 'Customer Satisfaction', 'General'];
 
 const StyledDiv = styled.div`
     background-color: #11172b;
-    display:left;
+    display: left;
     padding: 20px;
     flex-direction: column;
     
@@ -21,12 +22,12 @@ const StyledDiv = styled.div`
 // different color themes we can set our buttons to
 const theme = {
     blue: {
-        default: '#11172b',
-        hover: '#283593'
+        default: '#3c6cd7',
+        hover: '#3460c4'
     },
     white: {
         default: '#808080',
-        hover: '#D3D3D3'
+        hover: '#3c6cd7'
     }
 }
 
@@ -99,13 +100,25 @@ function TabGroup(){
     } 
     return (
         <>
+            <p
+                style={{
+                    display: 'flex',
+                    alignItems: 'left',
+                    justifyContent: 'left',
+                    fontSize: 20,
+                    flexWrap: 'wrap',
+                    marginTop: 30
+
+                }}> 
+                Your Best First Prompts:
+            </p>
             <div
                 style={{
                     display: 'flex',
                     flexDirection: 'column',                
                     alignItems: 'left',
                     justifyContent: 'left',
-                    height: '100vh'
+
               }}
             >
                 {types.map(type => (
@@ -119,14 +132,7 @@ function TabGroup(){
                 ))}
             </div>
             
-            <p
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: 20
-                }}> 
-            </p>
+
         </>
     );
 }
@@ -137,11 +143,27 @@ export default function App(){
         <StyledDiv>
             <td><img style={{ width: 182.75, height: 52.25}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
             <TabGroup/>
+
+            <div style={{ 
+                    display: 'flex',
+                    flexDirection: 'column',                
+                    alignItems: 'left',
+                    justifyContent: 'left',
+                    marginTop: 30}}>
+            
             <Link to="/helppage">
-            <Button theme="white">
-                <p>Help</p>
-            </Button>
+                <Button theme="white">
+                    Help & Support
+                </Button>
             </Link>
+
+            <Link to="/uploadpage">
+                <Button theme="white">
+                    Reupload Info
+                </Button>
+            </Link>
+
+            </div>
             
         </StyledDiv>
 
