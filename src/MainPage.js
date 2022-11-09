@@ -72,7 +72,7 @@ function MainPage(){
           <header className="App-header">
             <StyledRect/>
             
-            <Button onClick={clickMe}>Confirm Choice</Button>
+            <Button onClick={clickMe}>Add My Optimized First Block</Button>
             {
               /*
               <input className="App-inputThing" type="text" maxLength="800" id="textbox2" placeholder="content body goes here"></input>

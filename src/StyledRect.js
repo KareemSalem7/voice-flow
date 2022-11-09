@@ -2,11 +2,6 @@ import React, {useState} from "react";
 import styled from 'styled-components';
 import {chosenPrompt, prompts, sendActive} from './StyledPrompt'
 
-export function updatePrompt(prompt){
-    chosenPrompt = prompts[sendActive];
-}
-
-
 const StyledDiv = styled.div`
     background-color: #dee4ea;
     padding: 20px;
@@ -38,6 +33,9 @@ const innerTextStyle = {
     marginTop: 30
 };
 
+export function updatePrompt(prompt){
+    chosenPrompt = prompts[sendActive];
+}
 
 const StyledRect = () => (
     <StyledDiv className="container" style={outterTextStyle}>

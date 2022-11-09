@@ -1,0 +1,22 @@
+.App {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  background-size: "cover";
+  background-image: url(images/background.png);
+  height: 100vh;
+}
+
+.App-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  background-size: "cover";
+  margin: 50;
+  margin-left: 50;
+}

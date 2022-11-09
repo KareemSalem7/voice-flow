@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import vfLogo from './images/voiceflowLogo.png'
 import {updatePrompt} from "./StyledRect";
 
-export var types = ['Profitability', 'Customer Satisfaction', 'General'];
-export var prompts = {'Profitability': 'Would you like to see the new sale on Mongolian fishing boots?', 
-'Customer Satisfaction': 'The Fishing Boots your looking for can be found under shoes', 
-'General': 'Would you like to get to extend your plan or switch plans?'};
+export var types = ['Option A', 'Option B', 'Option C'];
+export var prompts = {'Option A': 'Would you like to see the new sale on Mongolian fishing boots?', 
+'Option B': 'The Fishing Boots your looking for can be found under shoes', 
+'Option C': 'Would you like to get to extend your plan or switch plans?'};
 
 const StyledDiv = styled.div`
     background-color: #11172b;
@@ -69,10 +69,10 @@ function updateActivePrompt(prompt){
 }
 
 // Set a default list of prompts tbd: update these to be based on back-end
-export var sendActive = "Profitability";
+export var sendActive = "Option A";
 export var chosenPrompt = "Would you like to see the new sale on Mongolian fishing boots?";
 // Keeps track of old prompt to be changed with tab changes
-var oldActive = "Profitability";
+var oldActive = "Option A";
 var oldActive = "Would you like to see the new sale on Mongolian fishing boots?";
 
 // Set css attributes of styled tab, changes look when it is active
@@ -141,9 +141,8 @@ function TabGroup(){
                     </Tab>
                 ))}
             </div> 
-            <p>Active: {active} </p>
 
-            
+            {/*<p>Active: {active} </p>*/}
 
         </>
     );
