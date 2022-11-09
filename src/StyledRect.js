@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import {chosenPrompt, prompts, sendActive} from './StyledPrompt'
 
 export function updatePrompt(prompt){
-    chosenPrompt = prompt;
-    alert("cool");
+    chosenPrompt = prompts[sendActive];
 }
+
 
 const StyledDiv = styled.div`
     background-color: #dee4ea;
