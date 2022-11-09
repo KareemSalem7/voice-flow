@@ -1,8 +1,8 @@
 import './MainPage.css';
 import axios from 'axios';
-import StyledText from "./StyledText";
 import TabGroup from "./StyledPrompt";
-import {Button, sendActive} from './StyledPrompt';
+import {Button, sendActive, chosenPrompt} from './StyledPrompt';
+import StyledRect from "./StyledRect";
 
 // send some json data to the backend, using the text in the textbox with id textbox2 as the content
 function sendTranscriptData() {
@@ -60,7 +60,7 @@ function sendTranscriptData() {
 // }
 
 function clickMe(){ 
-  alert(sendActive);
+  alert(chosenPrompt);
 }
 
 function MainPage(){
@@ -70,6 +70,8 @@ function MainPage(){
         <TabGroup/>
         <div className="App-col">
           <header className="App-header">
+            <StyledRect/>
+            
             <Button onClick={clickMe}>Confirm Choice</Button>
             {
               /*

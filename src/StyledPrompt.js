@@ -2,8 +2,12 @@ import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";
 import styled from 'styled-components';
 import vfLogo from './images/voiceflowLogo.png'
+import {updatePrompt} from "./StyledRect";
 
-var types = ['Profitability', 'Customer Satisfaction', 'General'];
+export var types = ['Profitability', 'Customer Satisfaction', 'General'];
+export var prompts = {'Profitability': 'Would you like to see the new sale on Mongolian fishing boots?', 
+'Customer Satisfaction': 'The Fishing Boots your looking for can be found under shoes', 
+'General': 'Would you like to get to extend your plan or switch plans?'};
 
 const StyledDiv = styled.div`
     background-color: #11172b;
@@ -37,6 +41,7 @@ export const Button = styled.button`
     color: white;
     padding: 5px 15px;
     border-radius: 5px;
+    border: none;
     outline: 0;
     text-transform: uppercase;
     margin: 10px 0px;
@@ -60,13 +65,15 @@ Button.defaultProps = {
 // Update the sendActive prompt after tab has been changed
 function updateActivePrompt(prompt){
     sendActive = prompt; 
+    chosenPrompt = prompts[sendActive];
 }
 
 // Set a default list of prompts tbd: update these to be based on back-end
-// const types = ['Prompt A', 'Prompt B', 'Prompt C'];
-export var sendActive = "Prompt A";
+export var sendActive = "Profitability";
+export var chosenPrompt = "Would you like to see the new sale on Mongolian fishing boots?";
 // Keeps track of old prompt to be changed with tab changes
-var oldActive = "Prompt A";
+var oldActive = "Profitability";
+var oldActive = "Would you like to see the new sale on Mongolian fishing boots?";
 
 // Set css attributes of styled tab, changes look when it is active
 const Tab = styled.button`
@@ -93,10 +100,13 @@ const Tab = styled.button`
 // Switch tab functionality that allows user to tab between different 
 function TabGroup(){
     const [active, setActive] = useState(types[0]);
+    
     // limits updateActivePrompt to be called only once when the active tab is changed
     if(oldActive !== active){
         oldActive = active;
         updateActivePrompt(active);
+        updatePrompt(active);
+
     } 
     return (
         <>
@@ -130,7 +140,8 @@ function TabGroup(){
                         {type}
                     </Tab>
                 ))}
-            </div>
+            </div> 
+
             
 
         </>
