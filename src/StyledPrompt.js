@@ -52,6 +52,22 @@ export const Button = styled.button`
     }
 `;
 
+const VLink = props => (
+    <a {...props} className={props.className}>
+      {props.text}
+    </a>
+  )
+
+// Link to a page which opens in a new tab
+export const StyledExternalLink = styled(VLink)`
+  color: ${props => theme[props.theme].default};
+  font-weight: bold;
+`;
+
+StyledExternalLink.defaultProps = {
+    theme: "blue"
+}
+
 // Set the default look of a button to blue theme
 Button.defaultProps = {
     theme: "blue"
