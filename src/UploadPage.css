@@ -1,0 +1,28 @@
+.App-row {
+    display: flex; 
+    align-items: 'center';
+  }
+
+.Upload-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  background-image: url(images/background.png);
+  background-size: "cover";
+  height: 280vh;
+}
+
+.Inner-center {
+    align-items: center;
+}
+
+.Collapsible__contentOuter {
+    background-color: '#3c6cd7';
+}
+
+.Paragraph-side {
+    align-items: left;
+}
