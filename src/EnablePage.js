@@ -115,8 +115,10 @@ const robot = {
 
 function EnablePage() {
   return (
-    <motion.div className="container"
-      initial={{ opacity: 0, height: 0 }}
+    <>
+    <div className='full-width'>
+    <motion.div className="container-fluid"
+      initial={{ opacity: 0, height: 0}}
       animate={{ opacity: 1, height: "100vh" }}
       transition={{ duration: 1, ease: easing }}
     >
@@ -133,9 +135,9 @@ function EnablePage() {
 
           {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
           <motion.div className="dots" variants={stagger}>
-            <motion.span variants={sidebarDots}></motion.span>
-            <motion.span variants={sidebarDots}></motion.span>
             <motion.span className="active" variants={sidebarDots}></motion.span>
+            <motion.span variants={sidebarDots}></motion.span>
+            <motion.span variants={sidebarDots}></motion.span>
             <motion.span variants={sidebarDots}></motion.span>
             <motion.span variants={sidebarDots}></motion.span>
           </motion.div>
@@ -161,10 +163,12 @@ function EnablePage() {
 
         {/* The robot (or other image if changed) which fills in the right hand side of the page. */}
         <motion.div className="image_container" variants={stagger}>
-          <motion.img src={robotImg} alt="robotImg" variants={robot} />
+          <motion.img src={robotImg} alt="robotImg" variants={robot}/>
         </motion.div>
       </motion.div>
     </motion.div>
+    </div>
+    </>
   );
 }
 

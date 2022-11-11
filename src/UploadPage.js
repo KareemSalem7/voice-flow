@@ -11,28 +11,29 @@ import vfside from './images/vflow-side.png'
 import vfurl from './images/vflow-url.png'
 import ReactCollapsible from 'react-collapsible';
 import {motion} from 'framer-motion';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const StyledText = () => (    
-  <StyledDiv>
-    <img style={{ width: 182.75, height: 52.25}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" position={'left'}/>
-    <p> Enter Your Information </p>
-  </StyledDiv>
-);
+// const StyledText = () => (    
+//   <StyledDiv>
+//     <img style={{ width: 182.75, height: 52.25}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" position={'left'}/>
+//     <p> Enter Your Information </p>
+//   </StyledDiv>
+// );
 
-const StyledDiv = styled.div`
-    padding-top: calc(0.1vmin);
-    padding-left: 20px;
-    text-align: center;
-    padding-bottom: calc(0.1vmin);
-    color: white;
-    background-color: #11172b;
+// const StyledDiv = styled.div`
+//     padding-top: calc(0.1vmin);
+//     padding-left: 20px;
+//     text-align: center;
+//     padding-bottom: calc(0.1vmin);
+//     color: white;
+//     background-color: #11172b;
 
 
-    p {
-        font-size: calc(20px + 2vmin);
-        text-align: center;
-    }
-`;
+//     p {
+//         font-size: calc(20px + 2vmin);
+//         text-align: center;
+//     }
+// `;
 //import {getPrompts} from './MainPage';
 {/* <Button onClick={getPrompts}>
   <p>Generate Prompts</p>
@@ -138,87 +139,115 @@ const logoMove ={
 //   );
 // };
 
+    // <>
+    //   <motion.div className="container"
+    //     initial={{ opacity: 0, height: 0 }}
+    //     animate={{ opacity: 1, height: "300vh" }}
+    //     transition={{ duration: 1, ease: easing }}
+    //   >
+    //     {/* Place Voiceflow logo at top of page. */}
+    //     <motion.div className="pos_abs top_nav" variants={stagger}>
+    //       <motion.img src={vfLogo} alt="vf-logo" variants={logoMove} height='50px' />
+    //     </motion.div>
+
+    //     <header className='Upload-header'>
+
+    //       {/* Button that will actually accept inputs and redirect to MainPage.js to display results. */}
+    //       <Link to="/mainpage">
+    //         <Button>
+    //           <p>Analyze My Chatbot!</p>
+    //         </Button>
+    //       </Link>
+
+    //       {/* These are the input boxes which accept the user inputs for the API key and version ID */}
+    //       <motion.div className='App-row'>
+    //         <ClearableInput className="API-input"></ClearableInput>
+    //         <ClearableInput className="version-input"></ClearableInput>
+    //       </motion.div>
+
+    //       {/* Link to the Voiceflow website should users need to find required information - opens in a new tab */}
+    //       <StyledExternalLink text='Link to Voiceflow' href='https://www.voiceflow.com/' target="_blank" rel="noopener noreferrer" />
+
+    //       <motion.div className="content_left" variants={stagger}>
+    //         <Button>
+    //           {/* Content contained within the API key help collapsible. */}
+    //           <ReactCollapsible trigger="Where do I find my API key?">
+    //             <p>
+    //               Your API key can be found by going to the Voiceflow website and following these steps:
+    //             </p>
+    //             <p>
+
+    //               (1) From your Voiceflow dahsboard, click on the chatbot you wish to analyze.
+    //             </p>
+    //             <img src={vfdash} alt='vf-dash'></img>
+    //             <p>
+    //               (2) From within the chatbot canvas, navigate to the sidebar and click "Integration."
+    //             </p>
+    //             <img src={vfside} alt='vf-side'></img>
+    //             <p>
+    //               (3) Copy your API key and paste it into the appropriate textbox here!
+    //             </p>
+    //             <img src={vfkey} alt='vf-key'></img>
+
+
+    //           </ReactCollapsible>
+    //         </Button>
+    //       </motion.div>
+
+    //       {/* Version ID help collabsible */}
+    //       <Button>
+    //         {/* Content contained within the version ID help collapsible. */}
+    //         <ReactCollapsible trigger="Where do I find my version ID?">
+    //           <p>
+    //             Your API key can be found by going to the Voiceflow website and following these steps:
+    //           </p>
+    //           <p>
+
+    //             (1) From your Voiceflow dahsboard, click on the chatbot you wish to analyze.
+    //           </p>
+    //           <img src={vfdash} alt='vf-dash'></img>
+    //           <p>
+    //             (2) From within the chatbot canvas, navigate to the url and copy the last string of characters.
+    //           </p>
+    //           <img src={vfurl} alt='vflow-url'></img>
+    //           <p className='Paragraph-side'>(3) Paste this into the appropriate textbox and you're done!</p>
+    //         </ReactCollapsible>
+    //       </Button>
+
+    //     </header>
+    //   </motion.div>
+    // </>
 function UploadPage() {
   return (
-    <>
-      <motion.div className="container"
-        initial={{ opacity: 0, height: 0 }}
-        animate={{ opacity: 1, height: "300vh" }}
-        transition={{ duration: 1, ease: easing }}
-      >
-        {/* Place Voiceflow logo at top of page. */}
-        <motion.div className="pos_abs top_nav" variants={stagger}>
-          <motion.img src={vfLogo} alt="vf-logo" variants={logoMove} height='50px' />
-        </motion.div>
+      <div className="main_container">
+        <section class="ready__started project__form">
+        <div class="container-fluid">
+            <h3 class="text-center">Submit Your Information Below</h3>
+            <div class="ready__started-box">
+                <form class="main__form">
+                    <div class="row">
+                        <div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="apiKey" aria-describedby="apiKey" placeholder="API Key" required />
+                                <label for="apiKey">API Key</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="versionID" aria-describedby="versionID" placeholder="Version ID" required />
+                                <label for="versionID">Version ID</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class=" btn btn-get"><span> Submit Now!</span></button></div>
+                </form>
+            </div>
+        </div>
+    </section>
+      </div>
+    );
+  }
 
-        <header className='Upload-header'>
-
-          {/* Button that will actually accept inputs and redirect to MainPage.js to display results. */}
-          <Link to="/mainpage">
-            <Button>
-              <p>Analyze My Chatbot!</p>
-            </Button>
-          </Link>
-
-          {/* These are the input boxes which accept the user inputs for the API key and version ID */}
-          <motion.div className='App-row'>
-            <ClearableInput className="API-input"></ClearableInput>
-            <ClearableInput className="version-input"></ClearableInput>
-          </motion.div>
-
-          {/* Link to the Voiceflow website should users need to find required information - opens in a new tab */}
-          <StyledExternalLink text='Link to Voiceflow' href='https://www.voiceflow.com/' target="_blank" rel="noopener noreferrer" />
-
-          <motion.div className="content_left" variants={stagger}>
-            <Button>
-              {/* Content contained within the API key help collapsible. */}
-              <ReactCollapsible trigger="Where do I find my API key?">
-                <p>
-                  Your API key can be found by going to the Voiceflow website and following these steps:
-                </p>
-                <p>
-
-                  (1) From your Voiceflow dahsboard, click on the chatbot you wish to analyze.
-                </p>
-                <img src={vfdash} alt='vf-dash'></img>
-                <p>
-                  (2) From within the chatbot canvas, navigate to the sidebar and click "Integration."
-                </p>
-                <img src={vfside} alt='vf-side'></img>
-                <p>
-                  (3) Copy your API key and paste it into the appropriate textbox here!
-                </p>
-                <img src={vfkey} alt='vf-key'></img>
-
-
-              </ReactCollapsible>
-            </Button>
-          </motion.div>
-
-          {/* Version ID help collabsible */}
-          <Button>
-            {/* Content contained within the version ID help collapsible. */}
-            <ReactCollapsible trigger="Where do I find my version ID?">
-              <p>
-                Your API key can be found by going to the Voiceflow website and following these steps:
-              </p>
-              <p>
-
-                (1) From your Voiceflow dahsboard, click on the chatbot you wish to analyze.
-              </p>
-              <img src={vfdash} alt='vf-dash'></img>
-              <p>
-                (2) From within the chatbot canvas, navigate to the url and copy the last string of characters.
-              </p>
-              <img src={vfurl} alt='vflow-url'></img>
-              <p className='Paragraph-side'>(3) Paste this into the appropriate textbox and you're done!</p>
-            </ReactCollapsible>
-          </Button>
-
-        </header>
-      </motion.div>
-    </>
-  );
-};
 
 export default UploadPage;

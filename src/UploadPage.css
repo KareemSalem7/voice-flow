@@ -1,28 +1,321 @@
-.App-row {
-    display: flex; 
-    align-items: 'center';
+html {
+  font-size: 10px;
+}
+.btn-get {
+  font-size: 1.8rem;
+  font-family: "Quicksand", sans-serif;
+  color: #fff !important;
+  text-transform: capitalize;
+  background-image: -webkit-gradient(linear, left top, right top, from(#b70b83), to(#33077f));
+  background-image: linear-gradient(to right, #b70b83, #33077f);
+  padding: 0px 0px 0px;
+  position: relative;
+  border: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  text-transform: capitalize !important;
+}
+
+.btn-get::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  height: 100%;
+  width: 0;
+  left: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#33077f), to(#b70b83));
+  background-image: linear-gradient(to right, #33077f, #b70b83);
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
+}
+
+.btn-get:hover::before {
+  width: 100%;
+}
+
+.btn-get span {
+  position: relative;
+  z-index: 2;
+}
+
+
+.main__form .form-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.main__form .form-group label {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem;
+  color: #575757;
+  padding: 0 2.5rem;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 0;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+
+.main__form .form-group input,
+.main__form .form-group textarea {
+  font-size: 1.6rem;
+  border-color: #f7f7f7;
+  /* padding: 0 2.5rem; */
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+.main__form .form-group input:not(:placeholder-shown) + label,
+.main__form .form-group textarea:not(:placeholder-shown) + label {
+  top: 2%;
+  background: #fff;
+  z-index: 2;
+  font-weight: 600;
+}
+
+.main__form .form-group input:focus,
+.main__form .form-group textarea:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.main__form .form-group input:focus::-webkit-input-placeholder,
+.main__form .form-group textarea:focus::-webkit-input-placeholder {
+  color: #999;
+}
+
+.main__form .form-group input:focus:-ms-input-placeholder,
+.main__form .form-group textarea:focus:-ms-input-placeholder {
+  color: #999;
+}
+
+.main__form .form-group input:focus::-ms-input-placeholder,
+.main__form .form-group textarea:focus::-ms-input-placeholder {
+  color: #999;
+}
+
+.main__form .form-group input:focus::placeholder,
+.main__form .form-group textarea:focus::placeholder {
+  color: #999;
+}
+
+.main__form .form-group input:focus + label,
+.main__form .form-group textarea:focus + label {
+  background: #fff;
+  z-index: 2;
+  top: 2%;
+  font-weight: 600;
+}
+
+.main__form .form-group input::-webkit-input-placeholder,
+.main__form .form-group textarea::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.main__form .form-group input:-ms-input-placeholder,
+.main__form .form-group textarea:-ms-input-placeholder {
+  color: transparent;
+}
+
+.main__form .form-group input::-ms-input-placeholder,
+.main__form .form-group textarea::-ms-input-placeholder {
+  color: transparent;
+}
+
+.main__form .form-group input::placeholder,
+.main__form .form-group textarea::placeholder {
+  color: transparent;
+}
+
+.main__form .form-group input {
+  height: 6rem;
+}
+
+.main__form .form-group.form-message label {
+ font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem;
+  color: #575757;
+  padding: 2.5rem;
+  position: absolute;
+  top: -5%;
+  -webkit-transform: unset;
+          transform: unset;
+  z-index: 0;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+
+.main__form .form-group.form-message textarea {
+  padding: 2.5rem;
+}
+
+.main__form .form-group.form-message textarea:not(:placeholder-shown) + label {
+  top: -8% !important;
+  background: #fff;
+  z-index: 2;
+  font-weight: 600;
+  padding: 0 2.5rem !important;
+}
+
+.main__form .form-group.form-message textarea:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.main__form .form-group.form-message textarea:focus::-webkit-input-placeholder {
+  color: #999;
+}
+
+.main__form .form-group.form-message textarea:focus:-ms-input-placeholder {
+  color: #999;
+}
+
+.main__form .form-group.form-message textarea:focus::-ms-input-placeholder {
+  color: #999;
+}
+
+.main__form .form-group.form-message textarea:focus::placeholder {
+  color: #999;
+}
+
+.main__form .form-group.form-message textarea:focus + label {
+  background: #fff;
+  z-index: 2;
+  top: -8% !important;
+  font-weight: 600;
+  padding: 0 2.5rem !important;
+}
+
+.main__form label.btn-attached {
+  background: #b30b83;
+  padding: 11px 42px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 1.6rem;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+
+.main__form label.btn-attached:hover {
+  cursor: pointer;
+  background: #33077f;
+}
+
+/* .main__form .form-groups.form-check {
+  margin: 1.5rem 0;
+} */
+
+.main__form .form-groups.form-check input {
+  position: relative;
+}
+
+.main__form .form-groups.form-check label {
+  font-size: 1.4rem;
+  color: #718399;
+}
+
+.main__form button.btn.btn-get {
+  position: relative;
+  top: 0px;
+  margin: 0 0 -80px;
+  font-size:20px;
+}
+
+
+.project__form {
+  font-size: 1.6rem;
+}
+
+.project__form h3 {
+   font-family: "Quicksand", sans-serif;;
+  font-size: 4.1rem;
+  color: #272727;
+  line-height: 8.8rem;
+  color: #fff;
+}
+
+.project__form::before {
+  display: none;
+}
+
+.ready__started {
+  background: linear-gradient(150deg, #b70b83, #33077f);
+  background-size: 200% 200%;
+  -webkit-animation: AnimationGradient 5s ease infinite;
+          animation: AnimationGradient 5s ease infinite;
+  padding: 0rem 0 5rem;
+  position: relative;
+}
+
+.ready__started::before {
+ 
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.ready__started p {
+  color: #fff;
+}
+
+.ready__started-box {
+  background: #fff;
+  padding: 3rem;
+  border-radius: 5px;
+  margin-top: 0rem;
+}
+
+.ready__started-box h3 {
+  font-size: 5rem;
+  font-family: "Quicksand", sans-serif;
+  font-weight:900;
+}
+
+.ready__started-box p {
+  color: #272727;
+  font-size: 2.2rem;
+  font-family: "Quicksand", sans-serif;
+}
+
+@-webkit-keyframes AnimationGradient {
+  0% {
+    background-position: 26% 0%;
   }
-
-.Upload-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: top;
-  font-size: calc(10px + 2vmin);
-  color: black;
-  background-image: url(images/background.png);
-  background-size: "cover";
-  height: 280vh;
+  50% {
+    background-position: 75% 100%;
+  }
+  100% {
+    background-position: 26% 0%;
+  }
 }
 
-.Inner-center {
-    align-items: center;
+@keyframes AnimationGradient {
+  0% {
+    background-position: 26% 0%;
+  }
+  50% {
+    background-position: 75% 100%;
+  }
+  100% {
+    background-position: 26% 0%;
+  }
 }
 
-.Collapsible__contentOuter {
-    background-color: '#3c6cd7';
+section.ready__started.project__form {
+  margin-bottom: 40rem;
 }
 
-.Paragraph-side {
-    align-items: left;
+section.ready__started.project__form .ready__started-box {
+  position: relative;
+  margin-bottom: -40rem;
+  -webkit-box-shadow: 0 3px 3.2rem rgba(0, 0, 0, 0.08);
+          box-shadow: 0 3px 3.2rem rgba(0, 0, 0, 0.08);
 }
