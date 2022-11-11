@@ -1,9 +1,10 @@
 // DONT remove router, route, and routes, ignore warning this is needed
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import { motion } from "framer-motion";
-import '../../../src/presentation/styles/EnablePage.scss'
-import robotImg from '../../../src/presentation/assets/robot.png';
-import NLUlogo from '../../../src/presentation/assets/NLUlogo(NT).png';
+import '../../src/presentation/styles/EnablePage.scss'
+import robotImg from '../../src/presentation/assets/robot.png';
+import NLUlogo from '../../src/presentation/assets/NLUlogo(NT).png';
+import React from 'react';
 
 // Defining reference constants for animation of various components (to ensure style & motion consistency)
 let easing = [0.6, -0.05, 0.01, 0.99];

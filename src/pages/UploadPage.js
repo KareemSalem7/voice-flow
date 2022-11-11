@@ -1,9 +1,10 @@
 // DONT remove router, route, and routes, ignore warning this is needed
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import '../../../src/presentation/styles/UploadPage.scss';
-import '../../../src/presentation/styles/UploadPage.css';
+import '../../src/presentation/styles/UploadPage.scss';
+import '../../src/presentation/styles/UploadPage.css';
 import { motion } from 'framer-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
 //import {getPrompts} from './MainPage';
 {/* <Button onClick={getPrompts}>
   <p>Generate Prompts</p>

@@ -4,6 +4,7 @@ import EnablePage from "./pages/EnablePage";
 import UploadPage from "./pages/UploadPage";
 import HelpPage from "./pages/HelpPage";
 import EndPage from "./pages/EndPage"; 
+import React from 'react';
 
 function App() {
   return (

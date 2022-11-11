@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {chosenPrompt} from '../styledComponents/StyledPrompt.js'
+import React from 'react';
 
 // define the outter rect responsible for grey outline of prompt
 const OutterRect = styled.div`

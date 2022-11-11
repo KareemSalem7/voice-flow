@@ -3,6 +3,7 @@ import './HelpPage.css';
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import {Button} from '../styledComponents/StyledPrompt.js';
 import styled from "styled-components";
+import React from "react";
 
 const StyledTitle = () => (    
   <StyledDiv style={{fontSize: 40, fontWeight: 'bold'}}>
