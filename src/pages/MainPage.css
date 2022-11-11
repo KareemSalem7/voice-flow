@@ -1,0 +1,34 @@
+ .App {
+  text-align: left;
+}
+
+.btn{
+  margin-left: 10px;
+}
+
+.App-inputThing {
+  margin: 20px;
+  height: 30px;
+  width: 300px;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  background-image: url(../images/background.png);
+  background-size: "cover";
+  height: 100vh;
+}
+
+.App-row {
+  display: flex; 
+  align-items: 'center';
+}
+
+.App-col {
+  flex: 1;   
+}

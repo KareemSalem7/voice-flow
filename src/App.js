@@ -1,53 +1,26 @@
-import logo from './logo.svg';
-import vfLogo from './images/voiceflowLogo.png'
-import './App.css';
-import axios from 'axios';
-
-function clickMe(){ 
-  const jsonData = 
-  {
-    "intent": "Kareem", 
-    "content": "A cool intent and prompt"
-  }
-  alert('click 1 detected')
-  // Send data to the backend via POST
-  // axios for the request
-  axios.post('http://localhost:8080/api/v1/transcripts/create', jsonData)
-        .then(response => this.setState({ dataId: response.data.id }));
-  console.log(jsonData);
-}
-
-function clickMeTwo(){
-  const jsonData = 
-  {
-    "intent": "Martin", 
-    "content": "A cool intent and prompt"
-  }
-  alert('click 2 detected')
-  // Send data to the backend via POST
-  axios.post('http://localhost:8080/api/v1/transcripts/create', jsonData)
-        .then(response => this.setState({ dataId: response.data.id }));
-  console.log(jsonData);
-}
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import MainPage from "./pages/MainPage";
+import EnablePage from "./pages/EnablePage";
+import UploadPage from "./pages/UploadPage";
+import HelpPage from "./pages/HelpPage";
+import EndPage from "./pages/EndPage"; 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      <img src={vfLogo} className="voiceflow-logo" alt="vf-logo" />
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Suggested Prompt A: Some prompt      
-          <button className="btn" onClick={clickMe}>Prompt 1</button>
-          <br></br>
-          Suggested Prompt B: Some other prompt
-        <button className="btn" onClick={clickMeTwo}>Prompt 2</button>
-        </p>
-        
-      </header>
-    </div>
+    <Router>
+      <div>
+        {/*Wrap Route components in a Routes component */}
+        <Routes>
+          {/*Set the EnablePage as the default Route*/}
+          <Route path="/mainpage" element={<MainPage />} />
+          <Route path="/uploadpage" element={<UploadPage />} />
+          <Route path="/helppage" element={<HelpPage />} />
+          <Route path="/endpage" element={<EndPage />} />
+          <Route path="/" element={<EnablePage />} />
+        </Routes>
+      </div>
+    </Router>
   );
-
-}
-
+};
+ 
 export default App;
