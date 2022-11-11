@@ -1,9 +1,10 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import MainPage from "./MainPage";
-import EnablePage from "./presentation/pages/EnablePage";
-import UploadPage from "./presentation/pages/UploadPage";
-import HelpPage from "./HelpPage";
- 
+import MainPage from "./pages/MainPage";
+import EnablePage from "./pages/EnablePage";
+import UploadPage from "./pages/UploadPage";
+import HelpPage from "./pages/HelpPage";
+import EndPage from "./pages/EndPage"; 
+
 function App() {
   return (
     <Router>
@@ -14,6 +15,7 @@ function App() {
           <Route path="/mainpage" element={<MainPage />} />
           <Route path="/uploadpage" element={<UploadPage />} />
           <Route path="/helppage" element={<HelpPage />} />
+          <Route path="/endpage" element={<EndPage />} />
           <Route path="/" element={<EnablePage />} />
         </Routes>
       </div>

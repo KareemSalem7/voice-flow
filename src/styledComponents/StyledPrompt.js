@@ -1,12 +1,17 @@
+// eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styled from 'styled-components';
-import vfLogo from './images/voiceflowLogo.png'
+import vfLogo from '../images/voiceflowLogo.png'
 
-var types = ['Profitability', 'Customer Satisfaction', 'General'];
+export var types = ['Option A', 'Option B', 'Option C'];
+export var prompts = {'Option A': 'Would you like to see the new sale on Mongolian fishing boots?', 
+'Option B': 'The Fishing Boots your looking for can be found under shoes', 
+'Option C': 'Would you like to get to extend your plan or switch plans?'};
 
 const StyledDiv = styled.div`
-    background-color: #11172b;
+    background-color: #1fc8db;
+    background-image: linear-gradient(180deg, #5784e4 0%, #633366 50%, #3f1243 75%);
     display: left;
     padding: 20px;
     flex-direction: column;
@@ -37,6 +42,7 @@ export const Button = styled.button`
     color: white;
     padding: 5px 15px;
     border-radius: 5px;
+    border: none;
     outline: 0;
     text-transform: uppercase;
     margin: 10px 0px;
@@ -57,16 +63,11 @@ Button.defaultProps = {
     theme: "blue"
 };
 
-// Update the sendActive prompt after tab has been changed
-function updateActivePrompt(prompt){
-    sendActive = prompt; 
-}
-
 // Set a default list of prompts tbd: update these to be based on back-end
-// const types = ['Prompt A', 'Prompt B', 'Prompt C'];
-export var sendActive = "Prompt A";
+export var sendActive = "Option A";
+export var chosenPrompt = "Would you like to see the new sale on Mongolian fishing boots?";
 // Keeps track of old prompt to be changed with tab changes
-var oldActive = "Prompt A";
+var oldActive = "Option A";
 
 // Set css attributes of styled tab, changes look when it is active
 const Tab = styled.button`
@@ -75,7 +76,7 @@ const Tab = styled.button`
     padding: 20px 30px;
     cursor: pointer;y
     opacity: 0.6;
-    background: #11172b;
+    background: transparent;
     border: 0;
     outline: 0;
     border-bottom: 2px solid transparent;
@@ -91,13 +92,24 @@ const Tab = styled.button`
 `;
 
 // Switch tab functionality that allows user to tab between different 
-function TabGroup(){
+function TabGroup({updatePromptScreen}){
     const [active, setActive] = useState(types[0]);
+    
     // limits updateActivePrompt to be called only once when the active tab is changed
-    if(oldActive !== active){
-        oldActive = active;
-        updateActivePrompt(active);
-    } 
+    useEffect(()=>{
+        if(oldActive !== active){
+            oldActive = active;
+            updateActivePrompt(active);
+        } 
+
+    },[active])
+
+    function updateActivePrompt(prompt){
+        sendActive = prompt; 
+        chosenPrompt = prompts[sendActive];
+        updatePromptScreen();
+    }
+
     return (
         <>
             <p
@@ -122,6 +134,7 @@ function TabGroup(){
               }}
             >
                 {types.map(type => (
+                    
                     <Tab
                         key={type}
                         active={active === type}
@@ -129,20 +142,19 @@ function TabGroup(){
                     >
                         {type}
                     </Tab>
+                    
                 ))}
-            </div>
-            
-
+            </div> 
         </>
     );
 }
 
-export default function App(){
+export default function App({updatePromptScreen}){
     return (
         <>
         <StyledDiv>
             <td><img style={{ width: 182.75, height: 52.25}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
-            <TabGroup/>
+            <TabGroup updatePromptScreen={updatePromptScreen}/>
 
             <div style={{ 
                     display: 'flex',
