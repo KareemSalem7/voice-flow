@@ -5,8 +5,9 @@
   font-size: calc(10px + 2vmin);
   color: black;
   background-size: "cover";
-  background-image: url(images/background.png);
-  height: 100vh;
+  background-image: url(../images/background.png);
+  
+  background-size: cover;
 }
 
 .App-content {

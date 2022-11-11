@@ -1,11 +1,11 @@
-// DONT remove router, route, and routes, ignore warning this is needed
+// eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
-import {Button} from './StyledPrompt';
+import {Button} from '../styledComponents/StyledPrompt.js';
 import styled from "styled-components";
 
 const StyledText = () => (    
   <StyledDiv>
-      <p> Enter Your Information </p>
+      <p> Voiceflow Prompt Suggester </p>
   </StyledDiv>
 );
 
@@ -20,22 +20,18 @@ const StyledDiv = styled.div`
         text-align: center;
     }
 `;
-//import {getPrompts} from './MainPage';
-{/* <Button onClick={getPrompts}>
-  <p>Generate Prompts</p>
-</Button> */}
 
-function UploadPage(){
+function EnablePage(){
   return (
     <div>
       <StyledText/>
-      <Link to="/mainpage">
-          <Button>
-              <p>Generate Prompts</p>
-          </Button>
-      </Link>
+        <Link to="/uploadpage">
+            <Button>
+                <p>Open Prompt Suggestions</p>
+            </Button>
+        </Link>
     </div>
   );
 };
 
-export default UploadPage;
+export default EnablePage;

@@ -1,8 +1,8 @@
-import React, {useState} from "react";
 import styled from 'styled-components';
-import {chosenPrompt, prompts, sendActive} from './StyledPrompt'
+import {chosenPrompt} from '../styledComponents/StyledPrompt.js'
 
-const StyledDiv = styled.div`
+// define the outter rect responsible for grey outline of prompt
+const OutterRect = styled.div`
     background-color: #dee4ea;
     padding: 20px;
     border-radius: 5px;
@@ -13,7 +13,8 @@ const StyledDiv = styled.div`
     color: ${(props) => props.color};
 `;
 
-const StyledDiv2 = styled.div`
+// define the inner rect responsible for white area with text
+const InnerRect = styled.div`
     background-color: white;
     padding: 20px;
     border-radius: 5px;
@@ -21,30 +22,26 @@ const StyledDiv2 = styled.div`
     color: ${(props) => props.color};
 `;
 
+// define css properties for outter text
 const outterTextStyle = {
     color: '#6c7c91',
     fontSize: 40,
-    margin: 50
 };
 
+// define css properties for inner text
 const innerTextStyle = {
     color: '#6c7c91',
     fontSize: 30,
     marginTop: 30
 };
 
-export function updatePrompt(prompt){
-    chosenPrompt = prompts[sendActive];
-}
-
-const StyledRect = () => (
-    <StyledDiv className="container" style={outterTextStyle}>
+export const StyledRect = () => (
+    <OutterRect className="container" style={outterTextStyle}>
         <div style={{fontWeight: 'bold'}}>New Block 1</div>
-        <StyledDiv2 className="container" style={innerTextStyle}>
-            
+        <InnerRect className="container" style={innerTextStyle}>
             { chosenPrompt }
-        </StyledDiv2>
-    </StyledDiv>
+        </InnerRect>
+    </OutterRect>
 );
  
 export default StyledRect;

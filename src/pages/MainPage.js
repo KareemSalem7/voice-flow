@@ -1,10 +1,13 @@
 import './MainPage.css';
-import axios from 'axios';
-import TabGroup from "./StyledPrompt";
-import {Button, sendActive, chosenPrompt} from './StyledPrompt';
-import StyledRect from "./StyledRect";
+// eslint-disable-next-line
+import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
+import React, {useState} from "react";
+import TabGroup, {Button, sendActive} from "../styledComponents/StyledPrompt.js";
+//import {Button, sendActive, chosenPrompt} from '../styledComponents/StyledPrompt.js';
+import {StyledRect} from "../styledComponents/StyledRect.js";
 
 // send some json data to the backend, using the text in the textbox with id textbox2 as the content
+// eslint-disable-next-line
 function sendTranscriptData() {
 
   //for debugging
@@ -59,11 +62,26 @@ function sendTranscriptData() {
 
 // }
 
-function clickMe(){ 
-  alert(chosenPrompt);
+// export function updatePrompt(){
+//   alert("aa");
+// }
+
+//send alert to inform user of confirmed choice
+function confirmChoice(){ 
+  alert(sendActive + " Selected!");
+}
+
+//react hook function to update the prompt selected on the view
+function useUpdatePrompt(){
+  // eslint-disable-next-line
+  const [value, setValue] = useState(0); // integer state
+  return () => setValue(value => value + 1); // update state to force render
+  // increment the previous state to update the view 
 }
 
 function MainPage(){
+  // set updatePrompt to react hook function useUpdatePrompt()
+  const updatePrompt = useUpdatePrompt();
   return (
     <>
       <div className="App-row">
@@ -72,7 +90,12 @@ function MainPage(){
           <header className="App-header">
             <StyledRect/>
             
-            <Button onClick={clickMe}>Add My Optimized First Block</Button>
+            <Button style={{margin: 50}} onClick={updatePrompt}>See Selected Option</Button>
+
+            <Link to="/endpage">
+            <Button style={{fontSize: 30}} onClick={confirmChoice}>Add My Optimized First Block</Button>
+            </Link>
+            
             {
               /*
               <input className="App-inputThing" type="text" maxLength="800" id="textbox2" placeholder="content body goes here"></input>

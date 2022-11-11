@@ -1,8 +1,9 @@
+// eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";
 import styled from 'styled-components';
-import vfLogo from './images/voiceflowLogo.png'
-import {updatePrompt} from "./StyledRect";
+import vfLogo from '../images/voiceflowLogo.png'
+// import {updatePrompt} from "../pages/MainPage.js";
 
 export var types = ['Option A', 'Option B', 'Option C'];
 export var prompts = {'Option A': 'Would you like to see the new sale on Mongolian fishing boots?', 
@@ -10,7 +11,8 @@ export var prompts = {'Option A': 'Would you like to see the new sale on Mongoli
 'Option C': 'Would you like to get to extend your plan or switch plans?'};
 
 const StyledDiv = styled.div`
-    background-color: #11172b;
+    background-color: #1fc8db;
+    background-image: linear-gradient(180deg, #5784e4 0%, #633366 50%, #3f1243 75%);
     display: left;
     padding: 20px;
     flex-direction: column;
@@ -66,6 +68,7 @@ Button.defaultProps = {
 function updateActivePrompt(prompt){
     sendActive = prompt; 
     chosenPrompt = prompts[sendActive];
+    // updatePrompt();
 }
 
 // Set a default list of prompts tbd: update these to be based on back-end
@@ -73,7 +76,6 @@ export var sendActive = "Option A";
 export var chosenPrompt = "Would you like to see the new sale on Mongolian fishing boots?";
 // Keeps track of old prompt to be changed with tab changes
 var oldActive = "Option A";
-var oldActive = "Would you like to see the new sale on Mongolian fishing boots?";
 
 // Set css attributes of styled tab, changes look when it is active
 const Tab = styled.button`
@@ -82,7 +84,7 @@ const Tab = styled.button`
     padding: 20px 30px;
     cursor: pointer;y
     opacity: 0.6;
-    background: #11172b;
+    background: transparent;
     border: 0;
     outline: 0;
     border-bottom: 2px solid transparent;
@@ -105,9 +107,8 @@ function TabGroup(){
     if(oldActive !== active){
         oldActive = active;
         updateActivePrompt(active);
-        updatePrompt(active);
-
     } 
+    
     return (
         <>
             <p
@@ -132,6 +133,7 @@ function TabGroup(){
               }}
             >
                 {types.map(type => (
+                    
                     <Tab
                         key={type}
                         active={active === type}
@@ -139,16 +141,16 @@ function TabGroup(){
                     >
                         {type}
                     </Tab>
+                    
                 ))}
             </div> 
-
-            {/*<p>Active: {active} </p>*/}
-
         </>
     );
 }
 
 export default function App(){
+    // const [, updateState] = React.useState();
+    // const forceUpdate = React.useCallback(() => updateState({}), []);
     return (
         <>
         <StyledDiv>
