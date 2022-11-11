@@ -1,6 +1,9 @@
+/* Consistency in text sizing. */
 html {
   font-size: 10px;
 }
+
+/* Defining button styling and animation */
 .btn-get {
   font-size: 1.8rem;
   font-family: "Quicksand", sans-serif;
@@ -38,7 +41,7 @@ html {
   z-index: 2;
 }
 
-
+/* Defining sizing of the main form block */
 .main__form .form-group {
   position: relative;
   margin-bottom: 2rem;
@@ -246,7 +249,6 @@ html {
 .ready__started {
   background: linear-gradient(150deg, #b70b83, #33077f);
   background-size: 200% 200%;
-  padding: 0rem 0 0rem;
   position: relative;
 }
 
@@ -283,10 +285,12 @@ html {
   font-family: "Quicksand", sans-serif;
 }
 
+/* Form formatting. */
 section.ready__started.project__form {
   margin-bottom: 0rem;
 }
 
+/* Placement of form on page (move up & down by adjusting margin-bottom. */
 section.ready__started.project__form .ready__started-box {
   position: relative;
   margin-bottom: 0rem;

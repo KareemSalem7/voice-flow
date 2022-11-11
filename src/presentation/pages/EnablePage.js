@@ -1,9 +1,9 @@
 // DONT remove router, route, and routes, ignore warning this is needed
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import { motion } from "framer-motion";
-import './EnablePage.scss'
-import robotImg from './images/robot.png';
-import NLUlogo from './images/NLUlogo(NT).png';
+import '../../../src/presentation/styles/EnablePage.scss'
+import robotImg from '../../../src/presentation/assets/robot.png';
+import NLUlogo from '../../../src/presentation/assets/NLUlogo(NT).png';
 
 // Defining reference constants for animation of various components (to ensure style & motion consistency)
 let easing = [0.6, -0.05, 0.01, 0.99];
@@ -155,7 +155,7 @@ function EnablePage() {
 
           {/* Link to UploadPage.js which enters below the intro text. */}
             <Link to="/uploadpage">
-              <motion.h1 variants={fadeInUp} whileHover={{ scale: 1.2}}>GET STARTED HERE</motion.h1>
+              <motion.h1 variants={fadeInUp} whileHover={{ scale: 1.2, duration: 1}}>GET STARTED HERE</motion.h1>
             </Link>
 
 
