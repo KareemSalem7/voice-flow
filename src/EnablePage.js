@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import { motion } from "framer-motion";
 import './EnablePage.scss'
 import robotImg from './images/robot.png';
-import NLUlogo from './images/NLU-logo 2-1.png';
+import NLUlogo from './images/NLUlogo(NT).png';
 
 // Defining reference constants for animation of various components (to ensure style & motion consistency)
 let easing = [0.6, -0.05, 0.01, 0.99];
@@ -37,14 +37,16 @@ const fadeInUp = {
 // Logo animation properties.
 const animateNLU = {
   initial: {
-    y: -20,
-    x: -170,
+    y: 0,
+    // x: -600,
+    x: '-40vw',
     opacity: 0,
     transition: { duration: 0.05, ease: easing }
   },
   animate: {
     y: 0,
-    x: -60,
+    // x: -450,
+    x: '-30vw',
     opacity: 1,
     transition: {
       delay: .8,
@@ -115,8 +117,7 @@ const robot = {
 
 function EnablePage() {
   return (
-    <>
-    <div className='full-width'>
+
     <motion.div className="container-fluid"
       initial={{ opacity: 0, height: 0}}
       animate={{ opacity: 1, height: "100vh" }}
@@ -126,7 +127,7 @@ function EnablePage() {
 
         {/* The logo which appears in the top right corner of the page (as defined by className). */}
         <motion.div className="pos_abs top_nav" variants={stagger}>
-          <motion.img src={NLUlogo} alt="NLUlogo" height="150vh" variants={animateNLU} />
+          <motion.img src={NLUlogo} alt="NLUlogo" height="100vh" variants={animateNLU} />
         </motion.div>
         <motion.div className="content_left" variants={stagger}>
 
@@ -153,11 +154,10 @@ function EnablePage() {
           <motion.p variants={fadeInUp}>Take your Chatbot to the next level with <br />a few simple clicks!</motion.p>
 
           {/* Link to UploadPage.js which enters below the intro text. */}
-          <motion.h1 variants={fadeInUp}>
             <Link to="/uploadpage">
-              <motion.p variants={fadeInUp}>GET STARTED HERE</motion.p>
+              <motion.h1 variants={fadeInUp} whileHover={{ scale: 1.2}}>GET STARTED HERE</motion.h1>
             </Link>
-          </motion.h1>
+
 
         </motion.div>
 
@@ -167,8 +167,6 @@ function EnablePage() {
         </motion.div>
       </motion.div>
     </motion.div>
-    </div>
-    </>
   );
 }
 
