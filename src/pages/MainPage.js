@@ -3,7 +3,6 @@ import './MainPage.css';
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";
 import TabGroup, {Button, sendActive} from "../styledComponents/StyledPrompt.js";
-//import {Button, sendActive, chosenPrompt} from '../styledComponents/StyledPrompt.js';
 import {StyledRect} from "../styledComponents/StyledRect.js";
 
 // send some json data to the backend, using the text in the textbox with id textbox2 as the content
@@ -62,35 +61,32 @@ function sendTranscriptData() {
 
 // }
 
-// export function updatePrompt(){
-//   alert("aa");
-// }
-
-//send alert to inform user of confirmed choice
-function confirmChoice(){ 
-  alert(sendActive + " Selected!");
-}
-
-//react hook function to update the prompt selected on the view
-function useUpdatePrompt(){
-  // eslint-disable-next-line
-  const [value, setValue] = useState(0); // integer state
-  return () => setValue(value => value + 1); // update state to force render
-  // increment the previous state to update the view 
-}
-
 function MainPage(){
   // set updatePrompt to react hook function useUpdatePrompt()
   const updatePrompt = useUpdatePrompt();
+  const  updatePromptScreen = () => {
+    updatePrompt()
+  }
+  
+  //send alert to inform user of confirmed choice
+  function confirmChoice(){ 
+    alert(sendActive + " Selected!");
+  }
+  
+  //react hook function to update the prompt selected on the view
+  function useUpdatePrompt(){
+    // eslint-disable-next-line
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => value + 1); // update state to force render
+    // increment the previous state to update the view 
+  }
   return (
     <>
       <div className="App-row">
-        <TabGroup/>
+        <TabGroup updatePromptScreen={updatePromptScreen}/>
         <div className="App-col">
           <header className="App-header">
-            <StyledRect/>
-            
-            <Button style={{margin: 50}} onClick={updatePrompt}>See Selected Option</Button>
+            <StyledRect />
 
             <Link to="/endpage">
             <Button style={{fontSize: 30}} onClick={confirmChoice}>Add My Optimized First Block</Button>

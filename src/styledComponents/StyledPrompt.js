@@ -1,9 +1,8 @@
 // eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styled from 'styled-components';
 import vfLogo from '../images/voiceflowLogo.png'
-// import {updatePrompt} from "../pages/MainPage.js";
 
 export var types = ['Option A', 'Option B', 'Option C'];
 export var prompts = {'Option A': 'Would you like to see the new sale on Mongolian fishing boots?', 
@@ -64,13 +63,6 @@ Button.defaultProps = {
     theme: "blue"
 };
 
-// Update the sendActive prompt after tab has been changed
-function updateActivePrompt(prompt){
-    sendActive = prompt; 
-    chosenPrompt = prompts[sendActive];
-    // updatePrompt();
-}
-
 // Set a default list of prompts tbd: update these to be based on back-end
 export var sendActive = "Option A";
 export var chosenPrompt = "Would you like to see the new sale on Mongolian fishing boots?";
@@ -100,15 +92,24 @@ const Tab = styled.button`
 `;
 
 // Switch tab functionality that allows user to tab between different 
-function TabGroup(){
+function TabGroup({updatePromptScreen}){
     const [active, setActive] = useState(types[0]);
     
     // limits updateActivePrompt to be called only once when the active tab is changed
-    if(oldActive !== active){
-        oldActive = active;
-        updateActivePrompt(active);
-    } 
-    
+    useEffect(()=>{
+        if(oldActive !== active){
+            oldActive = active;
+            updateActivePrompt(active);
+        } 
+
+    },[active])
+
+    function updateActivePrompt(prompt){
+        sendActive = prompt; 
+        chosenPrompt = prompts[sendActive];
+        updatePromptScreen();
+    }
+
     return (
         <>
             <p
@@ -148,14 +149,12 @@ function TabGroup(){
     );
 }
 
-export default function App(){
-    // const [, updateState] = React.useState();
-    // const forceUpdate = React.useCallback(() => updateState({}), []);
+export default function App({updatePromptScreen}){
     return (
         <>
         <StyledDiv>
             <td><img style={{ width: 182.75, height: 52.25}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
-            <TabGroup/>
+            <TabGroup updatePromptScreen={updatePromptScreen}/>
 
             <div style={{ 
                     display: 'flex',
