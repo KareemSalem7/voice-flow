@@ -297,3 +297,27 @@ section.ready__started.project__form .ready__started-box {
   -webkit-box-shadow: 0 3px 3.2rem rgba(0, 0, 0, 0.08);
           box-shadow: 0 3px 3.2rem rgba(0, 0, 0, 0.08);
 }
+
+@-webkit-keyframes AnimationGradient {
+  0% {
+    background-position: 26% 0%;
+  }
+  50% {
+    background-position: 75% 100%;
+  }
+  100% {
+    background-position: 26% 0%;
+  }
+}
+
+@keyframes AnimationGradient {
+  0% {
+    background-position: 26% 0%;
+  }
+  50% {
+    background-position: 75% 100%;
+  }
+  100% {
+    background-position: 26% 0%;
+  }
+}
