@@ -1,4 +1,4 @@
-// DONT remove router, route, and routes, ignore warning this is needed
+// eslint-disable-next-line
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import { motion } from "framer-motion";
 import '../../src/presentation/styles/EnablePage.scss'
@@ -140,8 +140,7 @@ function EnablePage() {
             <motion.span className="active" variants={sidebarDots}></motion.span>
             <motion.span variants={sidebarDots}></motion.span>
             <motion.span variants={sidebarDots}></motion.span>
-            <motion.span variants={sidebarDots}></motion.span>
-            <motion.span variants={sidebarDots}></motion.span>
+
           </motion.div>
 
           {/* The title text which appears from within the "0" of the background number. Entrance animation is staggered out, as per variants={stagger} */}

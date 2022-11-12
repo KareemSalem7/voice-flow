@@ -1,4 +1,4 @@
-// DONT remove router, route, and routes, ignore warning this is needed
+// eslint-disable-next-line
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import '../../src/presentation/styles/UploadPage.scss';
 import '../../src/presentation/styles/UploadPage.css';
@@ -162,8 +162,6 @@ function UploadPage() {
               <motion.div className="dots" variants={stagger}>
                 <motion.span variants={sidebarDots}></motion.span>
                 <motion.span className="active" variants={sidebarDots}></motion.span>
-                <motion.span variants={sidebarDots}></motion.span>
-                <motion.span variants={sidebarDots}></motion.span>
                 <motion.span variants={sidebarDots}></motion.span>
               </motion.div>
             </motion.div>
