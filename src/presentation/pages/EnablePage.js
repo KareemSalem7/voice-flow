@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import { motion } from "framer-motion";
 import '../styles/EnablePage.scss'
 import robotImg from '../assets/robot.png';
-import NLUlogo from '../assets/NLUlogo(NT).png';
+import NLUlogo from '../assets/NLULogoTransparentWhite.png';
 import React from 'react';
 
 // Defining reference constants for animation of various components (to ensure style & motion consistency)
@@ -138,8 +138,6 @@ function EnablePage() {
           {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
           <motion.div className="dots" variants={stagger}>
             <motion.span className="active" variants={sidebarDots}></motion.span>
-            <motion.span variants={sidebarDots}></motion.span>
-            <motion.span variants={sidebarDots}></motion.span>
             <motion.span variants={sidebarDots}></motion.span>
             <motion.span variants={sidebarDots}></motion.span>
           </motion.div>

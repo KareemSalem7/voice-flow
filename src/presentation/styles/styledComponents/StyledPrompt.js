@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState, useEffect} from "react";
 import styled from 'styled-components';
 import vfLogo from '../../assets/voiceflowLogo.png'
+import NLUlogo from '../../assets/NLULogoTransparent.png';
 
 export var types = ['Option A', 'Option B', 'Option C'];
 export var prompts = {'Option A': 'Would you like to see the new sale on Mongolian fishing boots?', 
@@ -176,6 +177,8 @@ export default function App({updatePromptScreen}){
             </Link>
 
             </div>
+
+            <td><img style={{ width: 200, height: 200, marginTop: 30}} src={NLUlogo} className="NLU-logo" alt="NLU-logo" /></td>
             
         </StyledDiv>
 
