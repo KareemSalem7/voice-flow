@@ -20,11 +20,14 @@
   font-size: calc(10px + 2vmin);
   color: black;
   background-image: url(../assets/background.png);
-  background-size: "cover";
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
 }
 
 .App-row {
+  background-image: url(../assets/background.png);
   display: flex; 
   align-items: 'center';
 }
