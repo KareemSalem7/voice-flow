@@ -143,7 +143,7 @@ function UploadPage() {
               initial={{ opacity: 0, height: 0, y: 0, x: '38vw' }}
               animate={{ opacity: 1, height: "50vh", y: 50, x: '38vw' }}
               transition={{ duration: 1, ease: easing }}
-              whileHover={{scale: 1.2}}
+              whileHover={{scale: [null, 1.2]}}
               variants={stagger}>
               <form class="main__form">
                 <div class="row">

@@ -103,6 +103,20 @@ const letter = {
   }
 };
 
+const letterR = {
+  initial: {
+    opacity: 0,
+    x: 400,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1, ...transition
+    }
+  }
+};
+
 // Motion properties for the robot png.
 const robot = {
   initial: {
@@ -117,6 +131,7 @@ const robot = {
 };
 
 function EnablePage() {
+  const curly = "{    }"
   return (
 
     <motion.div className="container-fluid"
@@ -133,7 +148,7 @@ function EnablePage() {
         <motion.div className="content_left" variants={stagger}>
 
           {/* The background number on the main page. */}
-          <motion.h3 variants={h3}>05</motion.h3>
+          <motion.h3 variants={h3}>{curly}</motion.h3>
 
           {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
           <motion.div className="dots" variants={stagger}>
@@ -147,7 +162,7 @@ function EnablePage() {
           {/* The title text which appears from within the "0" of the background number. Entrance animation is staggered out, as per variants={stagger} */}
           <motion.h2 variants={stagger}>
             <motion.span variants={letter}>CHATBOT</motion.span>
-            <motion.span variants={letter}>PROMPT</motion.span>
+            <motion.span variants={letterR}>PROMPT</motion.span>
             <motion.span variants={letter}>ANALYZER</motion.span>
           </motion.h2>
 
