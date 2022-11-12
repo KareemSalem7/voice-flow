@@ -3,6 +3,22 @@ import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState, useEffect} from "react";
 import styled from 'styled-components';
 import vfLogo from '../../assets/voiceflowLogo.png'
+import { motion } from 'framer-motion';
+
+// Defining reference constants for animation of various components (to ensure style & motion consistency)
+let easing = [0.6, -0.05, 0.01, 0.99];
+const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
+
+// Have multiple grouped animated elements appear at slightly offset times.
+const stagger = {
+  animate: {
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.2,
+      staggerDirection: 1,
+    }
+  }
+};
 
 export var types = ['Option A', 'Option B', 'Option C'];
 export var prompts = {'Option A': 'Would you like to see the new sale on Mongolian fishing boots?', 
@@ -128,13 +144,12 @@ function TabGroup({updatePromptScreen}){
                 style={{
                     display: 'flex',
                     flexDirection: 'column',                
-                    alignItems: 'left',
+                    alignItems: 'center',
                     justifyContent: 'left',
 
               }}
             >
                 {types.map(type => (
-                    
                     <Tab
                         key={type}
                         active={active === type}
@@ -159,21 +174,28 @@ export default function App({updatePromptScreen}){
             <div style={{ 
                     display: 'flex',
                     flexDirection: 'column',                
-                    alignItems: 'left',
+                    alignItems: 'center',
                     justifyContent: 'left',
                     marginTop: 30}}>
             
             <Link to="/helppage">
+            <motion.div whileHover={{scale: 1.2}}>
                 <Button theme="white">
                     Help & Support
                 </Button>
+                </motion.div>
             </Link>
+            
 
+            
             <Link to="/uploadpage">
+            <motion.div whileHover={{scale: 1.2}}>
                 <Button theme="white">
                     Reupload Info
                 </Button>
+                </motion.div>
             </Link>
+            
 
             </div>
             

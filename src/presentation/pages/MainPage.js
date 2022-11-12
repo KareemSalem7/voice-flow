@@ -4,6 +4,10 @@ import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";
 import TabGroup, {Button, sendActive} from "../styles/styledComponents/StyledPrompt.js";
 import {StyledRect} from "../styles/styledComponents/StyledRect.js";
+import { motion } from 'framer-motion';
+
+let easing = [0.6, -0.05, 0.01, 0.99];
+const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
 
 // send some json data to the backend, using the text in the textbox with id textbox2 as the content
 // eslint-disable-next-line
@@ -82,14 +86,22 @@ function MainPage(){
   }
   return (
     <>
+            <motion.div
+          initial={{ opacity: 0, height: 0}}
+          animate={{ opacity: 1, height: "100vh"}}
+          transition={{ duration: 1, ease: easing }}>
       <div className="App-row">
         <TabGroup updatePromptScreen={updatePromptScreen}/>
         <div className="App-col">
           <header className="App-header">
+            {/* <motion.div onChange={{opacity: 0}}> */}
             <StyledRect/>
+            {/* </motion.div> */}
 
             <Link to="/endpage">
+              <motion.div whileHover={{scale: 1.2}}>
             <Button style={{fontSize: 30}} onClick={confirmChoice}>Add My Optimized First Block</Button>
+            </motion.div>
             </Link>
             
             {
@@ -109,6 +121,7 @@ function MainPage(){
           </header>
         </div>
       </div>
+      </motion.div>
     </>
   );
 };

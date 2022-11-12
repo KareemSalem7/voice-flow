@@ -4,7 +4,34 @@ import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import {Button} from '../styles/styledComponents/StyledPrompt.js';
 import styled from "styled-components";
 import React from "react";
+import { motion } from 'framer-motion';
  
+let easing = [0.6, -0.05, 0.01, 0.99];
+const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
+
+const stagger = {
+  animate: {
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.2,
+      staggerDirection: 1,
+    }
+  }
+};
+
+const fadeInUp = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      delay: 1,
+      duration: .3
+    }
+  }
+};
+
 //set styled attributes of div surronding text
 const StyledDiv = styled.div`
     padding-top: 10px;
@@ -40,7 +67,9 @@ const StyledTitle = () => (
  
 function HelpPage(){
   return (
-    <div className="App">
+    <motion.div className="App" initial={{ opacity: 0, height: 0}}
+    animate={{ opacity: 1, height: "100vh"}}
+    transition={{ duration: 1, ease: easing }}>
         <StyledTitle/>
         <StyledText>
         <p>Welcome to the Natural Leaders United Transcript Analyzer! Here is a list of the things you can do with our services as well as some general tips to get started.</p>
@@ -69,12 +98,14 @@ function HelpPage(){
  
         <StyledDiv classname="Help-col">
         <Link to="/mainpage">
+          <motion.div whileHover={{scale: 1.2}}>
             <Button style={{marginBottom: 30}}>
                 Back to suggestions
             </Button>
+            </motion.div>
         </Link>
         </StyledDiv>
-    </div>
+    </motion.div>
   );
 };
  

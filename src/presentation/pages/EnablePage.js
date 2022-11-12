@@ -140,8 +140,8 @@ function EnablePage() {
             <motion.span className="active" variants={sidebarDots}></motion.span>
             <motion.span variants={sidebarDots}></motion.span>
             <motion.span variants={sidebarDots}></motion.span>
-            <motion.span variants={sidebarDots}></motion.span>
-            <motion.span variants={sidebarDots}></motion.span>
+
+
           </motion.div>
 
           {/* The title text which appears from within the "0" of the background number. Entrance animation is staggered out, as per variants={stagger} */}
