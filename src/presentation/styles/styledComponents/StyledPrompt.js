@@ -2,7 +2,7 @@
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState, useEffect} from "react";
 import styled from 'styled-components';
-import vfLogo from '../images/voiceflowLogo.png'
+import vfLogo from '../../assets/voiceflowLogo.png'
 
 export var types = ['Option A', 'Option B', 'Option C'];
 export var prompts = {'Option A': 'Would you like to see the new sale on Mongolian fishing boots?', 
