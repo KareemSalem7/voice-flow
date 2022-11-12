@@ -86,7 +86,7 @@ function MainPage(){
         <TabGroup updatePromptScreen={updatePromptScreen}/>
         <div className="App-col">
           <header className="App-header">
-            <StyledRect />
+            <StyledRect/>
 
             <Link to="/endpage">
             <Button style={{fontSize: 30}} onClick={confirmChoice}>Add My Optimized First Block</Button>
