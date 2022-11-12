@@ -1,4 +1,4 @@
-// DONT remove router, route, and routes, ignore warning this is needed
+// eslint-disable-next-line
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import { motion } from "framer-motion";
 import '../styles/EnablePage.scss'
