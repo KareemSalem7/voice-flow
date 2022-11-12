@@ -1,14 +1,10 @@
-// DONT remove router, route, and routes, ignore warning this is needed
+// eslint-disable-next-line
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import '../styles/UploadPage.scss';
 import '../styles/UploadPage.css';
 import { motion } from 'framer-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-//import {getPrompts} from './MainPage';
-{/* <Button onClick={getPrompts}>
-  <p>Generate Prompts</p>
-</Button> */}
 
 // Defining reference constants for animation of various components (to ensure style & motion consistency)
 let easing = [0.6, -0.05, 0.01, 0.99];
@@ -163,8 +159,8 @@ function UploadPage() {
                 <motion.span variants={sidebarDots}></motion.span>
                 <motion.span className="active" variants={sidebarDots}></motion.span>
                 <motion.span variants={sidebarDots}></motion.span>
-                <motion.span variants={sidebarDots}></motion.span>
-                <motion.span variants={sidebarDots}></motion.span>
+                {/* <motion.span variants={sidebarDots}></motion.span>
+                <motion.span variants={sidebarDots}></motion.span> */}
               </motion.div>
             </motion.div>
           </motion.div>
