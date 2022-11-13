@@ -94,9 +94,7 @@ function MainPage(){
       <div className="App-row">
           {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
         <div className="App-left">
-          <div className="App-test">
-            <td><StyledDots/></td>
-          </div>
+          <td><StyledDots/></td>
           <td><TabGroup updatePromptScreen={updatePromptScreen}/></td>
         </div>
 
