@@ -10,6 +10,17 @@ import { motion } from 'framer-motion';
 let easing = [0.6, -0.05, 0.01, 0.99];
 const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
 
+// Have multiple grouped animated elements appear at slightly offset times.
+const stagger = {
+  animate: {
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.2,
+      staggerDirection: 1,
+    }
+  }
+};
+
 export var types = ['Option A', 'Option B', 'Option C'];
 export var prompts = {'Option A': 'Would you like to see the new sale on Mongolian fishing boots?', 
 'Option B': 'The Fishing Boots your looking for can be found under shoes', 
