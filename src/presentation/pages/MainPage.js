@@ -3,6 +3,7 @@ import '../styles/MainPage.css';
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";
 import TabGroup, {Button, sendActive} from "../styles/styledComponents/StyledPrompt.js";
+import StyledDots from "../styles/styledComponents/StyledDots.js";
 import {StyledRect} from "../styles/styledComponents/StyledRect.js";
 import { motion } from 'framer-motion';
 
@@ -86,12 +87,19 @@ function MainPage(){
   }
   return (
     <>
-            <motion.div
+      <motion.div
           initial={{ opacity: 0, height: 0}}
           animate={{ opacity: 1, height: "100vh"}}
           transition={{ duration: 1, ease: easing }}>
       <div className="App-row">
-        <TabGroup updatePromptScreen={updatePromptScreen}/>
+          {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
+        <div className="App-left">
+          <div className="App-test">
+            <td><StyledDots/></td>
+          </div>
+          <td><TabGroup updatePromptScreen={updatePromptScreen}/></td>
+        </div>
+
         <div className="App-col">
           <header className="App-header">
             {/* <motion.div onChange={{opacity: 0}}> */}

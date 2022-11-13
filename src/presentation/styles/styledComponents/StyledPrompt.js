@@ -10,20 +10,6 @@ import { motion } from 'framer-motion';
 let easing = [0.6, -0.05, 0.01, 0.99];
 const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
 
-// Have multiple grouped animated elements appear at slightly offset times.
-const stagger = {
-  animate: {
-    transition: {
-      delayChildren: 0.4,
-      staggerChildren: 0.2,
-      staggerDirection: 1,
-    }
-  }
-};
-=======
-
-
-
 export var types = ['Option A', 'Option B', 'Option C'];
 export var prompts = {'Option A': 'Would you like to see the new sale on Mongolian fishing boots?', 
 'Option B': 'The Fishing Boots your looking for can be found under shoes', 
@@ -35,6 +21,7 @@ const StyledDiv = styled.div`
     display: left;
     padding: 20px;
     flex-direction: column;
+    height: 100vh;
     
     color: ${(props) => props.color};
 
@@ -163,7 +150,8 @@ function TabGroup({updatePromptScreen}){
                     </Tab>
                     
                 ))}
-            </div> 
+            </div>
+
         </>
     );
 }
@@ -183,30 +171,26 @@ export default function App({updatePromptScreen}){
                     marginTop: 30}}>
             
             <Link to="/helppage">
-            <motion.div whileHover={{scale: 1.2}}>
-                <Button theme="white">
-                    Help & Support
-                </Button>
+                <motion.div whileHover={{scale: 1.2}}>
+                    <Button theme="white">
+                        Help & Support
+                    </Button>
                 </motion.div>
             </Link>
-            
-
             
             <Link to="/uploadpage">
-            <motion.div whileHover={{scale: 1.2}}>
-                <Button theme="white">
-                    Reupload Info
-                </Button>
+                <motion.div whileHover={{scale: 1.2}}>
+                    <Button theme="white">
+                        Reupload Info
+                    </Button>
                 </motion.div>
             </Link>
             
-
             </div>
 
             <td><img style={{ width: 200, height: 200, marginTop: 30}} src={NLUlogo} className="NLU-logo" alt="NLU-logo" /></td>
-            
+        
         </StyledDiv>
-
         </>
     );
 }
