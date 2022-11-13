@@ -93,6 +93,34 @@ const h3 = {
   }
 };
 
+// function getInitialState() {
+//   return {
+//     apiKey: '',
+//     versionID: '',
+//     apiKeyValid: false,         // valid flags for each field
+//     versionIDValid: false, 
+//     linkDisabled: true       // separate flag for link
+//   }
+// };
+// function handleChangeApiKey(e) {         // separate handler for each field
+//   let apiKeyValid = e.target.value ? true : false;        // basic email validation
+//   let submitValid = this.state.versionIDValid && apiKeyValid   // validate total form
+//   this.setState({
+//     apiKey: e.target.value,
+//     apiKeyValid: apiKeyValid, 
+//     linkDisabled: !submitValid
+//   })
+// };
+// function handleChangeVersionID(e) {         // separate handler for each field
+//   let versionIDValid = e.target.value ? true : false;        // basic text validation
+//   let submitValid = this.state.apiKeyValid && versionIDValid   // validate total form
+//   this.setState({
+//     text: '',
+//     versionIDValid: versionIDValid, 
+//     linkDisabled: !submitValid
+//   })
+// };
+
 function UploadPage() {
   return (
     <div className="main_container">
@@ -115,7 +143,7 @@ function UploadPage() {
               initial={{ opacity: 0, height: 0, y: 0, x: '38vw' }}
               animate={{ opacity: 1, height: "50vh", y: 50, x: '38vw' }}
               transition={{ duration: 1, ease: easing }}
-              whileHover={{scale: 1.2}}
+              whileHover={{scale: [null, 1.2]}}
               variants={stagger}>
               <form class="main__form">
                 <div class="row">
@@ -159,8 +187,6 @@ function UploadPage() {
                 <motion.span variants={sidebarDots}></motion.span>
                 <motion.span className="active" variants={sidebarDots}></motion.span>
                 <motion.span variants={sidebarDots}></motion.span>
-                {/* <motion.span variants={sidebarDots}></motion.span>
-                <motion.span variants={sidebarDots}></motion.span> */}
               </motion.div>
             </motion.div>
           </motion.div>
