@@ -31,23 +31,29 @@ const sidebarDots = {
     }
   };
  
+const StyledDiv = styled.div`
+  width: 5vh;
+`;
+
   export const StyledDots = () => (
-    <motion.div className="container-fluid"
-      initial={{ opacity: 0, height: 0 }}
-      animate={{ opacity: 1, height: "100vh" }}
-      transition={{ duration: 1, ease: easing }}
-    >
-            <motion.div className="wrapper" initial='initial' animate='animate'>
-                <motion.div className="content_left" variants={stagger}>
-                {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
-                <motion.div className="dots" variants={stagger}>
-                    <motion.span variants={sidebarDots}></motion.span>
-                    <motion.span variants={sidebarDots}></motion.span>
-                    <motion.span className="active" variants={sidebarDots}></motion.span>
-                </motion.div>
-            </motion.div>
-        </motion.div>
-    </motion.div>
+    <StyledDiv>
+      <div className="container-fluid-main"
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ opacity: 1, height: "100vh" }}
+        transition={{ duration: 1, ease: easing }}
+      >
+              <motion.div className="wrapper" initial='initial' animate='animate'>
+                  <motion.div className="content_left" variants={stagger}>
+                  {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
+                  <motion.div className="dots-main" variants={stagger}>
+                      <motion.span variants={sidebarDots}></motion.span>
+                      <motion.span variants={sidebarDots}></motion.span>
+                      <motion.span className="active" variants={sidebarDots}></motion.span>
+                  </motion.div>
+              </motion.div>
+          </motion.div>
+      </div>
+    </StyledDiv>
 );
  
 export default StyledDots;

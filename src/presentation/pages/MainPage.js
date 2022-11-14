@@ -87,7 +87,7 @@ function MainPage(){
   }
   return (
     <>
-      <motion.div
+      <motion.div className="container-fluid-main"
           initial={{ opacity: 0, height: 0}}
           animate={{ opacity: 1, height: "100vh"}}
           transition={{ duration: 1, ease: easing }}>
@@ -95,7 +95,7 @@ function MainPage(){
           {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
         <div className="App-left">
           <td><StyledDots/></td>
-          <td><TabGroup updatePromptScreen={updatePromptScreen}/></td>
+          <td><TabGroup updatePromptScsreen={updatePromptScreen}/></td>
         </div>
 
         <div className="App-col">
