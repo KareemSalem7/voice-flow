@@ -1,17 +1,17 @@
- .App {
+.App {
   text-align: left;
 }
-
+ 
 .btn{
   margin-left: 10px;
 }
-
+ 
 .App-inputThing {
   margin: 20px;
   height: 30px;
   width: 300px;
 }
-
+ 
 .App-header {
   display: flex;
   flex-direction: column;
@@ -25,26 +25,22 @@
   background-size: cover;
   height: 100vh;
 }
-
+ 
 .App-row {
   background-image: url(../assets/background.png);
-  display: flex; 
+  display: flex;
   align-items: 'center';
 }
-
+ 
 .App-left {
   display: flex;
   flex-wrap: wrap;
   height: 100vh;
 }
-
-.App-test {
-  width: fit-content;
-  display: flex;
-}
-
+ 
 .App-col {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 50px;
 }
