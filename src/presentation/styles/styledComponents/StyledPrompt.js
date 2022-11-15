@@ -68,7 +68,7 @@ export const Button = styled.button`
     outline: 0;
     text-transform: uppercase;
     margin: 10px 0px;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
     transition: ease background-color 250ms;
     &:hover {
