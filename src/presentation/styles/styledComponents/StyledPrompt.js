@@ -103,7 +103,7 @@ const Tab = styled.button`
     outline: 0;
     border-bottom: 2px solid transparent;
     transition: ease border-bottom 250ms;
-    font-size: 20px;
+    font-size: 25px;
     
     ${({ active }) =>
         active &&
@@ -144,7 +144,7 @@ function TabGroup({updatePromptScreen}){
                     display: 'flex',
                     alignItems: 'left',
                     justifyContent: 'left',
-                    fontSize: 20,
+                    fontSize: 25,
                     flexWrap: 'wrap',
                     marginTop: 30
 
