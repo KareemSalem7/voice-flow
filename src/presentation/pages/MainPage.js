@@ -7,8 +7,8 @@ import StyledDots from "../styles/styledComponents/StyledDots.js";
 import {StyledRect} from "../styles/styledComponents/StyledRect.js";
 import { motion } from 'framer-motion';
 
+// define easing for animation
 let easing = [0.6, -0.05, 0.01, 0.99];
-const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
 
 // send some json data to the backend, using the text in the textbox with id textbox2 as the content
 // eslint-disable-next-line
@@ -69,7 +69,8 @@ function sendTranscriptData() {
 function MainPage(){
   // set updatePrompt to react hook function useUpdatePrompt()
   const updatePrompt = useUpdatePrompt();
-  const  updatePromptScreen = () => {
+  // we define the seperare updatePrompt const as a work around to call react hook function here
+  const updatePromptScreen = () => {
     updatePrompt()
   }
   
@@ -107,7 +108,7 @@ function MainPage(){
 
               <Link to="/endpage">
                 <motion.div whileHover={{scale: 1.2}}>
-                <Button style={{fontSize: 30}} onClick={confirmChoice}>Add My Optimized First Block</Button>
+                <Button style={{fontSize: 30}} onClick={confirmChoice}>Add My Optimized First Block!</Button>
               </motion.div>
               </Link>
               
