@@ -21,11 +21,15 @@ const stagger = {
   }
 };
 
+// Define the list of types that serve as the selection of tabs on the left
 export var types = ['Option A', 'Option B', 'Option C'];
+
+// Define the dictionary of prompts that map each tab to the selected prompt
 export var prompts = {'Option A': 'Would you like to see the new sale on Mongolian fishing boots?', 
 'Option B': 'The Fishing Boots your looking for can be found under shoes', 
 'Option C': 'Would you like to get to extend your plan or switch plans?'};
 
+// Define the styled header for the left header cotaining the tabs
 const StyledDiv = styled.div`
     background-color: #1fc8db;
     background-image: linear-gradient(180deg, #5784e4 0%, #633366 50%, #3f1243 75%);
@@ -87,7 +91,7 @@ export var chosenPrompt = "Would you like to see the new sale on Mongolian fishi
 // Keeps track of old prompt to be changed with tab changes
 var oldActive = "Option A";
 
-// Set css attributes of styled tab, changes look when it is active
+// Set css attributes of each styled tab, changes look when it is active
 const Tab = styled.button`
     display: flex;
     color: white;
@@ -114,6 +118,7 @@ function TabGroup({updatePromptScreen}){
     const [active, setActive] = useState(types[0]);
     
     // limits updateActivePrompt to be called only once when the active tab is changed
+    // oldActive checks to see if the active tab has been changed and if so function called once and oldActive updated
     useEffect(()=>{
         if(oldActive !== active){
             oldActive = active;
@@ -122,12 +127,16 @@ function TabGroup({updatePromptScreen}){
 
     },[active])
 
+    // the active tab and chosenPrompt based on that tab selected are set
+    // updatePromptScreen is called to re-render the page and have the tab changes result in changes to the prompt box on the right
     function updateActivePrompt(prompt){
         sendActive = prompt; 
         chosenPrompt = prompts[sendActive];
         updatePromptScreen();
     }
 
+    // define the css tabs components including message and each tab
+    // tabs uses setActive react hook function that updates the tab to the once clicked on 
     return (
         <>
             <p
@@ -167,6 +176,8 @@ function TabGroup({updatePromptScreen}){
     );
 }
 
+// Define the css structure of the left header
+// Has the logo, tabGroup with tabs, buttons for help and upload pages, and NLU logo at the bottom
 export default function App({updatePromptScreen}){
     return (
         <>

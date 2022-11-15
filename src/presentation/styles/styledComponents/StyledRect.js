@@ -36,6 +36,7 @@ const innerTextStyle = {
     marginTop: 30
 };
 
+// define styledRect css structure for the rectangle displaying chosenPrompt
 export const StyledRect = () => (
     <OutterRect className="container" style={outterTextStyle}>
         <div style={{fontWeight: 'bold'}}>New Block 1</div>

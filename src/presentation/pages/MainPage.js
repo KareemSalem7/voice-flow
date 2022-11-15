@@ -91,42 +91,43 @@ function MainPage(){
           initial={{ opacity: 0, height: 0}}
           animate={{ opacity: 1, height: "100vh"}}
           transition={{ duration: 1, ease: easing }}>
-      <div className="App-row">
-          {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
-        <div className="App-left">
-          <td><StyledDots/></td>
-          <td><TabGroup updatePromptScreen={updatePromptScreen}/></td>
+        {/* Seperates header and rectangle section */}
+        <div className="App-row">
+            {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
+          <div className="App-left">
+            <td><StyledDots/></td>
+            <td><TabGroup updatePromptScreen={updatePromptScreen}/></td>
+          </div>
+
+          <div className="App-col">
+            <header className="App-header">
+              {/* <motion.div onChange={{opacity: 0}}> */}
+              <StyledRect/>
+              {/* </motion.div> */}
+
+              <Link to="/endpage">
+                <motion.div whileHover={{scale: 1.2}}>
+                <Button style={{fontSize: 30}} onClick={confirmChoice}>Add My Optimized First Block</Button>
+              </motion.div>
+              </Link>
+              
+              {
+                /*
+                <input className="App-inputThing" type="text" maxLength="800" id="textbox2" placeholder="content body goes here"></input>
+
+                <input className="App-inputThing" type="text" maxLength="800" id="textbox4" placeholder="Intent goes here"></input>
+
+                <button className="App-inputThing" id="button2" onClick={sendTranscriptData}> Send transcript data to backend. </button>
+
+                <button className="App-inputThing" id="button3" onClick={sendTranscriptData}> Get transcript data from backend. </button>
+
+                <input className="App-inputThing" type="text" maxLength="800" id="textbox3" placeholder="output"></input>
+                */
+              }
+
+            </header>
+          </div>
         </div>
-
-        <div className="App-col">
-          <header className="App-header">
-            {/* <motion.div onChange={{opacity: 0}}> */}
-            <StyledRect/>
-            {/* </motion.div> */}
-
-            <Link to="/endpage">
-              <motion.div whileHover={{scale: 1.2}}>
-            <Button style={{fontSize: 30}} onClick={confirmChoice}>Add My Optimized First Block</Button>
-            </motion.div>
-            </Link>
-            
-            {
-              /*
-              <input className="App-inputThing" type="text" maxLength="800" id="textbox2" placeholder="content body goes here"></input>
-
-              <input className="App-inputThing" type="text" maxLength="800" id="textbox4" placeholder="Intent goes here"></input>
-
-              <button className="App-inputThing" id="button2" onClick={sendTranscriptData}> Send transcript data to backend. </button>
-
-              <button className="App-inputThing" id="button3" onClick={sendTranscriptData}> Get transcript data from backend. </button>
-
-              <input className="App-inputThing" type="text" maxLength="800" id="textbox3" placeholder="output"></input>
-              */
-            }
-
-          </header>
-        </div>
-      </div>
       </motion.div>
     </>
   );
