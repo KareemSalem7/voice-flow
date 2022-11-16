@@ -1,22 +1,20 @@
-.App {
-  text-align: left;
+.MainPage-col {
+  background-image: url(../assets/background.png);
+  display: flex;
+  align-items: 'center';
 }
  
-.btn{
-  margin-left: 10px;
+.MainPage-left-header {
+  display: flex;
+  align-items: 'center';
 }
- 
-.App-inputThing {
-  margin: 20px;
-  height: 30px;
-  width: 300px;
-}
- 
-.App-header {
+
+.MainPage-right-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: auto;
   font-size: calc(10px + 2vmin);
   color: black;
   background-image: url(../assets/background.png);
@@ -24,23 +22,4 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-}
- 
-.App-row {
-  background-image: url(../assets/background.png);
-  display: flex;
-  align-items: 'center';
-}
- 
-.App-left {
-  display: flex;
-  flex-wrap: wrap;
-  height: 100vh;
-}
- 
-.App-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 50px;
 }

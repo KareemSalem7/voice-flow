@@ -2,7 +2,7 @@ import '../styles/MainPage.css';
 // eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";
-import TabGroup, {Button, activeTab} from "../styles/styledComponents/StyledPrompt.js";
+import TabGroup, {Button, activeTab} from "../styles/styledComponents/StyledHeader.js";
 import StyledDots from "../styles/styledComponents/StyledDots.js";
 import {StyledRect} from "../styles/styledComponents/StyledRect.js";
 import { motion } from 'framer-motion';
@@ -74,20 +74,20 @@ Also provides option to view help page and reupload info
 function MainPage(){
   // set updatePrompt to react hook function useUpdatePrompt()
   const updatePrompt = useUpdatePrompt();
-  // we define the seperate updatePrompt const as a work around to call react hook function here
+  // we define the seperate updatePrompt const and updatePromptScreen function as a work around to call react hook function here
   const updatePromptScreen = () => {
     updatePrompt();
   }
   
-  //send alert to inform user of confirmed choice
+  //send alert to inform user of confirmed choice when confirm button is pressed
   function confirmChoice(){ 
     alert(activeTab + " Selected!");
   }
   
-  //react hook function to update the prompt selected on the view
+  //react hook function to update the selected prompt rectangle on the view
   function useUpdatePrompt(){
     // eslint-disable-next-line
-    const [value, setValue] = useState(0); // integer state
+    const [value, setValue] = useState(0); // set current integer state
     return () => setValue(value => value + 1); // update state to force render
     // increment the previous state to update the view 
   }
@@ -97,40 +97,24 @@ function MainPage(){
           initial={{ opacity: 0, height: 0}}
           animate={{ opacity: 1, height: "100vh"}}
           transition={{ duration: 1, ease: easing }}>
-        {/* Seperates header and rectangle section */}
-        <div className="App-row">
-            {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
-          <div className="App-left">
-            <td><StyledDots/></td>
-            <td><TabGroup updatePromptScreen={updatePromptScreen}/></td>
+        {/* Seperates the left header and prompt rectangle sections side by side */}
+        <div className="MainPage-col">
+          {/* Define left side with the dots and tabs side by side */}
+          <div className="MainPage-left-header">
+            <StyledDots/>
+            <TabGroup updatePromptScreen={updatePromptScreen}/>
           </div>
 
-          <div className="App-col">
-            <header className="App-header">
-              {/* <motion.div onChange={{opacity: 0}}> */}
-              <StyledRect/>
-              {/* </motion.div> */}
-
-              <Link to="/endpage">
-                <motion.div whileHover={{scale: 1.2}}>
+          {/* Define the right side with rectangle containing chosen prompt */}
+          <div className="MainPage-right-content">
+            {/* Display rectangle that displays the chosen prompt */}
+            <StyledRect/>
+            {/* Define button to confirm choice */}
+            <Link to="/endpage">
+              <motion.div whileHover={{scale: 1.2}}>
                 <Button style={{fontSize: 30}} onClick={confirmChoice}>Add My Optimized First Block!</Button>
               </motion.div>
-              </Link>
-              
-              {
-                /*
-                <input className="App-inputThing" type="text" maxLength="800" id="textbox2" placeholder="content body goes here"></input>
-
-                <input className="App-inputThing" type="text" maxLength="800" id="textbox4" placeholder="Intent goes here"></input>
-
-                <button className="App-inputThing" id="button2" onClick={sendTranscriptData}> Send transcript data to backend. </button>
-
-                <button className="App-inputThing" id="button3" onClick={sendTranscriptData}> Get transcript data from backend. </button>
-
-                <input className="App-inputThing" type="text" maxLength="800" id="textbox3" placeholder="output"></input>
-                */
-              }
-            </header>
+            </Link>
           </div>
         </div>
       </motion.div>

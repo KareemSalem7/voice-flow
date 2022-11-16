@@ -6,21 +6,6 @@ import vfLogo from '../../assets/voiceflowLogo.png'
 import NLUlogo from '../../assets/NLULogoTransparent.png';
 import { motion } from 'framer-motion';
 
-// Defining reference constants for animation of various components (to ensure style & motion consistency)
-let easing = [0.6, -0.05, 0.01, 0.99];
-const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
-
-// Have multiple grouped animated elements appear at slightly offset times.
-const stagger = {
-  animate: {
-    transition: {
-      delayChildren: 0.4,
-      staggerChildren: 0.2,
-      staggerDirection: 1,
-    }
-  }
-};
-
 // Define the list of types that serve as the selection of tabs on the left
 export var types = ['Option A', 'Option B', 'Option C'];
 
@@ -68,7 +53,7 @@ export const Button = styled.button`
     outline: 0;
     text-transform: uppercase;
     margin: 10px 0px;
-    font-size: 25px;
+    font-size: 30px;
     cursor: pointer;
     transition: ease background-color 250ms;
     &:hover {
@@ -103,7 +88,7 @@ const Tab = styled.button`
     outline: 0;
     border-bottom: 2px solid transparent;
     transition: ease border-bottom 250ms;
-    font-size: 25px;
+    font-size: 30px;
     
     ${({ active }) =>
         active &&
@@ -123,12 +108,13 @@ function TabGroup({updatePromptScreen}){
         if(oldActive !== active){
             oldActive = active;
             updateActivePrompt(active);
-        } 
-
+        }
+    // eslint-disable-next-line
     },[active])
 
     // the active tab and chosenPrompt based on that tab selected are set
-    // updatePromptScreen is called to re-render the page and have the tab changes result in changes to the prompt box on the right
+    // updatePromptScreen is called which runs in MainPage.js to re-render the page and 
+    // have the active tab change result in changes to the prompt box on the right
     function updateActivePrompt(prompt){
         activeTab = prompt; 
         chosenPrompt = prompts[activeTab];
@@ -136,9 +122,10 @@ function TabGroup({updatePromptScreen}){
     }
 
     // define the css tabs components including message and each tab
-    // tabs uses setActive react hook function that updates the tab to the once clicked on 
+    // tabs uses setActive react hook function that updates the active tab to the one clicked on 
     return (
         <>
+            {/* Define css attributes of text above tabs*/}
             <p
                 style={{
                     display: 'flex',
@@ -151,6 +138,8 @@ function TabGroup({updatePromptScreen}){
                 }}> 
                 Your Best First Prompts:
             </p>
+
+            {/* Define css attributes of tabs*/}
             <div
                 style={{
                     display: 'flex',
@@ -160,6 +149,7 @@ function TabGroup({updatePromptScreen}){
 
               }}
             >
+                {/* Define active tab functionality using onClick to set the active tab be the one selected from the list of types*/}
                 {types.map(type => (
                     <Tab
                         key={type}
@@ -171,7 +161,6 @@ function TabGroup({updatePromptScreen}){
                     
                 ))}
             </div>
-
         </>
     );
 }
@@ -181,38 +170,43 @@ function TabGroup({updatePromptScreen}){
 export default function App({updatePromptScreen}){
     return (
         <>
-        <StyledDiv>
-            <td><img style={{ width: 182.75, height: 52.25}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
-            <TabGroup updatePromptScreen={updatePromptScreen}/>
+            {/* Define css structure of header containing tabs, buttons, and logos */}
+            <StyledDiv>
+                {/* Display voiceflow logo */}
+                <td><img style={{ width: 182.75, height: 52.25}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
+                
+                {/* Display tabgroup and send updatePromptScreen function as argument to update chosen prompt whenever tab is selected */}
+                <TabGroup updatePromptScreen={updatePromptScreen}/>
 
-            <div style={{ 
-                    display: 'flex',
-                    flexDirection: 'column',                
-                    alignItems: 'center',
-                    justifyContent: 'left',
-                    marginTop: 30}}>
-            
-            <Link to="/helppage">
-                <motion.div whileHover={{scale: 1.2}}>
-                    <Button theme="white">
-                        Help & Support
-                    </Button>
-                </motion.div>
-            </Link>
-            
-            <Link to="/uploadpage">
-                <motion.div whileHover={{scale: 1.2}}>
-                    <Button theme="white">
-                        Reupload Info
-                    </Button>
-                </motion.div>
-            </Link>
-            
-            </div>
+                {/* Define css attributes for div for help and reupload buttons and NLU logo */}
+                <div style={{ 
+                        display: 'flex',
+                        flexDirection: 'column',                
+                        alignItems: 'center',
+                        marginTop: 30}}>
+                
+                    {/* Display button that takes you back to help page */}
+                    <Link to="/helppage">
+                        <motion.div whileHover={{scale: 1.2}}>
+                            <Button theme="white">
+                                Help & Support
+                            </Button>
+                        </motion.div>
+                    </Link>
+                    
+                    {/* Display button that takes you back to upload page */}
+                    <Link to="/uploadpage">
+                        <motion.div whileHover={{scale: 1.2}}>
+                            <Button theme="white">
+                                Reupload Info
+                            </Button>
+                        </motion.div>
+                    </Link>
 
-            <td><img style={{ width: 200, height: 200, marginTop: 30}} src={NLUlogo} className="NLU-logo" alt="NLU-logo" /></td>
-        
-        </StyledDiv>
+                    {/* Display NLU logo */}
+                    <img style={{ width: 200, height: 200, marginTop: 30}} src={NLUlogo} className="NLU-logo" alt="NLU-logo" />
+                </div>
+            </StyledDiv>
         </>
     );
 }
