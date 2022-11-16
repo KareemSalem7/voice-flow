@@ -2,7 +2,7 @@ import '../styles/MainPage.css';
 // eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";
-import TabGroup, {Button, sendActive} from "../styles/styledComponents/StyledPrompt.js";
+import TabGroup, {Button, activeTab} from "../styles/styledComponents/StyledPrompt.js";
 import StyledDots from "../styles/styledComponents/StyledDots.js";
 import {StyledRect} from "../styles/styledComponents/StyledRect.js";
 import { motion } from 'framer-motion';
@@ -30,7 +30,7 @@ function sendTranscriptData() {
     intent: userIntent,
     content: contentBody,
     //???????
-    //prompt: sendActive,
+    //prompt: activeTab,
   });
 
   //the type of data sent
@@ -66,17 +66,22 @@ function sendTranscriptData() {
 
 // }
 
+/* define main page function 
+Page responsible for displaying the 3 prompt choices and allowing user to flip through and select one
+Also provides option to view help page and reupload info
+
+*/
 function MainPage(){
   // set updatePrompt to react hook function useUpdatePrompt()
   const updatePrompt = useUpdatePrompt();
-  // we define the seperare updatePrompt const as a work around to call react hook function here
+  // we define the seperate updatePrompt const as a work around to call react hook function here
   const updatePromptScreen = () => {
-    updatePrompt()
+    updatePrompt();
   }
   
   //send alert to inform user of confirmed choice
   function confirmChoice(){ 
-    alert(sendActive + " Selected!");
+    alert(activeTab + " Selected!");
   }
   
   //react hook function to update the prompt selected on the view
@@ -125,7 +130,6 @@ function MainPage(){
                 <input className="App-inputThing" type="text" maxLength="800" id="textbox3" placeholder="output"></input>
                 */
               }
-
             </header>
           </div>
         </div>

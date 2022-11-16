@@ -86,7 +86,7 @@ Button.defaultProps = {
 };
 
 // Set a default list of prompts tbd: update these to be based on back-end
-export var sendActive = "Option A";
+export var activeTab = "Option A";
 export var chosenPrompt = "Would you like to see the new sale on Mongolian fishing boots?";
 // Keeps track of old prompt to be changed with tab changes
 var oldActive = "Option A";
@@ -130,8 +130,8 @@ function TabGroup({updatePromptScreen}){
     // the active tab and chosenPrompt based on that tab selected are set
     // updatePromptScreen is called to re-render the page and have the tab changes result in changes to the prompt box on the right
     function updateActivePrompt(prompt){
-        sendActive = prompt; 
-        chosenPrompt = prompts[sendActive];
+        activeTab = prompt; 
+        chosenPrompt = prompts[activeTab];
         updatePromptScreen();
     }
 
