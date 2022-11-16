@@ -5,6 +5,8 @@ import '../styles/UploadPage.css';
 import { motion } from 'framer-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
+//added by martin for sending api to backend
+import { sendApi } from '../../controllers/UserRequests.js';
 
 // Defining reference constants for animation of various components (to ensure style & motion consistency)
 let easing = [0.6, -0.05, 0.01, 0.99];
@@ -140,10 +142,10 @@ function UploadPage() {
 
             {/* Create the form for user input */}
             <motion.div class="ready__started-box"
-              initial={{ opacity: 0, height: 0, y: 0, x: '38vw' }}
-              animate={{ opacity: 1, height: "50vh", y: 50, x: '38vw' }}
-              transition={{ duration: 1, ease: easing }}
-              whileHover={{scale: [null, 1.2]}}
+              //initial={{ opacity: 0, height: 0, y: 0, x: '38vw' }}
+              //animate={{ opacity: 1, height: "50vh", y: 50, x: '38vw' }}
+              //transition={{ duration: 1, ease: easing }}
+              //whileHover={{scale: [null, 1.2]}}
               variants={stagger}>
               <form class="main__form">
                 <div class="row">
@@ -170,7 +172,8 @@ function UploadPage() {
                 {/* Submit button. */}
                 <div class="text-center">
                   <Link to="/mainpage">
-                    <button type="submit" class=" btn btn-get"><span> Submit Now!</span></button></Link></div>
+                    {/* Note: onclick function added to send data */}
+                    <button type="submit" class=" btn btn-get" onClick={sendApi}><span> Submit Now!</span></button></Link></div>
                 
                 {/* Spacing for the link at the botttom of the form. */}
                 <p class="text-center"><br></br><br></br><br></br><br></br></p>
