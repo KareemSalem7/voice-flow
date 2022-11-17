@@ -4,11 +4,12 @@ import '../styles/UploadPage.scss';
 import '../styles/UploadPage.css';
 import { motion } from 'framer-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { SidebarDots } from '../styles/styledComponents/StyledDots';
-import * as animationConstants from "../styles/styledComponents/AnimationConstants.js";
+// import { SidebarDots } from '../styles/styledComponents/StyledDots';
+import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants.js";
 import { React, useState } from 'react';
 //added by martin for sending api to backend
 import { sendApi } from '../../controllers/UserRequests.js';
+import { SidebarDots } from '../styles/framerMotionComponents/AnimatedComponents'
 
 function UploadPage() {
   const [api, setapi] = useState(false);

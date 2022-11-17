@@ -2,13 +2,9 @@
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import { motion } from "framer-motion";
 import '../styles/EnablePage.scss'
-import NLUlogo from '../assets/NLULogoTransparentWhite.png';
-import { SidebarDots } from '../styles/styledComponents/StyledDots';
-import { AnimatedTitle } from '../styles/styledComponents/StyledTitle';
-import { DrawTextBubble } from '../styles/styledComponents/DrawTextboxSVG';
-import { AnimatedLogo } from '../styles/styledComponents/AnimatedLogo';
 import React from 'react';
-import * as animationConstants from "../styles/styledComponents/AnimationConstants.js";
+import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants"
+import { AnimatedLogo, AnimatedTitle, DrawTextBubble, SidebarDots } from '../styles/framerMotionComponents/AnimatedComponents'
 
 function EnablePage() {
   const curly = "{}"

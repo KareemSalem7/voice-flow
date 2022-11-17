@@ -2,7 +2,7 @@ import '../styles/HelpPage.css';
 // eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import {Button} from '../styles/styledComponents/StyledHeader.js';
-import * as animationConstants from "../styles/styledComponents/AnimationConstants.js";
+import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants.js";
 import styled from "styled-components";
 import React from "react";
 import { motion } from 'framer-motion';

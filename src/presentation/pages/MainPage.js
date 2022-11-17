@@ -3,10 +3,10 @@ import '../styles/MainPage.css';
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";
 import TabGroup, {Button, activeTab} from "../styles/styledComponents/StyledHeader.js";
-import { SidebarDots } from '../styles/styledComponents/StyledDots';
-import * as animationConstants from "../styles/styledComponents/AnimationConstants.js";
+import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants.js";
 import {StyledRect} from "../styles/styledComponents/StyledRect.js";
 import { motion } from 'framer-motion';
+import { SidebarDots } from '../styles/framerMotionComponents/AnimatedComponents';
 
 // // send some json data to the backend, using the text in the textbox with id textbox2 as the content
 // // eslint-disable-next-line
