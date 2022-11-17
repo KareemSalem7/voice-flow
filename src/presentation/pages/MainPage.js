@@ -10,51 +10,51 @@ import { motion } from 'framer-motion';
 // define easing for animation
 let easing = [0.6, -0.05, 0.01, 0.99];
 
-// send some json data to the backend, using the text in the textbox with id textbox2 as the content
-// eslint-disable-next-line
-function sendTranscriptData() {
+// // send some json data to the backend, using the text in the textbox with id textbox2 as the content
+// // eslint-disable-next-line
+// function sendTranscriptData() {
 
-  //for debugging
-  alert('transcript data sent');
+//   //for debugging
+//   alert('transcript data sent');
 
-  //retrieve the text content from the proper textbox.
-  var contentBody = document.getElementById("textbox2").value;
-  var userIntent = document.getElementById("textbox4").value;
+//   //retrieve the text content from the proper textbox.
+//   var contentBody = document.getElementById("textbox2").value;
+//   var userIntent = document.getElementById("textbox4").value;
 
-  //the json data sent to the backend
-  //JSON.stringify is required for fetch
-  const fullEntry = JSON.stringify({
-    //if i don't provide an id, mongo will create one called Object(...). IDs have to be unique!
-    //id: "15", //constant id
-    //id: transcriptOutput, //variable id
-    intent: userIntent,
-    content: contentBody,
-    //???????
-    //prompt: activeTab,
-  });
+//   //the json data sent to the backend
+//   //JSON.stringify is required for fetch
+//   const fullEntry = JSON.stringify({
+//     //if i don't provide an id, mongo will create one called Object(...). IDs have to be unique!
+//     //id: "15", //constant id
+//     //id: transcriptOutput, //variable id
+//     intent: userIntent,
+//     content: contentBody,
+//     //???????
+//     //prompt: activeTab,
+//   });
 
-  //the type of data sent
-  const headerData = {
-    Accept: "application/json",
-    "Content-Type": "application/json;charset=UTF-8",
-  }
+//   //the type of data sent
+//   const headerData = {
+//     Accept: "application/json",
+//     "Content-Type": "application/json;charset=UTF-8",
+//   }
 
-  //create the fetch request
-  fetch(`http://localhost:8080/api/v1/transcripts/create`, {method: "POST", headers: headerData, body: fullEntry})
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-  });
+//   //create the fetch request
+//   fetch(`http://localhost:8080/api/v1/transcripts/create`, {method: "POST", headers: headerData, body: fullEntry})
+//   .then((response) => response.json())
+//   .then((data) => {
+//     console.log(data);
+//   });
 
-  //empty the textbox
-  document.getElementById("textbox2").value = "";
-  document.getElementById("textbox4").value = "";
+//   //empty the textbox
+//   document.getElementById("textbox2").value = "";
+//   document.getElementById("textbox4").value = "";
 
-  // testing:
-  //test variable incrememntation
-  //setTranscriptOutput(transcriptOutput + 1);
-  //transcriptOutput = transcriptOutput + 1;
-}
+//   // testing:
+//   //test variable incrememntation
+//   //setTranscriptOutput(transcriptOutput + 1);
+//   //transcriptOutput = transcriptOutput + 1;
+// }
 
 // function getPrompts(){
 //   //create the fetch request
