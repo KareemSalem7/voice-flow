@@ -3,12 +3,10 @@ import '../styles/MainPage.css';
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";
 import TabGroup, {Button, activeTab} from "../styles/styledComponents/StyledHeader.js";
-import StyledDots from "../styles/styledComponents/StyledDots.js";
+import { SidebarDots } from '../styles/styledComponents/StyledDots';
+import * as animationConstants from "../styles/styledComponents/AnimationConstants.js";
 import {StyledRect} from "../styles/styledComponents/StyledRect.js";
 import { motion } from 'framer-motion';
-
-// define easing for animation
-let easing = [0.6, -0.05, 0.01, 0.99];
 
 // // send some json data to the backend, using the text in the textbox with id textbox2 as the content
 // // eslint-disable-next-line
@@ -94,14 +92,15 @@ function MainPage(){
   return (
     <>
       <motion.div className="container-fluid-main"
-          initial={{ opacity: 0, height: 0}}
-          animate={{ opacity: 1, height: "100vh"}}
-          transition={{ duration: 1, ease: easing }}>
+          initial={animationConstants.containerDropIn.initial}
+          animate={animationConstants.containerDropIn.animate}
+          transition={animationConstants.containerDropIn.transition}
+          >
         {/* Seperates the left header and prompt rectangle sections side by side */}
         <div className="MainPage-col">
           {/* Define left side with the dots and tabs side by side */}
           <div className="MainPage-left-header">
-            <StyledDots/>
+            <SidebarDots i={3}/>
             <TabGroup updatePromptScreen={updatePromptScreen}/>
           </div>
 
