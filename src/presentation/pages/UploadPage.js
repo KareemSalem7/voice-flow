@@ -4,7 +4,8 @@ import '../styles/UploadPage.scss';
 import '../styles/UploadPage.css';
 import { motion } from 'framer-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
+import { SidebarDots } from '../components/animationComponents';
+import { React, useState } from 'react';
 //added by martin for sending api to backend
 import { sendApi } from '../../controllers/UserRequests.js';
 
@@ -95,35 +96,9 @@ const h3 = {
   }
 };
 
-// function getInitialState() {
-//   return {
-//     apiKey: '',
-//     versionID: '',
-//     apiKeyValid: false,         // valid flags for each field
-//     versionIDValid: false, 
-//     linkDisabled: true       // separate flag for link
-//   }
-// };
-// function handleChangeApiKey(e) {         // separate handler for each field
-//   let apiKeyValid = e.target.value ? true : false;        // basic email validation
-//   let submitValid = this.state.versionIDValid && apiKeyValid   // validate total form
-//   this.setState({
-//     apiKey: e.target.value,
-//     apiKeyValid: apiKeyValid, 
-//     linkDisabled: !submitValid
-//   })
-// };
-// function handleChangeVersionID(e) {         // separate handler for each field
-//   let versionIDValid = e.target.value ? true : false;        // basic text validation
-//   let submitValid = this.state.apiKeyValid && versionIDValid   // validate total form
-//   this.setState({
-//     text: '',
-//     versionIDValid: versionIDValid, 
-//     linkDisabled: !submitValid
-//   })
-// };
-
 function UploadPage() {
+  const [api, setapi] = useState(false);
+  const [ver, setver] = useState(false);
   return (
     <div className="main_container">
       <section class="ready__started project__form">
@@ -142,10 +117,9 @@ function UploadPage() {
 
             {/* Create the form for user input */}
             <motion.div class="ready__started-box"
-              //initial={{ opacity: 0, height: 0, y: 0, x: '38vw' }}
-              //animate={{ opacity: 1, height: "50vh", y: 50, x: '38vw' }}
-              //transition={{ duration: 1, ease: easing }}
-              //whileHover={{scale: [null, 1.2]}}
+              initial={{ opacity: 0, height: 0, y: 0, x: '38vw' }}
+              animate={{ opacity: 1, height: "50vh", y: 50, x: '38vw' }}
+              transition={{ duration: 1, ease: easing }}
               variants={stagger}>
               <form class="main__form">
                 <div class="row">
@@ -153,7 +127,7 @@ function UploadPage() {
                   {/* API input box. */}
                   <motion.div variants={fadeInUp}>
                     <div class="form-group">
-                      <input type="text" class="form-control" id="apiKey" aria-describedby="apiKey" placeholder="API Key" required />
+                      <input type="text" class="form-control" id="apiKey" aria-describedby="apiKey" placeholder="API Key" onChange={() => setapi(!(document.getElementById("apiKey") === ""))} required />
                       <label for="apiKey">API Key</label>
                     </div>
                   </motion.div>
@@ -161,7 +135,7 @@ function UploadPage() {
 
                     {/* Version ID input box. */}
                     <div class="form-group">
-                      <input type="text" class="form-control" id="versionID" aria-describedby="versionID" placeholder="Version ID" required />
+                    <input type="text" class="form-control" id="versionID" aria-describedby="versionID" placeholder="Version ID" onChange={() => setver(!(document.getElementById("versionID") === ""))} required />
                       <label for="versionID">Version ID</label>
                     </div>
                     <div class="col-md-6">
@@ -171,26 +145,30 @@ function UploadPage() {
 
                 {/* Submit button. */}
                 <div class="text-center">
-                  <Link to="/mainpage">
-                    {/* Note: onclick function added to send data */}
-                    <button type="submit" class=" btn btn-get" onClick={sendApi}><span> Submit Now!</span></button></Link></div>
-                
-                {/* Spacing for the link at the botttom of the form. */}
-                <p class="text-center"><br></br><br></br><br></br><br></br></p>
 
-                {/* Link to help page. */}
-                <motion.div variants={fadeInUp}><Link to="/helppage"><p class="text-center">Don't know this information?</p></Link></motion.div>
+                  <div>
+
+                    <button type="submit" class=" btn btn-get">
+
+                      {(api && ver) ? (
+                        <Link to="/mainpage" style={{ textCol: "white" }} onClick={sendApi}><span> Submit Now!</span></Link>
+                      ) : (
+                        <span> Submit Now!</span>
+                      )}
+
+                    </button>
+                  </div>
+
+
+                  {/* Note: onclick function added to send data */}
+                </div>
 
               </form>
             </motion.div>
             <motion.div className="content_left" variants={stagger}>
 
               {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
-              <motion.div className="dots" variants={stagger}>
-                <motion.span variants={sidebarDots}></motion.span>
-                <motion.span className="active" variants={sidebarDots}></motion.span>
-                <motion.span variants={sidebarDots}></motion.span>
-              </motion.div>
+              <SidebarDots i={2} />
             </motion.div>
           </motion.div>
         </motion.div>

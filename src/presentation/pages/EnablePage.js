@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import '../styles/EnablePage.scss'
 import robotImg from '../assets/robot.png';
 import NLUlogo from '../assets/NLULogoTransparentWhite.png';
+import { SidebarDots } from '../components/animationComponents';
 import React from 'react';
 
 // Defining reference constants for animation of various components (to ensure style & motion consistency)
