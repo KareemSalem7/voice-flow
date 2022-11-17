@@ -2,6 +2,7 @@ import '../styles/HelpPage.css';
 // eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import {Button} from '../styles/styledComponents/StyledHeader.js';
+import * as animationConstants from "../styles/styledComponents/AnimationConstants.js";
 import styled from "styled-components";
 import React from "react";
 import { motion } from 'framer-motion';
@@ -46,9 +47,11 @@ const StyledTitle = () => (
 // define animation and structure of the help page
 function HelpPage(){
   return (
-    <motion.div className="HelpPage" initial={{ opacity: 0, height: 0}}
-    animate={{ opacity: 1, height: "100vh"}}
-    transition={{ duration: 1, ease: easing }}>
+    <motion.div className="HelpPage" 
+    initial={animationConstants.containerDropIn.initial}
+    animate={animationConstants.containerDropIn.animate}
+    transition={animationConstants.containerDropIn.transition}
+    >
       {/* Display help page title and styled text div for the content*/}
       <StyledTitle/>
       <StyledText>
