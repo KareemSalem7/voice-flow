@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import * as animationConstants from "./AnimationConstants.js";
 import NLUlogo from '../../assets/NLULogoTransparentWhite.png';
-import '../EnablePage.scss';
-import '../../styles/StyledHeader.scss'
-import React from "react";
+import '../styleSheets/sass//EnablePage.scss';
+import '../styleSheets/sass/StyledHeader.scss'
+import '../styleSheets/css/UploadPage.css'
+import {React} from "react";
 import styled from 'styled-components';
 
 // set the div containing the styled dots to have a width of 5

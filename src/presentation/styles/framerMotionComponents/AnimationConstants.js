@@ -89,6 +89,24 @@ export const h3 = {
     }
 };
 
+export const h3Opaque = {
+    initial: {
+        top: "-100%",
+        opacity: 0,
+        transition: { duration: 0.5, ease: easing },
+        scale: 0.8
+    },
+    animate: {
+        top: "0%",
+        opacity: 1,
+        scale: 1,
+        transition: {
+            duration: 1,
+            ease: easing
+        }
+    }
+}
+
 // Animation constants for title text which enters from the right on EnablePage.js
 export const letterR = {
     initial: {
@@ -146,3 +164,20 @@ export const draw = {
         };
     }
 };
+
+export const drawSuccess = {
+    hidden: { pathLength: 0, opacity: 0, rotate: 360},
+    visible: (i) => {
+      const delay = 0.5
+      return {
+        pathLength: 1,
+        opacity: 1,
+        rotate: 0,
+        transition: {
+          pathLength: { delay, type: "spring", duration: 3, bounce: 0 },
+          opacity: { delay, duration: 0.05 },
+          rotate: {delay, duration: 1}
+        }
+      };
+    }
+  };

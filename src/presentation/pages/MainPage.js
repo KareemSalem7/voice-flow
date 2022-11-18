@@ -1,4 +1,4 @@
-import '../styles/MainPage.css';
+import '../styles/styleSheets/css//MainPage.css';
 // eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";

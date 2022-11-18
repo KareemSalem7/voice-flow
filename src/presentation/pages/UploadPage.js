@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import '../styles/UploadPage.scss';
-import '../styles/UploadPage.css';
+import '../styles/styleSheets/sass/UploadPage.scss';
+import '../styles/styleSheets/css/UploadPage.css';
 import { motion } from 'framer-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import { SidebarDots } from '../styles/styledComponents/StyledDots';
@@ -9,7 +9,7 @@ import * as animationConstants from "../styles/framerMotionComponents/AnimationC
 import { React, useState } from 'react';
 //added by martin for sending api to backend
 import { sendApi } from '../../controllers/UserRequests.js';
-import { SidebarDots } from '../styles/framerMotionComponents/AnimatedComponents'
+import { SidebarDots, AnimatedInput } from '../styles/framerMotionComponents/AnimatedComponents'
 
 function UploadPage() {
   const [api, setapi] = useState(false);
@@ -23,12 +23,12 @@ function UploadPage() {
           initial={animationConstants.containerDropIn.initial}
           animate={animationConstants.containerDropIn.animate}
           transition={animationConstants.containerDropIn.transition}
-          >
+        >
           <motion.div className="wrapper" initial='initial' animate='animate'>
 
             {/* Title section. */}
             <motion.div className="pos_abs top_nav" variants={animationConstants.stagger}>
-              <motion.h3 variants={animationConstants.h3} class="text-center">Submit Your Information Below</motion.h3>
+              <motion.h3 variants={animationConstants.h3Opaque} class="text-center">Submit Your Information Below</motion.h3>
             </motion.div>
 
             {/* Create the form for user input */}
@@ -51,7 +51,7 @@ function UploadPage() {
 
                     {/* Version ID input box. */}
                     <div class="form-group">
-                    <input type="text" class="form-control" id="versionID" aria-describedby="versionID" placeholder="Version ID" onChange={() => setver(!(document.getElementById("versionID") === ""))} required />
+                      <input type="text" class="form-control" id="versionID" aria-describedby="versionID" placeholder="Version ID" onChange={() => setver(!(document.getElementById("versionID") === ""))} required />
                       <label for="versionID">Version ID</label>
                     </div>
                     <div class="col-md-6">

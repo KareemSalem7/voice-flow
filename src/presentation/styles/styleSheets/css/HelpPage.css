@@ -5,7 +5,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
-  background-image: url(../assets/background.png);
+  background-image: url(../../../assets/background.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

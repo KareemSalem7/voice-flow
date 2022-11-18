@@ -2,7 +2,7 @@
   "name": "voice-flow",
   "version": "0.1.0",
   "homepage": "./",
-  "main": "./electron/main.js",
+  "main": "./src/main/index.js",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

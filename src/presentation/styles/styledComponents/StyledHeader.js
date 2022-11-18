@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import vfLogo from '../../assets/voiceflowLogo.png'
 import NLUlogo from '../../assets/NLULogoTransparent.png';
 import { motion } from 'framer-motion';
+import { HoverButtonNoClick } from '../framerMotionComponents/HoverButton';
 
 import { getBestIntents } from '../../../controllers/UserRequests';
 
@@ -286,22 +287,10 @@ export default function App({updatePromptScreen}){
                         marginTop: 30}}>
                 
                     {/* Display button that takes you back to help page */}
-                    <Link to="/helppage">
-                        <motion.div whileHover={{scale: 1.2}}>
-                            <Button theme="white">
-                                Help & Support
-                            </Button>
-                        </motion.div>
-                    </Link>
+                    <HoverButtonNoClick link={"/helppage"} text={"Help & Support"} theme={"white"} />
                     
                     {/* Display button that takes you back to upload page */}
-                    <Link to="/uploadpage">
-                        <motion.div whileHover={{scale: 1.2}}>
-                            <Button theme="white">
-                                Reupload Info
-                            </Button>
-                        </motion.div>
-                    </Link>
+                    <HoverButtonNoClick link={"/uploadpage"} text={"Reupload Info"} theme={"white"} />
 
                     {/* Display NLU logo */}
                     <img style={{ width: 200, height: 200, marginTop: 30}} src={NLUlogo} className="NLU-logo" alt="NLU-logo" />

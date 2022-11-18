@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import { motion } from "framer-motion";
-import '../styles/EnablePage.scss'
+import '../styles/styleSheets/sass/EnablePage.scss'
 import React from 'react';
 import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants"
 import { AnimatedLogo, AnimatedTitle, DrawTextBubble, SidebarDots } from '../styles/framerMotionComponents/AnimatedComponents'
