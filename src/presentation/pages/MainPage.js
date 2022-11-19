@@ -2,11 +2,12 @@ import '../styles/styleSheets/css//MainPage.css';
 // eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";
-import TabGroup, {Button, activeTab} from "../styles/styledComponents/StyledHeader.js";
+import TabGroup, { activeTab} from "../styles/styledComponents/StyledHeader.js";
 import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants.js";
 import {StyledRect} from "../styles/styledComponents/StyledRect.js";
 import { motion } from 'framer-motion';
 import { SidebarDots } from '../styles/framerMotionComponents/AnimatedComponents';
+import { HoverButtonClick } from '../styles/framerMotionComponents/HoverButton';
 
 // // send some json data to the backend, using the text in the textbox with id textbox2 as the content
 // // eslint-disable-next-line
@@ -109,11 +110,7 @@ function MainPage(){
             {/* Display rectangle that displays the chosen prompt */}
             <StyledRect/>
             {/* Define button to confirm choice */}
-            <Link to="/endpage">
-              <motion.div whileHover={{scale: 1.2}}>
-                <Button style={{fontSize: 30}} onClick={confirmChoice}>Add My Optimized First Block!</Button>
-              </motion.div>
-            </Link>
+            <HoverButtonClick clickFunction={confirmChoice} link={"/endpage"} text={"Add My Optimized First Block!"}/>
           </div>
         </div>
       </motion.div>

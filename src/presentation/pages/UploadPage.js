@@ -14,6 +14,12 @@ import { SidebarDots, AnimatedInput } from '../styles/framerMotionComponents/Ani
 function UploadPage() {
   const [api, setapi] = useState(false);
   const [ver, setver] = useState(false);
+//   const apiVal = false;
+//   const verVal = false;
+  // function InputCheck() {
+  //  setver(!(document.getElementsByTagName('AnimatedInput')[1] === ""))
+  //  setapi(!(document.getElementsByTagName('AnimatedInput')[0] === ""))
+  // }
   return (
     <div className="main_container">
       <section class="ready__started project__form">
@@ -47,6 +53,7 @@ function UploadPage() {
                       <label for="apiKey">API Key</label>
                     </div>
                   </motion.div>
+                  {/* <AnimatedInput text={"API Key"} id={"apiKey"} /> */}
                   <motion.div variants={animationConstants.fadeInUp}>
 
                     {/* Version ID input box. */}
@@ -57,6 +64,7 @@ function UploadPage() {
                     <div class="col-md-6">
                     </div>
                   </motion.div>
+                  {/* <AnimatedInput text={"Version ID"} id={"versionID"} /> */}
                 </div>
 
                 {/* Submit button. */}

@@ -1,14 +1,12 @@
 import '../styles/styleSheets/css//HelpPage.css';
 // eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
-import {Button} from '../styles/styledComponents/StyledHeader.js';
 import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants.js";
-import styled from "styled-components";
 import React from "react";
 import { motion } from 'framer-motion';
 import * as styledComponent from '../styles/styledComponents/StyledTitle';
 import { HelpText } from '../styles/commonComponents/HelpRow.js'
-import { HoverButtonNoClick } from '../styles/framerMotionComponents/HoverButton.js'
+import { HoverButtonClick } from '../styles/framerMotionComponents/HoverButton.js'
  
 // define animation and structure of the help page
 function HelpPage(){
@@ -35,7 +33,7 @@ function HelpPage(){
  
       {/* Display button to return back to suggested prompts*/}
       <styledComponent.StyledDiv classname="Help-col">
-        <HoverButtonNoClick link={"/mainpage"} text={"Back to Suggested Prompts"} theme={"blue"}/>
+        <HoverButtonClick link={"/mainpage"} text={"Back to Suggested Prompts"} theme={"blue"}/>
       </styledComponent.StyledDiv>
     </motion.div>
   );

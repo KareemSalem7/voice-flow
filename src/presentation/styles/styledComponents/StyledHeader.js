@@ -1,11 +1,10 @@
 // eslint-disable-next-line
-import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
-import React, {useState, useEffect, useLayoutEffect} from "react";
-import styled from 'styled-components';
+import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import vfLogo from '../../assets/voiceflowLogo.png'
 import NLUlogo from '../../assets/NLULogoTransparent.png';
-import { motion } from 'framer-motion';
 import { HoverButtonNoClick } from '../framerMotionComponents/HoverButton';
+import { Tab, StyledDiv } from './StyledConstants';
 
 import { getBestIntents } from '../../../controllers/UserRequests';
 
@@ -20,60 +19,60 @@ export var types = ['Option A', 'Option B', 'Option C'];
 // 'Option C': 'Would you like to get to extend your plan or switch plans?'};
 
 // Define the styled header for the left header cotaining the tabs
-const StyledDiv = styled.div`
-    background-color: #1fc8db;
-    background-image: linear-gradient(180deg, #5784e4 0%, #633366 50%, #3f1243 75%);
-    display: left;
-    padding: 20px;
-    flex-direction: column;
-    height: 100vh;
+// const StyledDiv = styled.div`
+//     background-color: #1fc8db;
+//     background-image: linear-gradient(180deg, #5784e4 0%, #633366 50%, #3f1243 75%);
+//     display: left;
+//     padding: 20px;
+//     flex-direction: column;
+//     height: 100vh;
     
-    color: ${(props) => props.color};
+//     color: ${(props) => props.color};
 
-    p {
-        font-size: 30px;
-        color: white;
-    }
-`;
+//     p {
+//         font-size: 30px;
+//         color: white;
+//     }
+// `;
 
-// different color themes we can set our buttons to
-const theme = {
-    blue: {
-        default: '#3c6cd7',
-        hover: '#3460c4'
-    },
-    white: {
-        default: '#808080',
-        hover: '#3c6cd7'
-    }
-}
+// // different color themes we can set our buttons to
+// const theme = {
+//     blue: {
+//         default: '#3c6cd7',
+//         hover: '#3460c4'
+//     },
+//     white: {
+//         default: '#808080',
+//         hover: '#3c6cd7'
+//     }
+// }
 
-//Set css attributes for a button including hover which makes it tinted and disabled (opaque look)
-export const Button = styled.button`
-    background-color: ${props => theme[props.theme].default};
-    color: white;
-    padding: 5px 15px;
-    border-radius: 5px;
-    border: none;
-    outline: 0;
-    text-transform: uppercase;
-    margin: 10px 0px;
-    font-size: 30px;
-    cursor: pointer;
-    transition: ease background-color 250ms;
-    &:hover {
-        background-color: ${props => theme[props.theme].hover};
-    }
-    &:disabled {
-        cursor: default;
-        opacity: 0.7;
-    }
-`;
+// //Set css attributes for a button including hover which makes it tinted and disabled (opaque look)
+// export const Button = styled.button`
+//     background-color: ${props => theme[props.theme].default};
+//     color: white;
+//     padding: 5px 15px;
+//     border-radius: 5px;
+//     border: none;
+//     outline: 0;
+//     text-transform: uppercase;
+//     margin: 10px 0px;
+//     font-size: 30px;
+//     cursor: pointer;
+//     transition: ease background-color 250ms;
+//     &:hover {
+//         background-color: ${props => theme[props.theme].hover};
+//     }
+//     &:disabled {
+//         cursor: default;
+//         opacity: 0.7;
+//     }
+// `;
 
-// Set the default look of a button to blue theme
-Button.defaultProps = {
-    theme: "blue"
-};
+// // Set the default look of a button to blue theme
+// Button.defaultProps = {
+//     theme: "blue"
+// };
 
 // Set a default list of prompts tbd: update these to be based on back-end
 export var activeTab = "Option A";
@@ -84,39 +83,39 @@ export var chosenPrompt = "Loading Option A...";
 var oldActive = "Option A";
 
 // Set css attributes of each styled tab, changes look when it is active
-const Tab = styled.button`
-    display: flex;
-    color: white;
-    padding: 20px 30px;
-    cursor: pointer;y
-    opacity: 0.6;
-    background: transparent;
-    border: 0;
-    outline: 0;
-    border-bottom: 2px solid transparent;
-    transition: ease border-bottom 250ms;
-    font-size: 30px;
+// const Tab = styled.button`
+//     display: flex;
+//     color: white;
+//     padding: 20px 30px;
+//     cursor: pointer;y
+//     opacity: 0.6;
+//     background: transparent;
+//     border: 0;
+//     outline: 0;
+//     border-bottom: 2px solid transparent;
+//     transition: ease border-bottom 250ms;
+//     font-size: 30px;
     
-    ${({ active }) =>
-        active &&
-        `
-        border-bottom:2px solid white;
-        opacity: 1;
-    `}
-`;
+//     ${({ active }) =>
+//         active &&
+//         `
+//         border-bottom:2px solid white;
+//         opacity: 1;
+//     `}
+// `;
 
 // Switch tab functionality that allows user to tab between different 
-function TabGroup({updatePromptScreen}){
+function TabGroup({ updatePromptScreen }) {
     const [active, setActive] = useState(types[0]);
     const [prompts, setPrompts] = useState(
-        {"Option A": "Loading Option A...", "Option B": "Loading Option B...", "Option C": "Loading Option C..."});
+        { "Option A": "Loading Option A...", "Option B": "Loading Option B...", "Option C": "Loading Option C..." });
     // const [prompts, setPrompts] = useState(
     //     {"Option A": "Defaulto Intento 1", "Option B": "Defaulto Intento 2", "Option C": "Defaulto Intento 3"});
-    
+
     // limits updateActivePrompt to be called only once when the active tab is changed
     // oldActive checks to see if the active tab has been changed and if so function called once and oldActive updated
-    useEffect(()=>{
-        if(oldActive !== active){
+    useEffect(() => {
+        if (oldActive !== active) {
             oldActive = active;
             updateActivePrompt(active);
         }
@@ -124,26 +123,26 @@ function TabGroup({updatePromptScreen}){
         const fetchData = async () => {
             setPrompts(await getBestIntents());
         }
-        
+
         fetchData().catch(console.error);
 
-    // eslint-disable-next-line
-    },[active])
+        // eslint-disable-next-line
+    }, [active])
 
     // useLayoutEffect(()=>{
 
     //     const fetchData = async () => {
     //         setPrompts(await getBestIntents);
     //     }
-        
+
     //     fetchData().catch(console.error);
     // }, []);
 
     // the active tab and chosenPrompt based on that tab selected are set
     // updatePromptScreen is called which runs in MainPage.js to re-render the page and 
     // have the active tab change result in changes to the prompt box on the right
-    function updateActivePrompt(prompt){
-        activeTab = prompt; 
+    function updateActivePrompt(prompt) {
+        activeTab = prompt;
         chosenPrompt = prompts[activeTab];
         updatePromptScreen();
     }
@@ -162,7 +161,7 @@ function TabGroup({updatePromptScreen}){
                     flexWrap: 'wrap',
                     marginTop: 30
 
-                }}> 
+                }}>
                 Your Best First Prompts:
             </p>
 
@@ -170,11 +169,11 @@ function TabGroup({updatePromptScreen}){
             <div
                 style={{
                     display: 'flex',
-                    flexDirection: 'column',                
+                    flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'left',
 
-              }}
+                }}
             >
                 {/* Define active tab functionality using onClick to set the active tab be the one selected from the list of types*/}
                 {types.map(type => (
@@ -185,7 +184,7 @@ function TabGroup({updatePromptScreen}){
                     >
                         {type}
                     </Tab>
-                    
+
                 ))}
             </div>
         </>
@@ -227,17 +226,17 @@ function TabGroup({updatePromptScreen}){
 //                 <StyledDiv>
 //                     {/* Display voiceflow logo */}
 //                     <td><img style={{ width: 182.75, height: 52.25}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
-                    
+
 //                     {/* Display tabgroup and send updatePromptScreen function as argument to update chosen prompt whenever tab is selected */}
 //                     <TabGroup updatePromptScreen={updatePromptScreen}/>
-    
+
 //                     {/* Define css attributes for div for help and reupload buttons and NLU logo */}
 //                     <div style={{ 
 //                             display: 'flex',
 //                             flexDirection: 'column',                
 //                             alignItems: 'center',
 //                             marginTop: 30}}>
-                    
+
 //                         {/* Display button that takes you back to help page */}
 //                         <Link to="/helppage">
 //                             <motion.div whileHover={{scale: 1.2}}>
@@ -246,7 +245,7 @@ function TabGroup({updatePromptScreen}){
 //                                 </Button>
 //                             </motion.div>
 //                         </Link>
-                        
+
 //                         {/* Display button that takes you back to upload page */}
 //                         <Link to="/uploadpage">
 //                             <motion.div whileHover={{scale: 1.2}}>
@@ -255,7 +254,7 @@ function TabGroup({updatePromptScreen}){
 //                                 </Button>
 //                             </motion.div>
 //                         </Link>
-    
+
 //                         {/* Display NLU logo */}
 //                         <img style={{ width: 200, height: 200, marginTop: 30}} src={NLUlogo} className="NLU-logo" alt="NLU-logo" />
 //                     </div>
@@ -268,32 +267,33 @@ function TabGroup({updatePromptScreen}){
 
 // Define the css structure of the left header
 // Has the logo, tabGroup with tabs, buttons for help and upload pages, and NLU logo at the bottom
-export default function App({updatePromptScreen}){
+export default function App({ updatePromptScreen }) {
     return (
         <>
             {/* Define css structure of header containing tabs, buttons, and logos */}
             <StyledDiv>
                 {/* Display voiceflow logo */}
-                <td><img style={{ width: 182.75, height: 52.25}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
-                
+                <td><img style={{ width: 182.75, height: 52.25 }} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
+
                 {/* Display tabgroup and send updatePromptScreen function as argument to update chosen prompt whenever tab is selected */}
-                <TabGroup updatePromptScreen={updatePromptScreen}/>
+                <TabGroup updatePromptScreen={updatePromptScreen} />
 
                 {/* Define css attributes for div for help and reupload buttons and NLU logo */}
-                <div style={{ 
-                        display: 'flex',
-                        flexDirection: 'column',                
-                        alignItems: 'center',
-                        marginTop: 30}}>
-                
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    marginTop: 30
+                }}>
+
                     {/* Display button that takes you back to help page */}
-                    <HoverButtonNoClick link={"/helppage"} text={"Help & Support"} theme={"white"} />
-                    
+                    <HoverButtonNoClick link={"/helppage"} text={"Help & Support"}  />
+
                     {/* Display button that takes you back to upload page */}
-                    <HoverButtonNoClick link={"/uploadpage"} text={"Reupload Info"} theme={"white"} />
+                    <HoverButtonNoClick link={"/uploadpage"} text={"Reupload Info"} />
 
                     {/* Display NLU logo */}
-                    <img style={{ width: 200, height: 200, marginTop: 30}} src={NLUlogo} className="NLU-logo" alt="NLU-logo" />
+                    <img style={{ width: 200, height: 200, marginTop: 30 }} src={NLUlogo} className="NLU-logo" alt="NLU-logo" />
                 </div>
             </StyledDiv>
         </>
