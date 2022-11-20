@@ -1,9 +1,9 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import MainPage from "./presentation/pages/MainPage";
-import EnablePage from "./presentation/pages/EnablePage";
-import UploadPage from "./presentation/pages/UploadPage";
-import HelpPage from "./presentation/pages/HelpPage";
-import EndPage from "./presentation/pages/EndPage"; 
+import MainPage from "../presentation/pages/MainPage";
+import EnablePage from "../presentation/pages/EnablePage";
+import UploadPage from "../presentation/pages/UploadPage";
+import HelpPage from "../presentation/pages/HelpPage";
+import EndPage from "../presentation/pages/EndPage"; 
 import React from 'react';
 
 function App() {

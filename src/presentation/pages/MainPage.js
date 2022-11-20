@@ -1,60 +1,59 @@
-import '../styles/MainPage.css';
+import '../styles/styleSheets/css//MainPage.css';
 // eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";
-import TabGroup, {Button, activeTab} from "../styles/styledComponents/StyledHeader.js";
-import StyledDots from "../styles/styledComponents/StyledDots.js";
+import TabGroup, { activeTab} from "../styles/styledComponents/StyledHeader.js";
+import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants.js";
 import {StyledRect} from "../styles/styledComponents/StyledRect.js";
 import { motion } from 'framer-motion';
+import { SidebarDots } from '../styles/framerMotionComponents/AnimatedComponents';
+import { HoverButtonClick } from '../styles/framerMotionComponents/HoverButton';
 
-// define easing for animation
-let easing = [0.6, -0.05, 0.01, 0.99];
+// // send some json data to the backend, using the text in the textbox with id textbox2 as the content
+// // eslint-disable-next-line
+// function sendTranscriptData() {
 
-// send some json data to the backend, using the text in the textbox with id textbox2 as the content
-// eslint-disable-next-line
-function sendTranscriptData() {
+//   //for debugging
+//   alert('transcript data sent');
 
-  //for debugging
-  alert('transcript data sent');
+//   //retrieve the text content from the proper textbox.
+//   var contentBody = document.getElementById("textbox2").value;
+//   var userIntent = document.getElementById("textbox4").value;
 
-  //retrieve the text content from the proper textbox.
-  var contentBody = document.getElementById("textbox2").value;
-  var userIntent = document.getElementById("textbox4").value;
+//   //the json data sent to the backend
+//   //JSON.stringify is required for fetch
+//   const fullEntry = JSON.stringify({
+//     //if i don't provide an id, mongo will create one called Object(...). IDs have to be unique!
+//     //id: "15", //constant id
+//     //id: transcriptOutput, //variable id
+//     intent: userIntent,
+//     content: contentBody,
+//     //???????
+//     //prompt: activeTab,
+//   });
 
-  //the json data sent to the backend
-  //JSON.stringify is required for fetch
-  const fullEntry = JSON.stringify({
-    //if i don't provide an id, mongo will create one called Object(...). IDs have to be unique!
-    //id: "15", //constant id
-    //id: transcriptOutput, //variable id
-    intent: userIntent,
-    content: contentBody,
-    //???????
-    //prompt: activeTab,
-  });
+//   //the type of data sent
+//   const headerData = {
+//     Accept: "application/json",
+//     "Content-Type": "application/json;charset=UTF-8",
+//   }
 
-  //the type of data sent
-  const headerData = {
-    Accept: "application/json",
-    "Content-Type": "application/json;charset=UTF-8",
-  }
+//   //create the fetch request
+//   fetch(`http://localhost:8080/api/v1/transcripts/create`, {method: "POST", headers: headerData, body: fullEntry})
+//   .then((response) => response.json())
+//   .then((data) => {
+//     console.log(data);
+//   });
 
-  //create the fetch request
-  fetch(`http://localhost:8080/api/v1/transcripts/create`, {method: "POST", headers: headerData, body: fullEntry})
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-  });
+//   //empty the textbox
+//   document.getElementById("textbox2").value = "";
+//   document.getElementById("textbox4").value = "";
 
-  //empty the textbox
-  document.getElementById("textbox2").value = "";
-  document.getElementById("textbox4").value = "";
-
-  // testing:
-  //test variable incrememntation
-  //setTranscriptOutput(transcriptOutput + 1);
-  //transcriptOutput = transcriptOutput + 1;
-}
+//   // testing:
+//   //test variable incrememntation
+//   //setTranscriptOutput(transcriptOutput + 1);
+//   //transcriptOutput = transcriptOutput + 1;
+// }
 
 // function getPrompts(){
 //   //create the fetch request
@@ -94,14 +93,15 @@ function MainPage(){
   return (
     <>
       <motion.div className="container-fluid-main"
-          initial={{ opacity: 0, height: 0}}
-          animate={{ opacity: 1, height: "100vh"}}
-          transition={{ duration: 1, ease: easing }}>
+          initial={animationConstants.containerDropIn.initial}
+          animate={animationConstants.containerDropIn.animate}
+          transition={animationConstants.containerDropIn.transition}
+          >
         {/* Seperates the left header and prompt rectangle sections side by side */}
         <div className="MainPage-col">
           {/* Define left side with the dots and tabs side by side */}
           <div className="MainPage-left-header">
-            <StyledDots/>
+            <SidebarDots i={3}/>
             <TabGroup updatePromptScreen={updatePromptScreen}/>
           </div>
 
@@ -110,11 +110,7 @@ function MainPage(){
             {/* Display rectangle that displays the chosen prompt */}
             <StyledRect/>
             {/* Define button to confirm choice */}
-            <Link to="/endpage">
-              <motion.div whileHover={{scale: 1.2}}>
-                <Button style={{fontSize: 30}} onClick={confirmChoice}>Add My Optimized First Block!</Button>
-              </motion.div>
-            </Link>
+            <HoverButtonClick clickFunction={confirmChoice} link={"/endpage"} text={"Add My Optimized First Block!"}/>
           </div>
         </div>
       </motion.div>
