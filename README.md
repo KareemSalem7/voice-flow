@@ -3,8 +3,7 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![Apache License][license-shield]][license-url]
 
 
 
@@ -63,8 +62,6 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `Voiceflow Chatbot Transcript Analyzer`, `project_description`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -147,7 +144,7 @@ See the [open issues](https://github.com/KareemSalem7/voice-flow/issues) for a f
 <!-- LICENSE -->
 ## License
 
-Distributed under the Apache License. See `LICENSE.txt` for more information.
+Distributed under the Apache License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -172,10 +169,8 @@ Distributed under the Apache License. See `LICENSE.txt` for more information.
 [stars-url]: https://github.com/KareemSalem7/voice-flow/stargazers
 [issues-shield]: https://img.shields.io/github/issues/KareemSalem7/voice-flow.svg?style=for-the-badge
 [issues-url]: https://github.com/KareemSalem7/voice-flow/issues
-[license-shield]: https://img.shields.io/github/license/KareemSalem7/voice-flow.svg?style=for-the-badge
-[license-url]: https://github.com/KareemSalem7/voice-flow/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
+[license-shield]: https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=for-the-badge&logo
+[license-url]: https://github.com/KareemSalem7/voice-flow/blob/master/LICENSE
 [product-screenshot]: images/screenshot.png
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
