@@ -2,12 +2,14 @@
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import { motion } from "framer-motion";
 import '../styles/styleSheets/sass/EnablePage.scss'
+import { logoString } from '../assets/LogoURL.js';
 import React from 'react';
 import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants"
 import { AnimatedLogo, AnimatedTitle, DrawTextBubble, SidebarDots } from '../styles/framerMotionComponents/AnimatedComponents'
 
 function EnablePage() {
   const curly = "{}"
+  const image = '<motion.img src={NLUlogo} alt="NLUlogo" height="100vh" variants={animationConstants.animateNLU} />'
   return (
 
     <motion.div className="container-fluid"

@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import * as animationConstants from "./AnimationConstants.js";
-import NLUlogo from '../../assets/NLULogoTransparentWhite.png';
+import {logoString} from '../../assets/LogoURL.js';
 import '../styleSheets/sass//EnablePage.scss';
 import '../styleSheets/sass/StyledHeader.scss'
 import '../styleSheets/css/UploadPage.css'
 import { Component, React } from "react";
 import styled from 'styled-components';
+import { render } from "@testing-library/react";
 
 // set the div containing the styled dots to have a width of 5
 const StyledDiv = styled.div`
@@ -16,7 +17,7 @@ const StyledDiv = styled.div`
 export function AnimatedLogo() {
   return (
     <motion.div className="pos_abs top_nav" variants={animationConstants.stagger}>
-      <motion.img src={NLUlogo} alt="NLUlogo" height="100vh" variants={animationConstants.animateNLU} />
+      <motion.img src={logoString} alt="NLUlogo" height="100vh" variants={animationConstants.animateNLU} />
     </motion.div>)
 }
 
@@ -63,8 +64,8 @@ export function SidebarDots(props) {
   if (props.i === 1) {
     // Sidebar dots for the first page - EnablePage.js
     return (
-      <motion.div className="dots" variants={animationConstants.stagger}>
-        <motion.span className="active" variants={animationConstants.sidebarDots}></motion.span>
+      <motion.div className="dots" variants={animationConstants.stagger} data-testid="sidebar-upload">
+        <motion.span className="active" variants={animationConstants.sidebarDots} data-testid="active-dot"></motion.span>
         <motion.span variants={animationConstants.sidebarDots}></motion.span>
         <motion.span variants={animationConstants.sidebarDots}></motion.span>
       </motion.div>
@@ -75,7 +76,7 @@ export function SidebarDots(props) {
     return (
       <motion.div className="dots" variants={animationConstants.stagger}>
         <motion.span variants={animationConstants.sidebarDots2}></motion.span>
-        <motion.span className="active" variants={animationConstants.sidebarDots2}></motion.span>
+        <motion.span className="active" variants={animationConstants.sidebarDots2} data-testid="active-dot"></motion.span>
         <motion.span variants={animationConstants.sidebarDots2}></motion.span>
       </motion.div>)
   }
@@ -90,10 +91,10 @@ export function SidebarDots(props) {
         <motion.div className="wrapper" initial='initial' animate='animate'>
           <motion.div className="content_left" variants={animationConstants.stagger}>
             {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
-            <motion.div className="dots-main" variants={animationConstants.stagger}>
+            <motion.div className="dots-main" variants={animationConstants.stagger} data-testid="sidebar-upload">
               <motion.span variants={animationConstants.sidebarDots}></motion.span>
               <motion.span variants={animationConstants.sidebarDots}></motion.span>
-              <motion.span className="active" variants={animationConstants.sidebarDots}></motion.span>
+              <motion.span className="active" variants={animationConstants.sidebarDots} data-testid="active-dot"></motion.span>
             </motion.div>
           </motion.div>
         </motion.div>
