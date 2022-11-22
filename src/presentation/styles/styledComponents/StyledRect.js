@@ -13,6 +13,12 @@ export const StyledRect = () => (
         <InnerRect className="container" style={innerTextStyle}>
             { chosenPrompt }
         </InnerRect>
+        <InnerRect className="container" style={innerTextStyle}>
+            { chosenPrompt }
+        </InnerRect>
+        <InnerRect className="container" style={innerTextStyle}>
+            { chosenPrompt }
+        </InnerRect>
     </OutterRect>
 );
  

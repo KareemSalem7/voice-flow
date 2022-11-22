@@ -8,12 +8,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants.js";
 import { React, useState } from 'react';
 //added by martin for sending api to backend
-import { sendApi } from '../../controllers/UserRequests.js';
+import { sendUserInfo} from '../../controllers/UserRequests.js';
 import { SidebarDots, AnimatedInput } from '../styles/framerMotionComponents/AnimatedComponents'
 
 function UploadPage() {
   const [api, setapi] = useState(false);
   const [ver, setver] = useState(false);
+  const [email, setemail] = useState(false);
+  const [pass, setpass] = useState(false);
+  const [diag, setdiag] = useState(false);
+  
 //   const apiVal = false;
 //   const verVal = false;
   // function InputCheck() {
@@ -56,6 +60,7 @@ function UploadPage() {
                   {/* <AnimatedInput text={"API Key"} id={"apiKey"} /> */}
                   <motion.div variants={animationConstants.fadeInUp}>
 
+
                     {/* Version ID input box. */}
                     <div class="form-group">
                       <input type="text" class="form-control" id="versionID" aria-describedby="versionID" placeholder="Version ID" onChange={() => setver(!(document.getElementById("versionID") === ""))} required />
@@ -66,6 +71,38 @@ function UploadPage() {
                   </motion.div>
                   {/* <AnimatedInput text={"Version ID"} id={"versionID"} /> */}
                 </div>
+                <div class="col-md-6">
+
+                  {/* Email Address input box. */}
+                  <motion.div variants={animationConstants.fadeInUp}>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="emailAddress" aria-describedby="emailAddress" placeholder="Email Address" onChange={() => setemail(!(document.getElementById("emailAddress") === ""))} required />
+                      <label for="emailAddress">Email Address</label>
+                    </div>
+                  </motion.div>
+                  {/* <AnimatedInput text={"Email Address"} id={"emailAddress"} /> */}
+
+                  {/* Password input box. */}
+                  <motion.div variants={animationConstants.fadeInUp}>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="password" aria-describedby="password" placeholder="Password" onChange={() => setpass(!(document.getElementById("password") === ""))} required />
+                      <label for="password">Password</label>
+                    </div>
+                  </motion.div>
+                  {/* <AnimatedInput text={"Password"} id={"password"} /> */}
+
+                  {/* Diagram ID input box. */}
+                  <motion.div variants={animationConstants.fadeInUp}>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="diagramID" aria-describedby="diagramID" placeholder="Diagram ID" onChange={() => setdiag(!(document.getElementById("diagramID") === ""))} required />
+                      <label for="password">Diagram ID</label>
+                    </div>
+                  </motion.div>
+                  {/* <AnimatedInput text={"Diagram ID"} id={"diagramID"} /> */}
+
+
+                </div>
+
 
                 {/* Submit button. */}
                 <div>
@@ -75,8 +112,8 @@ function UploadPage() {
                     <button type="submit" class=" btn btn-get">
 
                       {(api && ver) ? (
-                        <Link to="/mainpage" style={{ textCol: "white" }} onClick={sendApi}><span> Submit Now!</span></Link>
-                      ) : (
+                        <Link to="/mainpage" style={{ textCol: "white" }} onClick={sendUserInfo}><span> Submit Now!</span></Link>
+                        ) : (
                         <span> Submit Now!</span>
                       )}
 

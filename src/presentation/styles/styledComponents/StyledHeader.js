@@ -9,7 +9,11 @@ import { Tab, StyledDiv } from './StyledConstants';
 import { getBestIntents } from '../../../controllers/UserRequests';
 
 // Define the list of types that serve as the selection of tabs on the left
-export var types = ['Option A', 'Option B', 'Option C'];
+//export var types = ['Option A', 'Option B', 'Option C'];
+
+export var types = ['Option A', 'Option B'];
+
+
 
 // Define the dictionary of prompts that map each tab to the selected prompt
 // martin note: should this even be exported?
@@ -77,7 +81,7 @@ export var types = ['Option A', 'Option B', 'Option C'];
 // Set a default list of prompts tbd: update these to be based on back-end
 export var activeTab = "Option A";
 // i believe this is the most accurate starting prompt, and the code probably will not break.
-export var chosenPrompt = "Loading Option A...";
+export var chosenPrompt = "Loading Options ...";
 //export var chosenPrompt = prompts[activeTab];
 // Keeps track of old prompt to be changed with tab changes
 var oldActive = "Option A";
@@ -107,10 +111,10 @@ var oldActive = "Option A";
 // Switch tab functionality that allows user to tab between different 
 function TabGroup({ updatePromptScreen }) {
     const [active, setActive] = useState(types[0]);
-    const [prompts, setPrompts] = useState(
-        { "Option A": "Loading Option A...", "Option B": "Loading Option B...", "Option C": "Loading Option C..." });
     // const [prompts, setPrompts] = useState(
-    //     {"Option A": "Defaulto Intento 1", "Option B": "Defaulto Intento 2", "Option C": "Defaulto Intento 3"});
+    //     { "Option A": "Loading Option ...", "Option B": "Loading Option B...", "Option C": "Loading Option C..." });
+    const [prompts, setPrompts] = useState(
+        {"Hello, here are some things I can help you with:": "Loading Options ...", "Hi, here are some things I can help you with:": "Loading Options ..."});
 
     // limits updateActivePrompt to be called only once when the active tab is changed
     // oldActive checks to see if the active tab has been changed and if so function called once and oldActive updated

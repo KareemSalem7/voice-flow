@@ -25,13 +25,13 @@ export const InnerRect = styled.div`
 // define css properties for outter text
 export const outterTextStyle = {
     color: '#6c7c91',
-    fontSize: 50,
+    fontSize: 40,
 };
 
 // define css properties for inner text
 export const innerTextStyle = {
     color: '#6c7c91',
-    fontSize: 40,
+    fontSize: 30,
     marginTop: 40
 };
 
