@@ -6,14 +6,17 @@ import NLUlogo from '../../assets/NLULogoTransparent.png';
 import { HoverButtonNoClick } from '../framerMotionComponents/HoverButton';
 import { Tab, StyledDiv } from './StyledConstants';
 
-import { getBestIntents } from '../../../controllers/UserRequests';
+import { getBestIntents, getDefaultIntents } from '../../../controllers/UserRequests';
 
 // Define the list of types that serve as the selection of tabs on the left
 //export var types = ['Option A', 'Option B', 'Option C'];
 
-export var types = ['Option A', 'Option B'];
+//This is the type of the voiceflow blocks
+export var types = ["Option A", "Option B"];
 
-
+//TEMPORARY FIX TO CALL GET REQUEST ONCE (no classes): 
+//Variable might need to be a use state variable to work properly 
+var getRequestCalled = false; 
 
 // Define the dictionary of prompts that map each tab to the selected prompt
 // martin note: should this even be exported?
@@ -79,12 +82,12 @@ export var types = ['Option A', 'Option B'];
 // };
 
 // Set a default list of prompts tbd: update these to be based on back-end
-export var activeTab = "Option A";
+export var activeTab = types[0];
 // i believe this is the most accurate starting prompt, and the code probably will not break.
-export var chosenPrompt = "Loading Options ...";
+export var chosenPrompt = ["Loading Option 1 ...", "Loading Option 2 ...", "Loading Option 3 ..."];
 //export var chosenPrompt = prompts[activeTab];
 // Keeps track of old prompt to be changed with tab changes
-var oldActive = "Option A";
+var oldActive = types[0];
 
 // Set css attributes of each styled tab, changes look when it is active
 // const Tab = styled.button`
@@ -111,10 +114,10 @@ var oldActive = "Option A";
 // Switch tab functionality that allows user to tab between different 
 function TabGroup({ updatePromptScreen }) {
     const [active, setActive] = useState(types[0]);
-    // const [prompts, setPrompts] = useState(
-    //     { "Option A": "Loading Option ...", "Option B": "Loading Option B...", "Option C": "Loading Option C..." });
     const [prompts, setPrompts] = useState(
-        {"Hello, here are some things I can help you with:": "Loading Options ...", "Hi, here are some things I can help you with:": "Loading Options ..."});
+        { [types[0]]: ["Loading Option A1...", "Loading Option A2...", "Loading Option A3..."], [types[1]]: ["Loading Option B1...", "Loading Option B2...","Loading Option B3..." ]});
+    // const [prompts, setPrompts] = useState(
+    //     {"Option A": "Defaulto Intento 1", "Option B": "Defaulto Intento 2", "Option C": "Defaulto Intento 3"});
 
     // limits updateActivePrompt to be called only once when the active tab is changed
     // oldActive checks to see if the active tab has been changed and if so function called once and oldActive updated
@@ -124,12 +127,20 @@ function TabGroup({ updatePromptScreen }) {
             updateActivePrompt(active);
         }
 
-        const fetchData = async () => {
-            setPrompts(await getBestIntents());
+        if (!getRequestCalled){
+            
+            const fetchData = async () => {
+                var intents = await getDefaultIntents();
+                setPrompts({[types[0]]:intents[0], [types[1]]:intents[1]});
+            }
+
+            fetchData().catch(console.error);
+
+            getRequestCalled = true;
         }
 
-        fetchData().catch(console.error);
-
+        
+        
         // eslint-disable-next-line
     }, [active])
 

@@ -139,20 +139,18 @@ export async function getBestIntents(){
   // apparently this has to be initialized to a certain type, or else an error is caused.
   // this way, i can change the value in the .then below i think
   // scratch that, its just the .then scope is screwing up.
-  var intents = [["default intent 1", "default intent 2", "default intent 3"]["default intent 1", "default intent 2", "default intent 3"]];
+  var intents = ["default intent 1", "default intent 2", "default intent 3"];
 
   //create the fetch request
   //use threeIntents for now. Hopefully in the future it will be a new getBestIntents controller.
-  
-  
-  // intents = await
-  // fetch(`http://localhost:8080/api/v1/transcripts/threeIntents`, {method: "GET", headers: headerData})
-  // .then((response) => response.json())
-  // .then((data) => {
-  //   //intents = data;
-  //   console.log(data);
-  //   return data;
-  // });
+  intents = await
+  fetch(`http://localhost:8080/api/v1/transcripts/threeIntents`, {method: "GET", headers: headerData})
+  .then((response) => response.json())
+  .then((data) => {
+    //intents = data;
+    console.log(data);
+    return data;
+  });
 
   // more debugging, shows that intents has a promise, which is the return above.
   console.log(intents);
@@ -160,18 +158,26 @@ export async function getBestIntents(){
   // set intents to its own promise:
   //intents = intents.then((data) => {return data;});
 
+  // more debugging, shows that intents has a promise, which is the return above.
+  console.log(intents);
+
+
+
   // still have to handle bad data here, or in the backend at least. Whatever is cleaner
 
   //for now, make a dict with keys like Option A, etc.
 
-  //var newIntents = {"Option A": intents[0], "Option B": intents[1], "Option C": intents[2]};
-  
-  var newIntents = {"Option A": intents[0][0], "Option B": intents[1][0]};
-
-  //var newIntents = {"Option A": ()=> {intents[0][0],intents[0][1],intents[0][2]}, "Option B":() => {intents[1][0],intents[1][1],intents[1][2]}};
+  var newIntents = {"Option A": intents[0], "Option B": intents[1], "Option C": intents[2]};
 
   console.log(newIntents);
 
   // i wonder if i could just return intents in the .then statement instead of declaring a variable and modifying it to do this.
   return newIntents;
+}
+
+export async function getDefaultIntents(){
+
+  var intents = [["default intent A1", "default intent A2", "default intent A3"],["default intent B1", "default intent B2", "default intent B3"]];
+
+  return intents;
 }
