@@ -16,6 +16,8 @@
 
 <h3 align="center">Voiceflow Chatbot Transcript Analyzer</h3>
 
+<h4 align="center">By Team N.L.U. - <b>N</b>atural <b>L</b>eaders <b>U</b>nited</h4>
+
   <p align="center">
     The aim of our project is to access the transcript data of pre-existing chatbots from within Voiceflow using the API, and to parse and analyze this data to return suggestions for strong starting suggestions for customer chatbots!
     <br />
@@ -50,20 +52,23 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+
   </ol>
 </details>
 
+<!--     <li><a href="#acknowledgments">Acknowledgments</a></li> -->
 
 
-<!-- ABOUT THE PROJECT 
+
+<!-- ABOUT THE PROJECT-->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+The aim of this project is to take users' pre-built chatbots on the Voiceflow platform and to parse and analyze their transcripts in order to offer suggestions for starting nodes (i.e., the initial message). We generate these suggesstion based on a variety of metrics, from the overall frequency of intents to the rate at which they appear at lead nodes (i.e., the end of an interaction). Users will then have to option to sort through these suggestions and, should they resonate with any, choose to have it automatically inserted into their Voiceflow canvas.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -133,22 +138,6 @@ NOTE: You will also need to have the backend repository running locally on your 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- ROADMAP 
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/rumncoke-ai/Team-NLU-Voiceflow-Extension/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
-
-
-
 <!-- LICENSE -->
 ## License
 
@@ -158,14 +147,14 @@ Distributed under the Apache License. See `LICENSE` for more information.
 
 
 
-<!-- ACKNOWLEDGMENTS -->
+<!-- ACKNOWLEDGMENTS 
 ## Acknowledgments
 
 * []()
 * []()
 * []()
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
@@ -176,7 +165,7 @@ Distributed under the Apache License. See `LICENSE` for more information.
 [stars-shield]: https://img.shields.io/github/stars/KareemSalem7/voice-flow.svg?style=for-the-badge
 [stars-url]: https://github.com/KareemSalem7/voice-flow/stargazers
 [issues-shield]: https://img.shields.io/github/issues/KareemSalem7/voice-flow.svg?style=for-the-badge
-[issues-url]: https://github.com/KareemSalem7/voice-flow/issues
+[issues-url]: https://github.com/rumncoke-ai/Team-NLU-Voiceflow-Extension/graphs/issues
 [license-shield]: https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=for-the-badge&logo
 [license-url]: https://github.com/KareemSalem7/voice-flow/blob/master/LICENSE
 [product-screenshot]: images/screenshot.png
