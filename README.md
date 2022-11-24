@@ -19,7 +19,7 @@
 <h4 align="center">By Team N.L.U. - <b>N</b>atural <b>L</b>eaders <b>U</b>nited</h4>
 
   <p align="center">
-    The aim of our project is to access the transcript data of pre-existing chatbots from within Voiceflow using the API, and to parse and analyze this data to return suggestions for strong starting suggestions for customer chatbots!
+    The aim of our project is to access the transcript data of pre-existing chatbots from within Voiceflow using the API, and to parse and analyze this data to return strong starter-node suggestions for customer chatbots!
     <br />
     <a href="https://github.com/KareemSalem7/voice-flow"><strong>Explore the docs »</strong></a>
     <br />
@@ -64,7 +64,7 @@
 <!-- ABOUT THE PROJECT-->
 ## About The Project
 
-The aim of this project is to take users' pre-built chatbots on the Voiceflow platform and to parse and analyze their transcripts in order to offer suggestions for starting nodes (i.e., the initial message). We generate these suggesstion based on a variety of metrics, from the overall frequency of intents to the rate at which they appear at lead nodes (i.e., the end of an interaction). Users will then have to option to sort through these suggestions and, should they resonate with any, choose to have it automatically inserted into their Voiceflow canvas.
+The aim of this project is to take users' pre-built chatbots on the Voiceflow platform and to parse and analyze their transcripts in order to offer suggestions for starting nodes (i.e., the initial message). We generate these suggestions based on a variety of metrics, from the overall frequency of intents to the rate at which they appear at leaf nodes (i.e., the end of an interaction). Users will then have the option to sort through these suggestions and, should they resonate with any, choose to have it automatically inserted into their Voiceflow canvas.
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
@@ -76,6 +76,12 @@ The aim of this project is to take users' pre-built chatbots on the Voiceflow pl
 
 * [![React][React.js]][React-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![Sass][Sass.com]][Sass-url]
+* [![Npm][Npm.com]][Npm-url]
+* [![styledcomponents][styled-components.com]][styled-components-url]
+* [![Jest][Jest.com]][Jest-url]
+* [![Netlify][Netlify.com]][Netlify-url]
+* [![Babel][Babel.com]][Babel-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -173,3 +179,16 @@ Distributed under the Apache License. See `LICENSE` for more information.
 [React-url]: https://reactjs.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
+[Sass.com]: https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white
+[Sass-url]: https://sass-lang.com/
+[Npm.com]: https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white
+[Npm-url]: https://www.npmjs.com/
+[Jest.com]: https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white
+[Jest-url]: https://jestjs.io/
+[Netlify.com]: https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white
+[Netlify-url]: https://www.netlify.com/
+[Babel.com]: https://img.shields.io/badge/Babel-F9DC3E?style=for-the-badge&logo=babel&logoColor=white
+[Babel-url]: https://babeljs.io/
+[styled-components.com]: https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styled-components&logoColor=white
+[styled-components-url]: https://styled-components.com/
+
