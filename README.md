@@ -22,9 +22,9 @@
     <a href="https://github.com/KareemSalem7/voice-flow"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/KareemSalem7/voice-flow">View Demo</a>
+    <a href="https://www.voiceflow.com/">Check Out Voiceflow</a>
     ·
-    <a href="https://github.com/KareemSalem7/voice-flow/issues">Report Bug</a>
+    <a href="https://github.com/users/rumncoke-ai/projects/1">View Kanban Board</a>
     ·
     <a href="https://github.com/rumncoke-ai/Team-NLU-Voiceflow-Extension"> See the Backend</a>
   </p>
@@ -58,12 +58,12 @@
 
 
 
-<!-- ABOUT THE PROJECT -->
+<!-- ABOUT THE PROJECT 
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
 
 
@@ -116,14 +116,22 @@ Here are the prerequisites required to run this project:
 
 
 
-<!-- USAGE EXAMPLES 
+<!-- USAGE EXAMPLES--> 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+How to Use:
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+NOTE: You will also need to have the backend repository running locally on your machine in order to see the full-functionality of the application.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
+1.) On the landing page, click “Analyze My Chatbot!”
+
+2.) Enter the requested information into the subsequent form. Click on “Submit” when done.
+
+3.) From the main page, you will be able to see the suggested prompts generated from the information you submitted. You can click on “Re-upload Information” to return to the previous page, “Help” for further information, or on “Generate My Prompt” to have a block generated on your Voiceflow canvas (IPR) and be taken to the end page.
+
+<!--_For more examples, please refer to the [Documentation](https://example.com)_-->
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -135,7 +143,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ] Feature 3
     - [ ] Nested Feature
 
-See the [open issues](https://github.com/KareemSalem7/voice-flow/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/rumncoke-ai/Team-NLU-Voiceflow-Extension/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
