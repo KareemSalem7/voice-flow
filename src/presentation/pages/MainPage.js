@@ -50,12 +50,14 @@ function MainPage(){
           </div>
 
           {/* Define the right side with rectangle containing chosen prompt */}
+          
           <div className="MainPage-right-content">
             {/* Display rectangle that displays the chosen prompt */}
             <StyledRect/>
             {/* Define button to confirm choice */}
             <HoverButtonClick clickFunction={confirmChoice} link={"/endpage"} text={"Add My Optimized First Block!"}/>
           </div>
+        
         </div>
       </motion.div>
     </>
