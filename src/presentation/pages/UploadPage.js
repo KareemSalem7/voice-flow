@@ -104,8 +104,10 @@ function UploadPage() {
                   <div>
 
                     <button type="submit" class=" btn btn-get" data-testid="button-test">
+                      {/* CHANGE MADE BY RUMAISA: added "&& email ... && diag" */}
 
-                      {(api && ver) ? (
+
+                      {(api && ver && email && pass & diag) ? (
                         <Link to="/mainpage" style={{ textCol: "white" }} onClick={sendUserInfo}><span> Submit Now!</span></Link>
                         ) : (
                         <span> Submit Now!</span>

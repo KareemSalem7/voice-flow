@@ -53,7 +53,7 @@ function TabGroup({ updatePromptScreen }) {
         if (!getRequestCalled){
             
             const fetchData = async () => {
-                var intents = await getDefaultIntents();
+                var intents = await getBestIntents();
                 setPrompts({[types[0]]:intents[0], [types[1]]:intents[1]});
             }
 
