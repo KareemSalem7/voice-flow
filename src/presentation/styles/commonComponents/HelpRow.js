@@ -5,7 +5,7 @@ export function HelpText() {
     return (
         <div>
             {/* Display the paragraph for explaining how prompt suggester develops best first prompts*/}
-            <div className="Help-row">
+            <div className="Help-row" data-testid="Help-row-test">
                 <p style={{ margin: 0 }}>Analyzing My Chatbot’s Transcripts to Find the Best First Chatbot Message:</p>
                 <dot>1. First, please enter your voiceflow API key and version ID into the appropriate fields, so we can locate your chatbot. </dot>
                 <dot>2. Voiceflow will automatically compile transcripts from it's database and determine best first prompts curated to your situation. </dot>

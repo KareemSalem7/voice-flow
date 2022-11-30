@@ -17,13 +17,7 @@ function UploadPage() {
   const [email, setemail] = useState(false);
   const [pass, setpass] = useState(false);
   const [diag, setdiag] = useState(false);
-  
-//   const apiVal = false;
-//   const verVal = false;
-  // function InputCheck() {
-  //  setver(!(document.getElementsByTagName('AnimatedInput')[1] === ""))
-  //  setapi(!(document.getElementsByTagName('AnimatedInput')[0] === ""))
-  // }
+
   return (
     <div className="main_container">
       <section class="ready__started project__form">
@@ -53,7 +47,7 @@ function UploadPage() {
                   {/* API input box. */}
                   <motion.div variants={animationConstants.fadeInUp}>
                     <div class="form-group">
-                      <input type="text" class="form-control" id="apiKey" aria-describedby="apiKey" placeholder="API Key" onChange={() => setapi(!(document.getElementById("apiKey") === ""))} required />
+                      <input type="text" class="form-control" id="apiKey" aria-describedby="apiKey" placeholder="API Key" onInput={() => setapi(!(document.getElementById("apiKey") === ""))} onChange={() => setapi(!(document.getElementById("apiKey") === ""))} required />
                       <label for="apiKey">API Key</label>
                     </div>
                   </motion.div>
@@ -63,7 +57,7 @@ function UploadPage() {
 
                     {/* Version ID input box. */}
                     <div class="form-group">
-                      <input type="text" class="form-control" id="versionID" aria-describedby="versionID" placeholder="Version ID" onChange={() => setver(!(document.getElementById("versionID") === ""))} required />
+                      <input type="text" class="form-control" id="versionID" aria-describedby="versionID" placeholder="Version ID" onInput={() => setver(!(document.getElementById("versionID") === ""))} onChange={() => setver(!(document.getElementById("versionID") === ""))} required />
                       <label for="versionID">Version ID</label>
                     </div>
                     <div class="col-md-6">
@@ -109,7 +103,7 @@ function UploadPage() {
 
                   <div>
 
-                    <button type="submit" class=" btn btn-get">
+                    <button type="submit" class=" btn btn-get" data-testid="button-test">
 
                       {(api && ver) ? (
                         <Link to="/mainpage" style={{ textCol: "white" }} onClick={sendUserInfo}><span> Submit Now!</span></Link>
@@ -129,7 +123,9 @@ function UploadPage() {
             <motion.div className="content_left" variants={animationConstants.stagger}>
 
               {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
-              <SidebarDots i={2} />
+              <div data-testid="sidebar-upload">
+              <SidebarDots i={2}/>
+              </div>
             </motion.div>
           </motion.div>
         </motion.div>

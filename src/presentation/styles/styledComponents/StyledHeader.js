@@ -25,61 +25,6 @@ var getRequestCalled = false;
 // 'Option B': 'The Fishing Boots your looking for can be found under shoes', 
 // 'Option C': 'Would you like to get to extend your plan or switch plans?'};
 
-// Define the styled header for the left header cotaining the tabs
-// const StyledDiv = styled.div`
-//     background-color: #1fc8db;
-//     background-image: linear-gradient(180deg, #5784e4 0%, #633366 50%, #3f1243 75%);
-//     display: left;
-//     padding: 20px;
-//     flex-direction: column;
-//     height: 100vh;
-    
-//     color: ${(props) => props.color};
-
-//     p {
-//         font-size: 30px;
-//         color: white;
-//     }
-// `;
-
-// // different color themes we can set our buttons to
-// const theme = {
-//     blue: {
-//         default: '#3c6cd7',
-//         hover: '#3460c4'
-//     },
-//     white: {
-//         default: '#808080',
-//         hover: '#3c6cd7'
-//     }
-// }
-
-// //Set css attributes for a button including hover which makes it tinted and disabled (opaque look)
-// export const Button = styled.button`
-//     background-color: ${props => theme[props.theme].default};
-//     color: white;
-//     padding: 5px 15px;
-//     border-radius: 5px;
-//     border: none;
-//     outline: 0;
-//     text-transform: uppercase;
-//     margin: 10px 0px;
-//     font-size: 30px;
-//     cursor: pointer;
-//     transition: ease background-color 250ms;
-//     &:hover {
-//         background-color: ${props => theme[props.theme].hover};
-//     }
-//     &:disabled {
-//         cursor: default;
-//         opacity: 0.7;
-//     }
-// `;
-
-// // Set the default look of a button to blue theme
-// Button.defaultProps = {
-//     theme: "blue"
-// };
 
 // Set a default list of prompts tbd: update these to be based on back-end
 export var activeTab = types[0];
@@ -88,28 +33,6 @@ export var chosenPrompt = ["Loading Option 1 ...", "Loading Option 2 ...", "Load
 //export var chosenPrompt = prompts[activeTab];
 // Keeps track of old prompt to be changed with tab changes
 var oldActive = types[0];
-
-// Set css attributes of each styled tab, changes look when it is active
-// const Tab = styled.button`
-//     display: flex;
-//     color: white;
-//     padding: 20px 30px;
-//     cursor: pointer;y
-//     opacity: 0.6;
-//     background: transparent;
-//     border: 0;
-//     outline: 0;
-//     border-bottom: 2px solid transparent;
-//     transition: ease border-bottom 250ms;
-//     font-size: 30px;
-    
-//     ${({ active }) =>
-//         active &&
-//         `
-//         border-bottom:2px solid white;
-//         opacity: 1;
-//     `}
-// `;
 
 // Switch tab functionality that allows user to tab between different 
 function TabGroup({ updatePromptScreen }) {
@@ -302,10 +225,10 @@ export default function App({ updatePromptScreen }) {
                 }}>
 
                     {/* Display button that takes you back to help page */}
-                    <HoverButtonNoClick link={"/helppage"} text={"Help & Support"}  />
+                    <HoverButtonNoClick link={"/helppage"} text={"Help & Support"}  data-testid="help-button"/>
 
                     {/* Display button that takes you back to upload page */}
-                    <HoverButtonNoClick link={"/uploadpage"} text={"Reupload Info"} />
+                    <HoverButtonNoClick link={"/uploadpage"} text={"Reupload Info"} data-testid="upload-button"/>
 
                     {/* Display NLU logo */}
                     <img style={{ width: 200, height: 200, marginTop: 30 }} src={NLUlogo} className="NLU-logo" alt="NLU-logo" />
