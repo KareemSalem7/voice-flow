@@ -13,6 +13,8 @@ const headerData = {
   Accept: "application/json",
   "Content-Type": "application/json;charset=UTF-8",
 }
+
+
 export function sendUserInfo() {
   //for debugging
   //alert('api sent');
@@ -180,4 +182,34 @@ export async function getDefaultIntents(){
   var intents = [["default intent A1", "default intent A2", "default intent A3"],["default intent B1", "default intent B2", "default intent B3"]];
 
   return intents;
+}
+
+
+// create a new block on voiceflow by calling the backend. consider moving this elsewhere
+export function createVFBlock(intents){
+
+  // note: for the entry here, I am currently giving the names of the variables in the body the same key names as those
+  // in the corresponding backend controller used to generate and pass in objects. i.e. intent1 is for String intent1, and 
+  // emailAddress is for setting the emailAddress instance attribute of Account account
+  // Currently, i am also preserving the order of entries, too
+  const fullEntry = JSON.stringify({
+    //if i don't provide an id, mongo will create one called Object(...). IDs have to be unique!
+    //id: "15", //constant id
+    //id: transcriptOutput, //variable id
+    emailAddress: "molly.plunkett@mail.utoronto.ca",
+    password: "TLICKMMR2022",
+    diagramID: "636ad5bf6ca8dfcaff607013",
+    intent1: intents[0],
+    intent2: intents[1],
+    intent3: intents[2]
+  });
+
+
+  //create the fetch request
+  fetch(`http://localhost:8080/api/v1/transcripts/createBlock`, {method: "POST", headers: headerData, body: fullEntry})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  });
+
 }

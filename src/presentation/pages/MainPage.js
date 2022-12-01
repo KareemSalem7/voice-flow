@@ -2,12 +2,13 @@ import '../styles/styleSheets/css//MainPage.css';
 // eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import React, {useState} from "react";
-import TabGroup, { activeTab} from "../styles/styledComponents/StyledHeader.js";
+import TabGroup, { chosenPrompt, activeTab } from "../styles/styledComponents/StyledHeader.js";
 import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants.js";
 import {StyledRect} from "../styles/styledComponents/StyledRect.js";
 import { motion } from 'framer-motion';
 import { SidebarDots } from '../styles/framerMotionComponents/AnimatedComponents';
 import { HoverButtonClick } from '../styles/framerMotionComponents/HoverButton';
+import { createVFBlock } from '../../controllers/UserRequests';
 
 /* define main page function 
 Page responsible for displaying the 3 prompt choices and allowing user to flip through and select one
@@ -23,8 +24,12 @@ function MainPage(){
   }
   
   //send alert to inform user of confirmed choice when confirm button is pressed
-  function confirmChoice(){ 
+  // consider just directly calling createVFBlock instead of confirm choice down below. Though, this might be more practical for adding
+  // more local features
+  function confirmChoice(intents){ 
     alert(activeTab + " Selected!");
+
+    createVFBlock(intents);
   }
   
   //react hook function to update the selected prompt rectangle on the view
@@ -55,7 +60,7 @@ function MainPage(){
             {/* Display rectangle that displays the chosen prompt */}
             <StyledRect/>
             {/* Define button to confirm choice */}
-            <HoverButtonClick clickFunction={confirmChoice} link={"/endpage"} text={"Add My Optimized First Block!"}/>
+            <HoverButtonClick clickFunction={confirmChoice(chosenPrompt)} link={"/endpage"} text={"Add My Optimized First Block!"}/>
           </div>
         
         </div>
