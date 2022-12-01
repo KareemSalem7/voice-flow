@@ -28,7 +28,7 @@ function MainPage(){
   // more local features
   function confirmChoice(intents){ 
     alert(activeTab + " Selected!");
-
+    //alert(intents[0]);
     createVFBlock(intents);
   }
   
@@ -60,7 +60,7 @@ function MainPage(){
             {/* Display rectangle that displays the chosen prompt */}
             <StyledRect/>
             {/* Define button to confirm choice */}
-            <HoverButtonClick clickFunction={confirmChoice(chosenPrompt)} link={"/endpage"} text={"Add My Optimized First Block!"}/>
+            <HoverButtonClick clickFunction={() => confirmChoice(chosenPrompt)} link={"/endpage"} text={"Add My Optimized First Block!"}/>
           </div>
         
         </div>

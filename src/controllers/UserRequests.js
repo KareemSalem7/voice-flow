@@ -187,7 +187,6 @@ export async function getDefaultIntents(){
 
 // create a new block on voiceflow by calling the backend. consider moving this elsewhere
 export function createVFBlock(intents){
-
   // note: for the entry here, I am currently giving the names of the variables in the body the same key names as those
   // in the corresponding backend controller used to generate and pass in objects. i.e. intent1 is for String intent1, and 
   // emailAddress is for setting the emailAddress instance attribute of Account account
@@ -196,9 +195,9 @@ export function createVFBlock(intents){
     //if i don't provide an id, mongo will create one called Object(...). IDs have to be unique!
     //id: "15", //constant id
     //id: transcriptOutput, //variable id
-    emailAddress: "molly.plunkett@mail.utoronto.ca",
-    password: "TLICKMMR2022",
-    diagramID: "636ad5bf6ca8dfcaff607013",
+    emailAddress: "0",
+    password: "0",
+    diagramID: "0",
     intent1: intents[0],
     intent2: intents[1],
     intent3: intents[2]
