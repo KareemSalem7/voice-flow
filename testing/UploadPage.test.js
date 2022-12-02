@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import UploadPage from '../src/presentation/pages/UploadPage.js';
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'

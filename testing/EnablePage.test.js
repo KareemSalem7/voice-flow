@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import EnablePage from '../src/presentation/pages/EnablePage.js';
 import { render, screen, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'
