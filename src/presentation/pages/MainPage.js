@@ -8,6 +8,7 @@ import {StyledRect} from "../styles/styledComponents/StyledRect.js";
 import { motion } from 'framer-motion';
 import { SidebarDots } from '../styles/framerMotionComponents/AnimatedComponents';
 import { HoverButtonClick } from '../styles/framerMotionComponents/HoverButton';
+import Modal from '../styles/framerMotionComponents/Modal.js'
 
 /* define main page function 
 Page responsible for displaying the 3 prompt choices and allowing user to flip through and select one
@@ -34,8 +35,10 @@ function MainPage(){
     return () => setValue(value => value + 1); // update state to force render
     // increment the previous state to update the view 
   }
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
+    <Modal showModal={showModal} setShowModal={setShowModal}/>
       <motion.div className="container-fluid-main"
           initial={animationConstants.containerDropIn.initial}
           animate={animationConstants.containerDropIn.animate}
@@ -55,10 +58,11 @@ function MainPage(){
             {/* Display rectangle that displays the chosen prompt */}
             <StyledRect/>
             {/* Define button to confirm choice */}
-            <HoverButtonClick clickFunction={confirmChoice} link={"/endpage"} text={"Add My Optimized First Block!"}/>
+            <HoverButtonClick clickFunction={setShowModal} text={"Add My Optimized First Block!"}/>
           </div>
         
         </div>
+        
       </motion.div>
     </>
   );

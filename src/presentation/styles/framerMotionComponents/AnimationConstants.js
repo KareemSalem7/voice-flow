@@ -15,6 +15,17 @@ export const stagger = {
     }
 };
 
+export const backdrop = {
+    visible: {opacity: 1},
+    hidden: {opacity: 0}
+}
+
+export const modal = {
+    visible: {y: "200px", opacity: 1},
+    hidden: {y: "-100vh", opacity: 0},
+    transition: {delay: 0.5}
+}
+
 // Defining reference constants for animation of various components (to ensure style & motion consistency)
 export const fadeInUp = {
     initial: {
