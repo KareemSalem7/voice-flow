@@ -8,6 +8,6 @@ import '@testing-library/jest-dom/extend-expect'
 
 test("Checkmark SVG Has Rendered", () => {
     render(<EndPage/>);
-    const SVG = screen.queryByTestId('svg-container')
+    const SVG = screen.queryByTestId("svg-container");
     expect(SVG).toBeInTheDocument();
 })

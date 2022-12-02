@@ -3,6 +3,9 @@
       ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy",
       "^.+\\.svg$": "jest-svg-transformer"
     },
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": ["src/presentation/pages/*.{js,jsx}"],
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     }
