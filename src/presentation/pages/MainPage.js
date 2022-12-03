@@ -1,6 +1,6 @@
 import '../styles/styleSheets/css//MainPage.css';
 // eslint-disable-next-line
-import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, Routes, useLocation} from 'react-router-dom';
 import React, {useState} from "react";
 import TabGroup, { activeTab} from "../styles/styledComponents/StyledHeader.js";
 import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants.js";
@@ -15,7 +15,11 @@ Page responsible for displaying the 3 prompt choices and allowing user to flip t
 Also provides option to view help page and reupload info
 
 */
+
 function MainPage(){
+const location = useLocation();
+const data = location.state?.data; // The data passed from UploadPage!
+
   // set updatePrompt to react hook function useUpdatePrompt()
   const updatePrompt = useUpdatePrompt();
   // we define the seperate updatePrompt const and updatePromptScreen function as a work around to call react hook function here
@@ -36,14 +40,19 @@ function MainPage(){
     // increment the previous state to update the view 
   }
   const [showModal, setShowModal] = useState(false);
+  function closer() {
+    setShowModal(false)
+  }
   return (
     <>
-    <Modal showModal={showModal} setShowModal={setShowModal}/>
+    
+    <Modal showModal={showModal} closer={closer}/>
       <motion.div className="container-fluid-main"
           initial={animationConstants.containerDropIn.initial}
           animate={animationConstants.containerDropIn.animate}
           transition={animationConstants.containerDropIn.transition}
           >
+            <p>{data.title}</p>
         {/* Seperates the left header and prompt rectangle sections side by side */}
         <div className="MainPage-col">
           {/* Define left side with the dots and tabs side by side */}

@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Routes, Navigate, redirect, useNavigate, useLocation } from 'react-router-dom';
 import '../styles/styleSheets/sass/UploadPage.scss';
 import '../styles/styleSheets/css/UploadPage.css';
 import { motion } from 'framer-motion';
@@ -10,10 +10,17 @@ import { React, useState } from 'react';
 //added by martin for sending api to backend
 import { sendUserInfo, sendApi } from '../../controllers/UserRequests.js';
 import { SidebarDots, AnimatedInput } from '../styles/framerMotionComponents/AnimatedComponents'
+import { render } from '@testing-library/react';
 
 function UploadPage() {
   const [api, setapi] = useState(false);
   const [ver, setver] = useState(false);
+  const [data, setData] = useState({
+   title: "Data successfully passed!"
+});
+
+
+
 
   return (
     <div className="main_container">
@@ -38,6 +45,8 @@ function UploadPage() {
               animate={{ opacity: 1, height: "50vh", y: 50, x: '38vw' }}
               transition={{ duration: 1, ease: animationConstants.easing }}
               variants={animationConstants.stagger}>
+              <button><Link to='/mainpage' state={{ data: data }}>Passing Data Test</Link></button>
+
               <form class="main__form">
                 <div class="row">
 
@@ -71,7 +80,7 @@ function UploadPage() {
 
                     <button type="submit" class=" btn btn-get" data-testid="button-test">
                       {(api && ver) ? (
-                        <Link to="/mainpage" style={{ color: "white" }} onClick={sendApi}><span> Submit Now!</span></Link>
+                        <Link to="/mainpage" onClick={sendApi}><span> Submit Now!</span></Link>
                       ) : (
                         <span> Submit Now!</span>
                       )}
@@ -98,6 +107,7 @@ function UploadPage() {
 
     </div>
   );
+
 }
 
 
