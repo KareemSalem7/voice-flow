@@ -59,7 +59,7 @@ function UploadPage() {
                   {/* API input box. */}
                   <motion.div variants={animationConstants.fadeInUp}>
                     <div class="form-group">
-                      <input type="text" class="form-control" id="apiKey" aria-describedby="apiKey" placeholder="API Key" onInput={() => setapi(!(document.getElementById("apiKey") === ""))} onChange={() => setapi(!(document.getElementById("apiKey") === ""))} required />
+                      <input type="password" class="form-control" id="apiKey" aria-describedby="apiKey" placeholder="API Key" onInput={() => setapi(!(document.getElementById("apiKey") === ""))} onChange={() => setapi(!(document.getElementById("apiKey") === ""))} required />
                       <label for="apiKey">API Key</label>
                     </div>
                   </motion.div>

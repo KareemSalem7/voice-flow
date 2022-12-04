@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import * as animationConstants from './AnimationConstants.js'
 import '../styleSheets/css/Modal.css'
 import { HoverButtonClick, HoverButtonNoClick } from './HoverButton.js'
-
+import { sendAccount } from "../../../controllers/UserRequests.js";
 
 
 const Modal = ({ showModal, closer }) => {
@@ -16,8 +16,10 @@ const Modal = ({ showModal, closer }) => {
                     initial="hidden"
                     animate="visible">
                     <motion.div className="modal" variants={animationConstants.modal}>
-                        <button type="button" class="btn-close" aria-label="Close" onClick={closer}></button>
-                        <p>Time to make your chatbot pop!</p>
+                        <button type="button" class="btn-close btn-close-white btn-block" aria-label="Close" aria- onClick={closer}></button>
+                        <h1>Let's Make Your Chatbot Pop!</h1>
+                        <h2>Almost there! Just input your information below and we'll make your prompt for you!</h2>
+
 
                         {/* Email Address input box. */}
                         <motion.div variants={animationConstants.fadeInUp}>
@@ -29,7 +31,7 @@ const Modal = ({ showModal, closer }) => {
                         {/* Password input box. */}
                         <motion.div variants={animationConstants.fadeInUp}>
                             <div class="form-group">
-                                <input type="text" id="password" aria-describedby="password" placeholder="Password" required />
+                                <input type="password" id="password" aria-describedby="password" placeholder="Password" required />
                             </div>
                         </motion.div>
 
@@ -41,7 +43,7 @@ const Modal = ({ showModal, closer }) => {
                         </motion.div>
 
                         <div className="modal-HoverButtonNoClick">
-                            <HoverButtonNoClick link="/endpage" text="Make My Prompt!" />
+                            <HoverButtonClick link="/endpage" clickFunction={sendAccount} text="Make My Prompt!" />
                         </div>
                     </motion.div>
 
