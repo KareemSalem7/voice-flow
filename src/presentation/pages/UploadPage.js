@@ -8,24 +8,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants.js";
 import { React, useState } from 'react';
 //added by martin for sending api to backend
-import { sendUserInfo, sendApi } from '../../controllers/UserRequests.js';
+import { getBestIntents } from '../../controllers/UserRequests.js';
 import { SidebarDots, AnimatedInput } from '../styles/framerMotionComponents/AnimatedComponents'
 import { render } from '@testing-library/react';
 
 function UploadPage() {
   const [api, setapi] = useState(false);
   const [ver, setver] = useState(false);
-  const [data, setData] = useState({
-   title: "Data successfully passed!"
-});
-const navigate = useNavigate();
 
-// Function used to redirect while passing data
-function redirect(){
-  navigate('/mainpage', {state: { data: data }})
-}
+  const navigate = useNavigate();
 
+  // Function used to get the intents from the mainpage
+  async function redirectToIntentPage(){
 
+    // getting the intents from the backend is asynchronous, so wait for them to come before redirecting to the next page
+    var intents = await getBestIntents();
+
+    // redirect to the mainpage, passing the intents in
+    navigate('/mainpage', {state: { bestIntents : intents, currentOption : "Option A",  currentIntents : intents["Option A"] }});
+  }
 
 
   return (
@@ -51,8 +52,6 @@ function redirect(){
               animate={{ opacity: 1, height: "50vh", y: 50, x: '38vw' }}
               transition={{ duration: 1, ease: animationConstants.easing }}
               variants={animationConstants.stagger}>
-                <button onClick={redirect}>Passing Data w/a Function</button>
-              {/* <button><Link to='/mainpage' state={{ data: data }}>Passing Data Test</Link></button> */}
 
               <form class="main__form">
                 <div class="row">
@@ -84,10 +83,10 @@ function redirect(){
                 <div>
 
                   <div>
-
                     <button type="submit" class=" btn btn-get" data-testid="button-test">
                       {(api && ver) ? (
-                        <Link to="/mainpage" onClick={sendApi}><span> Submit Now!</span></Link>
+                        // onclick, call the async function that gets the best intents, and then switches to the next page
+                        <Link onClick={async () => {await redirectToIntentPage();}}><span> Submit Now!</span></Link>
                       ) : (
                         <span> Submit Now!</span>
                       )}

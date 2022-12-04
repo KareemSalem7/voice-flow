@@ -2,7 +2,7 @@ import '../styles/styleSheets/css//MainPage.css';
 // eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route, Routes, useLocation} from 'react-router-dom';
 import React, {useState} from "react";
-import TabGroup, { activeTab} from "../styles/styledComponents/StyledHeader.js";
+import TabGroup from "../styles/styledComponents/StyledHeader.js";
 import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants.js";
 import {StyledRect} from "../styles/styledComponents/StyledRect.js";
 import { motion } from 'framer-motion';
@@ -16,33 +16,32 @@ Also provides option to view help page and reupload info
 
 */
 
-function MainPage(){
-const location = useLocation();
-const data = location.state?.data; // The data passed from UploadPage!
+//This is the type of the voiceflow blocks
+export const tabNames = ["Option A", "Option B"];
 
-  // set updatePrompt to react hook function useUpdatePrompt()
-  const updatePrompt = useUpdatePrompt();
-  // we define the seperate updatePrompt const and updatePromptScreen function as a work around to call react hook function here
-  const updatePromptScreen = () => {
-    updatePrompt();
-  }
+var CurrentMessage = {[tabNames[0]]: " - Hello, here are some things I can help you with:", [tabNames[1]]: "- Hi, here are some things I can help you with:"}
+
+
+function MainPage(){
+  //we need this in StyledHeader; thats where the intents are actually displayed
+  const location = useLocation();
+  var currentOption = location.state?.currentOption;
+  var currentIntents = location.state?.currentIntents; // The data passed from UploadPage!
+
+  // react function component for rerendering the screen
+  const updateScreen = useForceUpdate();
   
-  //send alert to inform user of confirmed choice when confirm button is pressed
-  function confirmChoice(){ 
-    alert(activeTab + " Selected!");
+  // custom react hook that rerenders the screen
+  function useForceUpdate() {
+    return React.useReducer(() => ({}), {})[1]
   }
-  
-  //react hook function to update the selected prompt rectangle on the view
-  function useUpdatePrompt(){
-    // eslint-disable-next-line
-    const [value, setValue] = useState(0); // set current integer state
-    return () => setValue(value => value + 1); // update state to force render
-    // increment the previous state to update the view 
-  }
+
   const [showModal, setShowModal] = useState(false);
+  
   function closer() {
     setShowModal(false)
   }
+  
   return (
     <>
     
@@ -52,20 +51,19 @@ const data = location.state?.data; // The data passed from UploadPage!
           animate={animationConstants.containerDropIn.animate}
           transition={animationConstants.containerDropIn.transition}
           >
-            <p>{data ? data.title : ''}</p>
         {/* Seperates the left header and prompt rectangle sections side by side */}
         <div className="MainPage-col">
           {/* Define left side with the dots and tabs side by side */}
           <div className="MainPage-left-header">
             <SidebarDots i={3}/>
-            <TabGroup updatePromptScreen={updatePromptScreen}/>
+            <TabGroup updateScreen={updateScreen}/>
           </div>
 
           {/* Define the right side with rectangle containing chosen prompt */}
           
           <div className="MainPage-right-content">
             {/* Display rectangle that displays the chosen prompt */}
-            <StyledRect/>
+            <StyledRect tabName={currentOption} intents={currentIntents} message={CurrentMessage[currentOption]}/>
             {/* Define button to confirm choice */}
             <HoverButtonClick clickFunction={setShowModal} text={"Add My Optimized First Block!"}/>
           </div>
