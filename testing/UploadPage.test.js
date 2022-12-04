@@ -11,19 +11,19 @@ import  userEvent  from '@testing-library/user-event'
 
 
 test("Button Has Rendered", () => {
-    render(<UploadPage/>);
+    render(<MemoryRouter><UploadPage/></MemoryRouter>);
     const buttonElement = screen.queryByTestId('button-test') 
     expect(buttonElement).toBeInTheDocument;
 })
 
 test("SidebarDots Have Rendered", () => {
-    render(<UploadPage/>);
+    render(<MemoryRouter><UploadPage/></MemoryRouter>);
     const sidebarElement = screen.queryByTestId('sidebar-upload')
     expect(sidebarElement).toBeInTheDocument();
 })
 
 test("SidebarDots Has Correct Active", () => {
-    render(<UploadPage/>);
+    render(<MemoryRouter><UploadPage/></MemoryRouter>);
     const SidebarElement = screen.queryByTestId('sidebar-upload');
     expect(SidebarElement).toBeInTheDocument();
     expect(SidebarElement.hasChildNodes).toBeTruthy();
@@ -68,16 +68,17 @@ test("Check Submit Button Disabled", () => {
 
 test("Check Submit Button Enabled", () => {
     render(<MemoryRouter><UploadPage/></MemoryRouter>);
-    const SubmitButton = screen.queryByTestId('button-test')
-    const TestLink = SubmitButton.firstChild.nodeName 
+    
+    console.log(SubmitButton)
+    const TestLink = SubmitButton.nodeType
 
     const apiInput = screen.getByPlaceholderText("API Key")
     const verInput = screen.getByPlaceholderText("Version ID")
 
     expect(apiInput).toHaveValue("");
     expect(verInput).toHaveValue("");
-
-    expect(TestLink).toEqual("SPAN")
+    const DiasbledButton = screen.queryByTestId('disabled-link')
+    expect(DiasbledButton).toBeInTheDocument
 
     fireEvent.change(apiInput, {target: {value: 'test1'}})
     fireEvent.change(verInput, {target: {value: 'test2'}})
@@ -85,14 +86,15 @@ test("Check Submit Button Enabled", () => {
     expect(verInput).toHaveValue("test2");
     
     // const EnabledLink = SubmitButton.children.item(0).getAttribute('href')
-    const EnabledLink = SubmitButton.children.item(0).getAttribute('href')
-    expect(EnabledLink).toEqual("/mainpage")
+    const EnabledButton = SubmitButton.children.item(1)
+    console.log(EnabledLink)
+
 
     
 })
 
 test("Check Title Render", () => {
-    render(<UploadPage/>);
+    render(<MemoryRouter><UploadPage/></MemoryRouter>);
     const Title = screen.queryByText("Submit Your Information Below")
     expect(Title).toBeInTheDocument()
 
@@ -101,7 +103,7 @@ test("Check Title Render", () => {
 })
 
 test("Check API Input", async() => {
-    render(<UploadPage/>);
+    render(<MemoryRouter><UploadPage/></MemoryRouter>);
 
     const apiInput = screen.getByPlaceholderText("API Key")
     await userEvent.type(apiInput, 'test1')
@@ -109,7 +111,7 @@ test("Check API Input", async() => {
 })
 
 test("Check Version Input", async() => {
-    render(<UploadPage/>);
+    render(<MemoryRouter><UploadPage/></MemoryRouter>);
 
     const verInput = screen.getByPlaceholderText("Version ID")
     await userEvent.type(verInput, 'test2')

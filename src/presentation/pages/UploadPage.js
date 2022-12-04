@@ -83,12 +83,12 @@ function UploadPage() {
                 <div>
 
                   <div>
-                    <button type="submit" className=" btn btn-get" data-testid="button-test">
+                    <button type="submit" className=" btn btn-get" >
                       {(api && ver) ? (
                         // onclick, call the async function that gets the best intents, and then switches to the next page
-                        <Link onClick={async () => {await redirectToIntentPage();}}><span> Submit Now!</span></Link>
+                        <Link className="link" onClick={async () => {await redirectToIntentPage();}} data-testid="enabled-link"><span color="white"> Submit Now!</span></Link>
                       ) : (
-                        <span> Submit Now!</span>
+                        <span data-testid="disabled-link"> Submit Now!</span>
                       )}
 
                     </button>
