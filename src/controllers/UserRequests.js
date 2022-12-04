@@ -108,14 +108,20 @@ export function sendAccount() {
 
 // create a new block on voiceflow by calling the backend. consider moving this elsewhere
 export function createVFBlock(intents){
+  const submittedAddress = document.getElementById("emailAddress").value;
+  const submittedPassword = document.getElementById("password").value;
+  const submittedDiagramID = document.getElementById("diagramID").value;
+  console.log(submittedAddress)
+  console.log(submittedPassword)
+  console.log(submittedDiagramID)
   // note: for the entry here, I am currently giving the names of the variables in the body the same key names as those
   // in the corresponding backend controller used to generate and pass in objects. i.e. intent1 is for String intent1, and 
   // emailAddress is for setting the emailAddress instance attribute of Account account
   // Currently, i am also preserving the order of entries, too
   const fullEntry = JSON.stringify({
-    emailAddress: "0",
-    password: "0",
-    diagramID: "0",
+    emailAddress: submittedAddress,
+    password: submittedPassword,
+    diagramID: submittedDiagramID,
     intent1: intents[0],
     intent2: intents[1],
     intent3: intents[2]

@@ -1,6 +1,6 @@
 import '../styles/styleSheets/css//MainPage.css';
 // eslint-disable-next-line
-import {BrowserRouter as Router, Link, Route, Routes, useLocation} from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, Routes, useLocation, useNavigate} from 'react-router-dom';
 import React, {useState} from "react";
 import TabGroup from "../styles/styledComponents/StyledHeader.js";
 import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants.js";
@@ -28,6 +28,17 @@ function MainPage(){
   var currentOption = location.state?.currentOption;
   var currentIntents = location.state?.currentIntents; // The data passed from UploadPage!
 
+  const navigate = useNavigate();
+  function redirectToHelpPage(){
+    
+
+    // Store the intents when moving to HelpPage
+    var intents = location.state?.bestIntents
+
+    // Redirect to the HelpPage, passing the intents in so that they are stored
+    navigate('/helppage', {state: { bestIntents : intents, currentOption : "Option A",  currentIntents : intents["Option A"] }});
+  }
+
   // react function component for rerendering the screen
   const updateScreen = useForceUpdate();
   
@@ -45,7 +56,7 @@ function MainPage(){
   return (
     <>
     
-    <Modal showModal={showModal} closer={closer}/>
+    <Modal showModal={showModal} closer={closer} currIntent={currentIntents}/>
       <motion.div className="container-fluid-main"
           initial={animationConstants.containerDropIn.initial}
           animate={animationConstants.containerDropIn.animate}
@@ -56,7 +67,7 @@ function MainPage(){
           {/* Define left side with the dots and tabs side by side */}
           <div className="MainPage-left-header">
             <SidebarDots i={3}/>
-            <TabGroup updateScreen={updateScreen}/>
+            <TabGroup updateScreen={updateScreen} clickFunct={redirectToHelpPage}/>
           </div>
 
           {/* Define the right side with rectangle containing chosen prompt */}

@@ -31,10 +31,10 @@ function UploadPage() {
 
   return (
     <div className="main_container">
-      <section class="ready__started project__form">
+      <section className="ready__started project__form">
 
         {/* Set the animation values. */}
-        <motion.div class="container-fluid"
+        <motion.div className="container-fluid"
           initial={animationConstants.containerDropIn.initial}
           animate={animationConstants.containerDropIn.animate}
           transition={animationConstants.containerDropIn.transition}
@@ -43,39 +43,39 @@ function UploadPage() {
 
             {/* Title section. */}
             <motion.div className="pos_abs top_nav" variants={animationConstants.stagger}>
-              <motion.h3 variants={animationConstants.h3Opaque} class="text-center">Submit Your Information Below</motion.h3>
+              <motion.h3 variants={animationConstants.h3Opaque} className="text-center">Submit Your Information Below</motion.h3>
             </motion.div>
 
             {/* Create the form for user input */}
-            <motion.div class="ready__started-box"
+            <motion.div className="ready__started-box"
               initial={{ opacity: 0, height: 0, y: 0, x: '38vw' }}
               animate={{ opacity: 1, height: "50vh", y: 50, x: '38vw' }}
               transition={{ duration: 1, ease: animationConstants.easing }}
               variants={animationConstants.stagger}>
 
-              <form class="main__form">
-                <div class="row">
+              <form className="main__form">
+                <div className="row">
 
                   {/* API input box. */}
                   <motion.div variants={animationConstants.fadeInUp}>
-                    <div class="form-group">
-                      <input type="password" class="form-control" id="apiKey" aria-describedby="apiKey" placeholder="API Key" onInput={() => setapi(!(document.getElementById("apiKey") === ""))} onChange={() => setapi(!(document.getElementById("apiKey") === ""))} required />
-                      <label for="apiKey">API Key</label>
+                    <div className="form-group">
+                      <input type="password" className="form-control" id="apiKey" aria-describedby="apiKey" placeholder="API Key" onInput={() => setapi(!(document.getElementById("apiKey") === ""))} onChange={() => setapi(!(document.getElementById("apiKey") === ""))} required />
+                      <label htmlFor="apiKey">API Key</label>
                     </div>
                   </motion.div>
                   <motion.div variants={animationConstants.fadeInUp}>
 
 
                     {/* Version ID input box. */}
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="versionID" aria-describedby="versionID" placeholder="Version ID" onInput={() => setver(!(document.getElementById("versionID") === ""))} onChange={() => setver(!(document.getElementById("versionID") === ""))} required />
-                      <label for="versionID">Version ID</label>
+                    <div className="form-group">
+                      <input type="text" className="form-control" id="versionID" aria-describedby="versionID" placeholder="Version ID" onInput={() => setver(!(document.getElementById("versionID") === ""))} onChange={() => setver(!(document.getElementById("versionID") === ""))} required />
+                      <label htmlFor="versionID">Version ID</label>
                     </div>
-                    <div class="col-md-6">
+                    <div className="col-md-6">
                     </div>
                   </motion.div>
                 </div>
-                <div class="col-md-6">
+                <div className="col-md-6">
                 </div>
 
 
@@ -83,7 +83,7 @@ function UploadPage() {
                 <div>
 
                   <div>
-                    <button type="submit" class=" btn btn-get" data-testid="button-test">
+                    <button type="submit" className=" btn btn-get" data-testid="button-test">
                       {(api && ver) ? (
                         // onclick, call the async function that gets the best intents, and then switches to the next page
                         <Link onClick={async () => {await redirectToIntentPage();}}><span> Submit Now!</span></Link>

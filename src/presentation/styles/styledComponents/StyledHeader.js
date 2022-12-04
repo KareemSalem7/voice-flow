@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link, Route, Routes, useLocation } from 'react
 // import React, { useState, useEffect } from "react";
 import vfLogo from '../../assets/voiceflowLogo.png'
 import NLUlogo from '../../assets/NLULogoTransparent.png';
-import { HoverButtonNoClick } from '../framerMotionComponents/HoverButton';
+import { HoverButtonNoClick, HoverButtonGreyClick } from '../framerMotionComponents/HoverButton';
 import { Tab, StyledDiv } from './StyledConstants';
 
 import { tabNames } from '../../pages/MainPage.js';
@@ -85,7 +85,7 @@ function TabGroup({ updateScreen }) {
 
 // Define the css structure of the left header
 // Has the logo, tabGroup with tabs, buttons for help and upload pages, and NLU logo at the bottom
-export default function App({ updateScreen }) {
+export default function App({ updateScreen, clickFunct }) {
     return (
         <>
             {/* Define css structure of header containing tabs, buttons, and logos */}
@@ -105,7 +105,8 @@ export default function App({ updateScreen }) {
                 }}>
 
                     {/* Display button that takes you back to help page */}
-                    <HoverButtonNoClick link={"/helppage"} text={"Help & Support"}  data-testid="help-button"/>
+                    {/* <HoverButtonNoClick link={"/helppage"} text={"Help & Support"}  data-testid="help-button"/> */}
+                    <HoverButtonGreyClick clickFunction={clickFunct} text={"Help & Support"}  data-testid="help-button"/>
 
                     {/* Display button that takes you back to upload page */}
                     <HoverButtonNoClick link={"/uploadpage"} text={"Reupload Info"} data-testid="upload-button"/>
