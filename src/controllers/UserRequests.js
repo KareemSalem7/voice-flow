@@ -96,43 +96,43 @@ export function sendApi() {
   document.getElementById("versionID").value = "";
 }
 
-// export function sendAccount() {
-//   //for debugging
-//   //alert('api sent');
-//   //console.log('api sent???');
+export function sendAccount() {
+  //for debugging
+  //alert('api sent');
+  //console.log('api sent???');
 
-//   //retrieve the text content from the corresponding textbox.
-//   var submittedAddress = document.getElementById("emailAddress").value;
-//   var submittedPassword = document.getElementById("password").value;
-//   var submittedDiagramID = document.getElementById("diagramID").value;
+  //retrieve the text content from the corresponding textbox.
+  var submittedAddress = document.getElementById("emailAddress").value;
+  var submittedPassword = document.getElementById("password").value;
+  var submittedDiagramID = document.getElementById("diagramID").value;
 
-//   //alert(submittedApiKey + ', '+ submittedApiVersion);
+  //alert(submittedApiKey + ', '+ submittedApiVersion);
 
-//   //the json data sent to the backend
-//   //JSON.stringify is required for fetch
-//   const fullEntry = JSON.stringify({
-//     //if i don't provide an id, mongo will create one called Object(...). IDs have to be unique!
-//     //id: "15", //constant id
-//     //id: transcriptOutput, //variable id
-//     emailAddress: submittedAddress,
-//     password: submittedPassword,
-//     diagramID: submittedDiagramID,
-//     //???????
-//     //prompt: activeTab,
-//   });
+  //the json data sent to the backend
+  //JSON.stringify is required for fetch
+  const fullEntry = JSON.stringify({
+    //if i don't provide an id, mongo will create one called Object(...). IDs have to be unique!
+    //id: "15", //constant id
+    //id: transcriptOutput, //variable id
+    emailAddress: submittedAddress,
+    password: submittedPassword,
+    diagramID: submittedDiagramID,
+    //???????
+    //prompt: activeTab,
+  });
 
-//   //create the fetch request
-//   fetch(`http://localhost:8080/api/v1/transcripts/storeAccount`, {method: "POST", headers: headerData, body: fullEntry})
-//   .then((response) => response.json())
-//   .then((data) => {
-//     console.log(data);
-//   });
+  //create the fetch request
+  fetch(`http://localhost:8080/api/v1/transcripts/storeAccount`, {method: "POST", headers: headerData, body: fullEntry})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  });
 
-//   //empty the textboxes (maybe only do this if the submission fails do to an error or no transcripts or something else?)
-//   document.getElementById("emailAddress").value = "";
-//   document.getElementById("password").value = "";
-//   document.getElementById("diagramID").value = "";
-// }
+  //empty the textboxes (maybe only do this if the submission fails do to an error or no transcripts or something else?)
+  document.getElementById("emailAddress").value = "";
+  document.getElementById("password").value = "";
+  document.getElementById("diagramID").value = "";
+}
 
 export async function getBestIntents(){
 
