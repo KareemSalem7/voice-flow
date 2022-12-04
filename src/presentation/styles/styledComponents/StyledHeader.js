@@ -1,89 +1,38 @@
 // eslint-disable-next-line
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import { BrowserRouter as Router, Link, Route, Routes, useLocation } from 'react-router-dom';
+// import React, { useState, useEffect } from "react";
 import vfLogo from '../../assets/voiceflowLogo.png'
 import NLUlogo from '../../assets/NLULogoTransparent.png';
-import { HoverButtonNoClick } from '../framerMotionComponents/HoverButton';
+import { HoverButtonNoClick, HoverButtonGreyClick } from '../framerMotionComponents/HoverButton';
 import { Tab, StyledDiv } from './StyledConstants';
 
-import { getBestIntents, getDefaultIntents } from '../../../controllers/UserRequests';
-
-// Define the list of types that serve as the selection of tabs on the left
-//export var types = ['Option A', 'Option B', 'Option C'];
+import { tabNames } from '../../pages/MainPage.js';
 
 //This is the type of the voiceflow blocks
-export var types = ["Option A", "Option B"];
+//let tabNames = ["Option A", "Option B"];
 
-//TEMPORARY FIX TO CALL GET REQUEST ONCE (no classes): 
-//Variable might need to be a use state variable to work properly 
-var getRequestCalled = false; 
-
-// Define the dictionary of prompts that map each tab to the selected prompt
-// martin note: should this even be exported?
-// export var prompts = getBestIntents(); //attempting to do this in the tabgroup function component below
-// export var prompts = {'Option A': 'Would you like to see the new sale on Mongolian fishing boots?', 
-// 'Option B': 'The Fishing Boots your looking for can be found under shoes', 
-// 'Option C': 'Would you like to get to extend your plan or switch plans?'};
-
-
-// Set a default list of prompts tbd: update these to be based on back-end
-export var activeTab = types[0];
-// i believe this is the most accurate starting prompt, and the code probably will not break.
-export var chosenPrompt = ["Loading Option 1 ...", "Loading Option 2 ...", "Loading Option 3 ..."];
-//export var chosenPrompt = prompts[activeTab];
-// Keeps track of old prompt to be changed with tab changes
-var oldActive = types[0];
 
 // Switch tab functionality that allows user to tab between different 
-function TabGroup({ updatePromptScreen }) {
-    const [active, setActive] = useState(types[0]);
-    const [prompts, setPrompts] = useState(
-        { [types[0]]: ["Loading Option A1...", "Loading Option A2...", "Loading Option A3..."], [types[1]]: ["Loading Option B1...", "Loading Option B2...","Loading Option B3..." ]});
-    // const [prompts, setPrompts] = useState(
-    //     {"Option A": "Defaulto Intento 1", "Option B": "Defaulto Intento 2", "Option C": "Defaulto Intento 3"});
+function TabGroup({ updateScreen }) {
+    const location = useLocation();
+    const bestIntents = location.state?.bestIntents; // The data passed from UploadPage!
 
-    // limits updateActivePrompt to be called only once when the active tab is changed
-    // oldActive checks to see if the active tab has been changed and if so function called once and oldActive updated
-    useEffect(() => {
-        if (oldActive !== active) {
-            oldActive = active;
-            updateActivePrompt(active);
+    function changeTab(tabName) {
+        // if the tab that was clicked on is not the currently selected tab
+        // syntax note: == and != convert variables to the same type before comparing. === and !== do not.
+        if (location.state.currentOption !== tabName) {
+
+            // update the current tab to the tab that was clicked on
+            location.state.currentOption = tabName; 
+            // update the corresponding selected intents
+            location.state.currentIntents = bestIntents[tabName];
+            // re-render the screen
+            updateScreen();
         }
 
-        if (!getRequestCalled){
-            
-            const fetchData = async () => {
-                var intents = await getBestIntents();
-                setPrompts({[types[0]]:intents[0], [types[1]]:intents[1]});
-            }
-
-            fetchData().catch(console.error);
-
-            getRequestCalled = true;
-        }
-
-        
-        
-        // eslint-disable-next-line
-    }, [active])
-
-    // useLayoutEffect(()=>{
-
-    //     const fetchData = async () => {
-    //         setPrompts(await getBestIntents);
-    //     }
-
-    //     fetchData().catch(console.error);
-    // }, []);
-
-    // the active tab and chosenPrompt based on that tab selected are set
-    // updatePromptScreen is called which runs in MainPage.js to re-render the page and 
-    // have the active tab change result in changes to the prompt box on the right
-    function updateActivePrompt(prompt) {
-        activeTab = prompt;
-        chosenPrompt = prompts[activeTab];
-        updatePromptScreen();
-    }
+        // otherwise, don't change the tab. You clicked on the tab that is already selected!
+        // side note: this works as intended. would be nice to formally test this in a suite
+    };
 
     // define the css tabs components including message and each tab
     // tabs uses setActive react hook function that updates the active tab to the one clicked on 
@@ -114,13 +63,17 @@ function TabGroup({ updatePromptScreen }) {
                 }}
             >
                 {/* Define active tab functionality using onClick to set the active tab be the one selected from the list of types*/}
-                {types.map(type => (
+                {tabNames.map(tabName => (
                     <Tab
-                        key={type}
-                        active={active === type}
-                        onClick={() => setActive(type)}
+                        // here, each tab is mapped to a name in tabNames
+                        key={tabName}
+                        // if this tab is the current tab, give it the appearance of being active/clicked on
+                        active={location.state.currentOption === tabName}
+                        // when this tab is clicked on, change the current tab
+                        onClick={() => {changeTab(tabName);}}
                     >
-                        {type}
+                        {/* Display the tab's name on the tab itself */}
+                        {tabName}
                     </Tab>
 
                 ))}
@@ -130,82 +83,9 @@ function TabGroup({ updatePromptScreen }) {
 }
 
 
-// maybe this class belongs in a different file
-// new java script component class made by martin. will be used to make the async calls with didmount
-
-// ditching this for now, will try to add dynamic prompts rerendering above.
-
-// class StyledHeader extends React.Component {
-
-//     //constructor for the component, for rendering
-//     constructor() {
-//         super();
-//         this.state = 
-//         { prompts : {"Option A": "Defaulto Intento 1", "Option B": "Defaulto Intento 2", "Option C": "Defaulto Intento 3"}};
-//     }
-
-//     async componentDidMount() {
-//         // pretty sure await makes a difference here, will remove if not.
-//         const response = await getBestIntents;
-
-//         // set state to rerender should be perfect here; will rerender with new intents once promise is filled
-//         // maybe we can render a loading screen in the meantime???????? Might not be necessary
-
-//         this.setState({prompts : response});
-//     }
-
-
-//     // render function for exporting the class below:
-//     // have to pass in updatePromptScreen for now, as the original app return value function thing did
-//     render({updatePromptScreen}){
-//         return (
-//             <>
-//                 {/* Define css structure of header containing tabs, buttons, and logos */}
-//                 <StyledDiv>
-//                     {/* Display voiceflow logo */}
-//                     <td><img style={{ width: 182.75, height: 52.25}} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
-
-//                     {/* Display tabgroup and send updatePromptScreen function as argument to update chosen prompt whenever tab is selected */}
-//                     <TabGroup updatePromptScreen={updatePromptScreen}/>
-
-//                     {/* Define css attributes for div for help and reupload buttons and NLU logo */}
-//                     <div style={{ 
-//                             display: 'flex',
-//                             flexDirection: 'column',                
-//                             alignItems: 'center',
-//                             marginTop: 30}}>
-
-//                         {/* Display button that takes you back to help page */}
-//                         <Link to="/helppage">
-//                             <motion.div whileHover={{scale: 1.2}}>
-//                                 <Button theme="white">
-//                                     Help & Support
-//                                 </Button>
-//                             </motion.div>
-//                         </Link>
-
-//                         {/* Display button that takes you back to upload page */}
-//                         <Link to="/uploadpage">
-//                             <motion.div whileHover={{scale: 1.2}}>
-//                                 <Button theme="white">
-//                                     Reupload Info
-//                                 </Button>
-//                             </motion.div>
-//                         </Link>
-
-//                         {/* Display NLU logo */}
-//                         <img style={{ width: 200, height: 200, marginTop: 30}} src={NLUlogo} className="NLU-logo" alt="NLU-logo" />
-//                     </div>
-//                 </StyledDiv>
-//             </>
-//         );
-//     }
-
-// }
-
 // Define the css structure of the left header
 // Has the logo, tabGroup with tabs, buttons for help and upload pages, and NLU logo at the bottom
-export default function App({ updatePromptScreen }) {
+export default function App({ updateScreen, clickFunct }) {
     return (
         <>
             {/* Define css structure of header containing tabs, buttons, and logos */}
@@ -213,8 +93,8 @@ export default function App({ updatePromptScreen }) {
                 {/* Display voiceflow logo */}
                 <td><img style={{ width: 182.75, height: 52.25 }} src={vfLogo} className="voiceflow-logo" alt="vf-logo" /></td>
 
-                {/* Display tabgroup and send updatePromptScreen function as argument to update chosen prompt whenever tab is selected */}
-                <TabGroup updatePromptScreen={updatePromptScreen} />
+                {/* Display tabgroup and send updateScreen function as argument to update chosen prompt whenever tab is selected */}
+                <TabGroup updateScreen={updateScreen} />
 
                 {/* Define css attributes for div for help and reupload buttons and NLU logo */}
                 <div style={{
@@ -225,7 +105,8 @@ export default function App({ updatePromptScreen }) {
                 }}>
 
                     {/* Display button that takes you back to help page */}
-                    <HoverButtonNoClick link={"/helppage"} text={"Help & Support"}  data-testid="help-button"/>
+                    {/* <HoverButtonNoClick link={"/helppage"} text={"Help & Support"}  data-testid="help-button"/> */}
+                    <HoverButtonGreyClick clickFunction={clickFunct} text={"Help & Support"}  data-testid="help-button"/>
 
                     {/* Display button that takes you back to upload page */}
                     <HoverButtonNoClick link={"/uploadpage"} text={"Reupload Info"} data-testid="upload-button"/>

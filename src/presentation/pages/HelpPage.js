@@ -1,8 +1,8 @@
 import '../styles/styleSheets/css//HelpPage.css';
 // eslint-disable-next-line
-import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, Routes, useLocation, useNavigate} from 'react-router-dom';
 import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants.js";
-import React from "react";
+import {React, useState} from "react";
 import { motion } from 'framer-motion';
 import * as styledComponent from '../styles/styledComponents/StyledTitle';
 import { HelpText } from '../styles/commonComponents/HelpRow.js'
@@ -10,6 +10,16 @@ import { HoverButtonClick } from '../styles/framerMotionComponents/HoverButton.j
  
 // define animation and structure of the help page
 function HelpPage(){
+  const navigate = useNavigate();
+  const location = useLocation();
+  var intents = location.state?.bestIntents;
+  var currOpt = location.state?.currentOption;
+  var currIntent = location.state?.currentIntents;
+
+  function redirectToMainPage() {
+    navigate('/mainpage', {state: { bestIntents : intents, currentOption : currOpt,  currentIntents : currIntent }})
+  }
+
   return (
     <motion.div className="HelpPage" 
     initial={animationConstants.containerDropIn.initial}
@@ -33,7 +43,7 @@ function HelpPage(){
  
       {/* Display button to return back to suggested prompts*/}
       <styledComponent.StyledDiv classname="Help-col">
-        <HoverButtonClick link={"/mainpage"} text={"Back to Suggested Prompts"} theme={"blue"}/>
+        <HoverButtonClick clickFunction={redirectToMainPage} text={"Back to Suggested Prompts"} theme={"blue"}/>
       </styledComponent.StyledDiv>
     </motion.div>
   );

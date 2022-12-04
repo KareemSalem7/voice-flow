@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import HelpPage from '../src/presentation/pages/HelpPage.js';
 import { render, screen, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'

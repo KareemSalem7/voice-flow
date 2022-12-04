@@ -2,6 +2,16 @@
 html {
   font-size: 10px;
 }
+.link {
+  color: #FFF;
+}
+.link:hover {
+   color: #FFF
+}
+.a {
+  color: #FFF;
+}
+
 
 /* Defining button styling and animation */
 .btn-get {

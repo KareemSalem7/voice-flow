@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Routes, Navigate, redirect, useNavigate, useLocation } from 'react-router-dom';
 import '../styles/styleSheets/sass/UploadPage.scss';
 import '../styles/styleSheets/css/UploadPage.css';
 import { motion } from 'framer-motion';
@@ -8,22 +8,33 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import * as animationConstants from "../styles/framerMotionComponents/AnimationConstants.js";
 import { React, useState } from 'react';
 //added by martin for sending api to backend
-import { sendUserInfo} from '../../controllers/UserRequests.js';
+import { getBestIntents } from '../../controllers/UserRequests.js';
 import { SidebarDots, AnimatedInput } from '../styles/framerMotionComponents/AnimatedComponents'
+import { render } from '@testing-library/react';
 
 function UploadPage() {
   const [api, setapi] = useState(false);
   const [ver, setver] = useState(false);
-  const [email, setemail] = useState(false);
-  const [pass, setpass] = useState(false);
-  const [diag, setdiag] = useState(false);
+
+  const navigate = useNavigate();
+
+  // Function used to get the intents from the mainpage
+  async function redirectToIntentPage(){
+
+    // getting the intents from the backend is asynchronous, so wait for them to come before redirecting to the next page
+    var intents = await getBestIntents();
+
+    // redirect to the mainpage, passing the intents in
+    navigate('/mainpage', {state: { bestIntents : intents, currentOption : "Option A",  currentIntents : intents["Option A"] }});
+  }
+
 
   return (
     <div className="main_container">
-      <section class="ready__started project__form">
+      <section className="ready__started project__form">
 
         {/* Set the animation values. */}
-        <motion.div class="container-fluid"
+        <motion.div className="container-fluid"
           initial={animationConstants.containerDropIn.initial}
           animate={animationConstants.containerDropIn.animate}
           transition={animationConstants.containerDropIn.transition}
@@ -32,69 +43,39 @@ function UploadPage() {
 
             {/* Title section. */}
             <motion.div className="pos_abs top_nav" variants={animationConstants.stagger}>
-              <motion.h3 variants={animationConstants.h3Opaque} class="text-center">Submit Your Information Below</motion.h3>
+              <motion.h3 variants={animationConstants.h3Opaque} className="text-center">Submit Your Information Below</motion.h3>
             </motion.div>
 
             {/* Create the form for user input */}
-            <motion.div class="ready__started-box"
+            <motion.div className="ready__started-box"
               initial={{ opacity: 0, height: 0, y: 0, x: '38vw' }}
               animate={{ opacity: 1, height: "50vh", y: 50, x: '38vw' }}
               transition={{ duration: 1, ease: animationConstants.easing }}
               variants={animationConstants.stagger}>
-              <form class="main__form">
-                <div class="row">
+
+              <form className="main__form">
+                <div className="row">
 
                   {/* API input box. */}
                   <motion.div variants={animationConstants.fadeInUp}>
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="apiKey" aria-describedby="apiKey" placeholder="API Key" onInput={() => setapi(!(document.getElementById("apiKey") === ""))} onChange={() => setapi(!(document.getElementById("apiKey") === ""))} required />
-                      <label for="apiKey">API Key</label>
+                    <div className="form-group">
+                      <input type="password" className="form-control" id="apiKey" aria-describedby="apiKey" placeholder="API Key" onInput={() => setapi(!(document.getElementById("apiKey") === ""))} onChange={() => setapi(!(document.getElementById("apiKey") === ""))} required />
+                      <label htmlFor="apiKey">API Key</label>
                     </div>
                   </motion.div>
-                  {/* <AnimatedInput text={"API Key"} id={"apiKey"} /> */}
                   <motion.div variants={animationConstants.fadeInUp}>
 
 
                     {/* Version ID input box. */}
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="versionID" aria-describedby="versionID" placeholder="Version ID" onInput={() => setver(!(document.getElementById("versionID") === ""))} onChange={() => setver(!(document.getElementById("versionID") === ""))} required />
-                      <label for="versionID">Version ID</label>
+                    <div className="form-group">
+                      <input type="text" className="form-control" id="versionID" aria-describedby="versionID" placeholder="Version ID" onInput={() => setver(!(document.getElementById("versionID") === ""))} onChange={() => setver(!(document.getElementById("versionID") === ""))} required />
+                      <label htmlFor="versionID">Version ID</label>
                     </div>
-                    <div class="col-md-6">
+                    <div className="col-md-6">
                     </div>
                   </motion.div>
-                  {/* <AnimatedInput text={"Version ID"} id={"versionID"} /> */}
                 </div>
-                <div class="col-md-6">
-
-                  {/* Email Address input box. */}
-                  <motion.div variants={animationConstants.fadeInUp}>
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="emailAddress" aria-describedby="emailAddress" placeholder="Email Address" onChange={() => setemail(!(document.getElementById("emailAddress") === ""))} required />
-                      <label for="emailAddress">Email Address</label>
-                    </div>
-                  </motion.div>
-                  {/* <AnimatedInput text={"Email Address"} id={"emailAddress"} /> */}
-
-                  {/* Password input box. */}
-                  <motion.div variants={animationConstants.fadeInUp}>
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="password" aria-describedby="password" placeholder="Password" onChange={() => setpass(!(document.getElementById("password") === ""))} required />
-                      <label for="password">Password</label>
-                    </div>
-                  </motion.div>
-                  {/* <AnimatedInput text={"Password"} id={"password"} /> */}
-
-                  {/* Diagram ID input box. */}
-                  <motion.div variants={animationConstants.fadeInUp}>
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="diagramID" aria-describedby="diagramID" placeholder="Diagram ID" onChange={() => setdiag(!(document.getElementById("diagramID") === ""))} required />
-                      <label for="password">Diagram ID</label>
-                    </div>
-                  </motion.div>
-                  {/* <AnimatedInput text={"Diagram ID"} id={"diagramID"} /> */}
-
-
+                <div className="col-md-6">
                 </div>
 
 
@@ -102,15 +83,12 @@ function UploadPage() {
                 <div>
 
                   <div>
-
-                    <button type="submit" class=" btn btn-get" data-testid="button-test">
-                      {/* CHANGE MADE BY RUMAISA: added "&& email ... && diag" */}
-
-
-                      {(api && ver && email && pass & diag) ? (
-                        <Link to="/mainpage" style={{ textCol: "white" }} onClick={sendUserInfo}><span> Submit Now!</span></Link>
-                        ) : (
-                        <span> Submit Now!</span>
+                    <button type="submit" className=" btn btn-get" >
+                      {(api && ver) ? (
+                        // onclick, call the async function that gets the best intents, and then switches to the next page
+                        <Link className="link" onClick={async () => {await redirectToIntentPage();}} data-testid="enabled-link"><span color="white"> Submit Now!</span></Link>
+                      ) : (
+                        <span data-testid="disabled-link"> Submit Now!</span>
                       )}
 
                     </button>
@@ -126,7 +104,7 @@ function UploadPage() {
 
               {/* The sidebar dots which enter from the left side. className="active" fills in the chosen dot. */}
               <div data-testid="sidebar-upload">
-              <SidebarDots i={2}/>
+                <SidebarDots i={2} />
               </div>
             </motion.div>
           </motion.div>
@@ -135,6 +113,7 @@ function UploadPage() {
 
     </div>
   );
+
 }
 
 
