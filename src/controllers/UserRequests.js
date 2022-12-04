@@ -41,8 +41,8 @@ export async function getBestIntents(){
   //create the fetch request
   //call the backend controller that generates the best intents
   var intents = await
-  // fetch(`http://localhost:8080/api/v1/transcripts/threeIntents/api`, {method: "GET", headers: authHeaderData})
-  fetch(`http://nlubackend-env.eba-ekvzpwbj.us-east-1.elasticbeanstalk.com/api/v1/transcripts/threeIntents/api`, {method: "GET", headers: authHeaderData})
+  fetch(`http://localhost:8080/api/v1/transcripts/threeIntents/api`, {method: "GET", headers: authHeaderData})
+  //fetch(`http://nlubackend-env.eba-ekvzpwbj.us-east-1.elasticbeanstalk.com/api/v1/transcripts/threeIntents/api`, {method: "GET", headers: authHeaderData})
   .then((response) => response.json())
   .then((data) => {
     //intents = data;
@@ -94,8 +94,8 @@ export function sendAccount() {
   });
 
   //create the fetch request
-  // fetch(`http://localhost:8080/api/v1/transcripts/storeAccount`, {method: "POST", headers: headerData, body: fullEntry})
-  fetch(`http://nlubackend-env.eba-ekvzpwbj.us-east-1.elasticbeanstalk.com/api/v1/transcripts/storeAccount`, {method: "POST", headers: headerData, body: fullEntry})
+  fetch(`http://localhost:8080/api/v1/transcripts/storeAccount`, {method: "POST", headers: headerData, body: fullEntry})
+  //fetch(`http://nlubackend-env.eba-ekvzpwbj.us-east-1.elasticbeanstalk.com/api/v1/transcripts/storeAccount`, {method: "POST", headers: headerData, body: fullEntry})
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
@@ -131,8 +131,8 @@ export function createVFBlock(intents){
 
 
   //create the fetch request
-  // fetch(`http://localhost:8080/api/v1/transcripts/createBlock`, {method: "POST", headers: headerData, body: fullEntry})
-  fetch(`http://nlubackend-env.eba-ekvzpwbj.us-east-1.elasticbeanstalk.com/api/v1/transcripts/createBlock`, {method: "POST", headers: headerData, body: fullEntry})
+  fetch(`http://localhost:8080/api/v1/transcripts/createBlock`, {method: "POST", headers: headerData, body: fullEntry})
+  //fetch(`http://nlubackend-env.eba-ekvzpwbj.us-east-1.elasticbeanstalk.com/api/v1/transcripts/createBlock`, {method: "POST", headers: headerData, body: fullEntry})
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
