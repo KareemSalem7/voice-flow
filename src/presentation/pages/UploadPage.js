@@ -18,6 +18,12 @@ function UploadPage() {
   const [data, setData] = useState({
    title: "Data successfully passed!"
 });
+const navigate = useNavigate();
+
+// Function used to redirect while passing data
+function redirect(){
+  navigate('/mainpage', {state: { data: data }})
+}
 
 
 
@@ -45,7 +51,8 @@ function UploadPage() {
               animate={{ opacity: 1, height: "50vh", y: 50, x: '38vw' }}
               transition={{ duration: 1, ease: animationConstants.easing }}
               variants={animationConstants.stagger}>
-              <button><Link to='/mainpage' state={{ data: data }}>Passing Data Test</Link></button>
+                <button onClick={redirect}>Passing Data w/a Function</button>
+              {/* <button><Link to='/mainpage' state={{ data: data }}>Passing Data Test</Link></button> */}
 
               <form class="main__form">
                 <div class="row">

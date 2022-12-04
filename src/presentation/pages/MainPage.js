@@ -52,7 +52,7 @@ const data = location.state?.data; // The data passed from UploadPage!
           animate={animationConstants.containerDropIn.animate}
           transition={animationConstants.containerDropIn.transition}
           >
-            <p>{data.title}</p>
+            <p>{data ? data.title : ''}</p>
         {/* Seperates the left header and prompt rectangle sections side by side */}
         <div className="MainPage-col">
           {/* Define left side with the dots and tabs side by side */}
