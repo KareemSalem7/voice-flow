@@ -50,8 +50,9 @@ function EndPage(){
         <br></br>
          <br></br>To maximize the results produce by this optimized first block and our analysis, please update
          <br></br>the text on the buttons we have provided to be as specific and helpful to your customers as
-         <br></br>possible. The sentences you provide should have a strong likeness to statements a customer
-         <br></br> might make to get help with the item resembling each of the intents we have provided.
+         <br></br>possible. Specifically, ensure that the 'Other' button is connected to the 'User Input' block.
+         <br></br>To do this click 'Select block' beside the other button and select 'User Input' block from the
+         <br></br>drop-down.
 
          <br></br>
          <br></br>Next, please place this new block in the place of your intial first block and attach all of 
