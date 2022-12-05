@@ -53,8 +53,9 @@ test("Check Textbox Input", async() => {
 
 test("Check Submit Button Disabled", () => {
     render(<MemoryRouter><UploadPage/></MemoryRouter>);
-    const SubmitButton = screen.queryByTestId('button-test')
-    const TestLink = SubmitButton.firstChild.nodeName 
+    const SubmitButton = screen.queryByTestId('disabled-link')
+    expect(SubmitButton).toBeInTheDocument
+    const fullElement = SubmitButton.outerHTML
 
     const apiInput = screen.getByPlaceholderText("API Key")
     const verInput = screen.getByPlaceholderText("Version ID")
@@ -62,35 +63,27 @@ test("Check Submit Button Disabled", () => {
     expect(apiInput).toHaveValue("");
     expect(verInput).toHaveValue("");
 
-    expect(TestLink).toEqual("SPAN")
+    expect(fullElement).toEqual("<span data-testid=\"disabled-link\"> Submit Now!</span>")
 
     });
 
 test("Check Submit Button Enabled", () => {
     render(<MemoryRouter><UploadPage/></MemoryRouter>);
-    
-    console.log(SubmitButton)
-    const TestLink = SubmitButton.nodeType
 
     const apiInput = screen.getByPlaceholderText("API Key")
     const verInput = screen.getByPlaceholderText("Version ID")
+    const SubmitButton = screen.getByTestId("submit-button")
 
     expect(apiInput).toHaveValue("");
     expect(verInput).toHaveValue("");
-    const DiasbledButton = screen.queryByTestId('disabled-link')
-    expect(DiasbledButton).toBeInTheDocument
+    expect(SubmitButton).toContainHTML('<span data-testid="disabled-link"> Submit Now!</span>')
+
 
     fireEvent.change(apiInput, {target: {value: 'test1'}})
     fireEvent.change(verInput, {target: {value: 'test2'}})
     expect(apiInput).toHaveValue("test1");
     expect(verInput).toHaveValue("test2");
-    
-    // const EnabledLink = SubmitButton.children.item(0).getAttribute('href')
-    const EnabledButton = SubmitButton.children.item(1)
-    console.log(EnabledLink)
-
-
-    
+    expect(SubmitButton).toContainHTML('<a class="link" data-testid="enabled-link" href="/"><span color="white"> Submit Now!</span></a>')   
 })
 
 test("Check Title Render", () => {
