@@ -25,7 +25,7 @@ function UploadPage() {
     var intents = await getBestIntents();
 
     // redirect to the mainpage, passing the intents in
-    navigate('/mainpage', {state: { bestIntents : intents, currentOption : "Option A",  currentIntents : intents["Option A"] }});
+    navigate('/mainpage', {state: { bestIntents : intents, currentOption : "General Prompts",  currentIntents : intents["General Prompts"] }});
   }
 
 

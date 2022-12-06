@@ -57,7 +57,7 @@ export async function getBestIntents(){
   // still have to handle bad data here, or in the backend at least. Whatever is cleaner
 
   //for now, make a dict with keys like Option A, etc.
-  var newIntents = {"Option A": intents[0], "Option B": intents[1]};
+  var newIntents = {"General Prompts": intents[0], "Leaf Node Prompts": intents[1]};
 
   // empty the input text boxes for the apiKey and versionID
   document.getElementById("apiKey").value = "";

@@ -17,7 +17,7 @@ Also provides option to view help page and reupload info
 */
 
 //This is the type of the voiceflow blocks
-export const tabNames = ["Option A", "Option B"];
+export const tabNames = ["General Prompts", "Leaf Node Prompts"];
 
 var CurrentMessage = {[tabNames[0]]: " - Hello, here are some things I can help you with:", [tabNames[1]]: "- Hi, here are some things I can help you with:"}
 
@@ -36,7 +36,7 @@ function MainPage(){
     var intents = location.state?.bestIntents
 
     // Redirect to the HelpPage, passing the intents in so that they are stored
-    navigate('/helppage', {state: { bestIntents : intents, currentOption : "Option A",  currentIntents : intents["Option A"] }});
+    navigate('/helppage', {state: { bestIntents : intents, currentOption : "General Prompts",  currentIntents : intents["General Prompts"] }});
   }
 
   // react function component for rerendering the screen
