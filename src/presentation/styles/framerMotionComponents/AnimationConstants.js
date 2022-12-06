@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 // Defining reference constants for animation of various components (to ensure style & motion consistency)
 export const easing = [0.6, -0.05, 0.01, 0.99];
 export const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
+export const transitionEnd = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9], delay: 1.6 };
 
 // Have multiple grouped animated elements appear at slightly offset times.
 export const stagger = {

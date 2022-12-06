@@ -30,6 +30,21 @@ export class HoverButtonClick extends Component {
     }
 }
 
+export class HoverButtonLink extends Component {
+    render() {
+        return (
+                <motion.div whileHover={{ scale: 1.2 }}>
+                    <Link to={this.props.linky}>
+                    <Button onClick={this.props.clickFunction} style={{backgroundColor: '#3c6cd7', transition: "ease background-color 250ms", hover: {backgroundColor: '#3460c4'}}} >
+                        {this.props.text}
+                    </Button>
+                    </Link>
+                </motion.div>
+
+        )
+    }
+}
+
 export class HoverButtonGreyClick extends Component {
     render() {
         return (

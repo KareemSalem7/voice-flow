@@ -34,7 +34,8 @@ export async function getBestIntents(){
   const authHeaderData = {
     Accept: "application/json",
     "Content-Type": "application/json;charset=UTF-8",
-    Authorization: "Basic " + encodedInfo
+    Authorization: "Basic " + encodedInfo,
+    "Access-Control-Allow-Origin": "*"
   }
 
 
