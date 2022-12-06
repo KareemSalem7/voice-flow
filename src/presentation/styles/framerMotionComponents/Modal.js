@@ -24,7 +24,7 @@ const Modal = ({ showModal, closer, currIntent }) => {
                     <motion.div className="modal" variants={animationConstants.modal}>
                         <button type="button" className="btn-close btn-close-white btn-block" aria-label="Close" onClick={closer}></button>
                         <h1>Let's Make Your Chatbot Pop!</h1>
-                        <h2>Almost there! Just input your information below and we'll make your prompt for you!</h2>
+                        <h2>Almost there! Just input your information below, then click on the "Make My Prompt!" button and we'll make your prompt for you!</h2>
 
 
                         {/* Email Address input box. */}

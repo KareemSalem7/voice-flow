@@ -21,7 +21,7 @@
 
 .modal {
     max-width: 50vw;
-    max-height: 50vw;
+    max-height: 80vh;
     left: 50%;
     margin-left: 25vw;
     margin-top: -16vh;
@@ -45,7 +45,7 @@
     border-radius: 5px;
     font-weight: bold;
     position: relative;
-    padding-top: 30%;
+    padding-top: 5%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .modal h1{
@@ -63,5 +63,5 @@
 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
     font-size: 24px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
