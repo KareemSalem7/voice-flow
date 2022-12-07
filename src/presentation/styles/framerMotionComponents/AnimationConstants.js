@@ -79,6 +79,7 @@ export const letter = {
         transition: {
             duration: 1, ...transition,
             delay: 1.2,
+            ease: easing
         }
     }
 };
@@ -123,13 +124,15 @@ export const h3Opaque = {
 export const letterR = {
     initial: {
         opacity: 0,
-        x: "40vw",
+        x: "80vw",
     },
     animate: {
         opacity: 1,
         x: "0vw",
         transition: {
-            duration: 1, ...transition
+            duration: 1, ...transition,
+            delay: 1.2,
+            ease: easing
         }
     }
 };
