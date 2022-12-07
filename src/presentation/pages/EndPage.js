@@ -39,7 +39,7 @@ function EndPage(){
       animate={{opacity: 1, height: "85vh"}}
       transition={{ duration: 1, ease: [0.6, 0.01, -0.05, 0.9], delay: 2.8}}>
       
-        <p>Thank you for using our services!</p>
+        <p>Thank you for using Prompt-ly!</p>
         <p>We have now added your optimized first block to your desired Voiceflow canvas. Please open the
         <br></br>following link, sign into your Voiceflow account and navigate to the canvas of the chatbot
         <br></br>you have asked us to analyze. (
@@ -48,7 +48,7 @@ function EndPage(){
         </a>
         )
         <br></br>
-         <br></br>To maximize the results produce by this optimized first block and our analysis, please update
+         <br></br>To maximize the results produced by this optimized first block and our analysis, please update
          <br></br>the text on the buttons we have provided to be as specific and helpful to your customers as
          <br></br>possible. Specifically, ensure that the 'Other' button is connected to the 'User Input' block.
          <br></br>To do this click 'Select block' beside the other button and select 'User Input' block from the

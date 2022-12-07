@@ -30,14 +30,14 @@ function HelpPage(){
       <styledComponent.StyledTitle/>
       <styledComponent.StyledText>
         {/* Display the intro paragraph*/}
-        <p>Welcome to the Natural Leaders United Transcript Analyzer! Here is a list of the things you can do with our services as well as some general tips to get started.</p>
+        <p>Welcome to Prompt-ly, a project by Natural Leaders United! Here is a list of the things you can do with our services as well as some general tips to get started.</p>
         <p>Please ensure you have a chat-bot up and running and trained before you begin using our services. If you need assistance or guidance to do this, please visit the following link: {' '}
         <a href="https://www.voiceflow.com/tutorial" target="_blank" rel="noreferrer">
           Voiceflow Tutorial
         </a>
         </p>
 
-        <p style={{marginBottom: 30}}>Now that you are all set up, here are the exciting features of this Transcript Analyzer,</p>
+        <p style={{marginBottom: 30}}>Now that you are all set up, here are the exciting features of the Prompt-ly Chatbot Analyzer,</p>
         <HelpText/>
       </styledComponent.StyledText>
  
