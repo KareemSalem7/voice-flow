@@ -52,9 +52,9 @@ export function DrawTextBubble() {
 export function AnimatedTitle() {
   return (
     <motion.h2 variants={animationConstants.stagger}>
-      <motion.span variants={animationConstants.letter}>CHATBOT</motion.span>
-      <motion.span variants={animationConstants.letterR}>PROMPT</motion.span>
-      <motion.span variants={animationConstants.letter}>ANALYZER</motion.span>
+      <motion.span variants={animationConstants.letter}>PROMPT-LY:</motion.span>
+      <motion.span variants={animationConstants.letterR}>The Chatbot</motion.span>
+      <motion.span variants={animationConstants.letter}>Analyzer</motion.span>
     </motion.h2>
   )
 }
