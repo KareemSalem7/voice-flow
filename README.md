@@ -14,10 +14,10 @@
     <img src="src/presentation/assets/NLULogoTransparent.png" alt="Logo" width="200" height="200">
   </a>
 
-<h3 align="center">Voiceflow Chatbot Transcript Analyzer</h3>
+<h3 align="center"><h1>Prompt-ly:</h1> <em>The Chatbot Transcript Analyzer</em></h3>
 
-<h4 align="center">By Team N.L.U. - <b>N</b>atural <b>L</b>eaders <b>U</b>nited</h4>
-
+<h5 align="center">By Team N.L.U. - <b>N</b>atural <b>L</b>eaders <b>U</b>nited</h5>
+<br/>
   <p align="center">
     The aim of our project is to access the transcript data of pre-existing chatbots from within Voiceflow using the API, and to parse and analyze this data to return strong starter-node suggestions for customer chatbots!
     <br />
@@ -107,7 +107,7 @@ Here are the prerequisites required to run this project:
 
   ```
 
-### Installation
+### Installation for Local Hosting
 
 1. Clone the repo
    ```sh
@@ -134,16 +134,29 @@ How to Use:
 
 NOTE: You will also need to have the backend repository running locally on your machine in order to see the full-functionality of the application.
 
-1.) On the landing page, click “Analyze My Chatbot!”
 
-2.) Enter the requested information into the subsequent form. Click on “Submit” when done.
+1a.) (Deployed Version) Navigate to https://nluchatbotpromptanalyzer.netlify.app/
 
-3.) From the main page, you will be able to see the suggested prompts generated from the information you submitted. You can click on “Re-upload Information” to return to the previous page, “Help” for further information, or on “Generate My Prompt” to have a block generated on your Voiceflow canvas (IPR) and be taken to the end page.
+1b.) (Local Version) Navigate to http://localhost:3000
+
+2.) On the landing page, click “Analyze My Chatbot!”
+
+3.) Enter the requested information into the subsequent form. Click on “Submit” when done.
+
+4.) From the main page, you will be able to see the suggested prompts generated from the information you submitted. You can click on “Re-upload Information” to return to the previous page, “Help” for further information, or on “Generate My Prompt” to have a block generated on your Voiceflow canvas. You will first need to enter the requested information into the modal which will appear upon clicking "Generate My Prompt" before your block can be created.
+
+5.) Once this occurs, you will be taken to the end page. Follow the instructions there and navigate to your Voiceflow canvas to see your newly made block with the suggested prompts!
 
 <!--_For more examples, please refer to the [Documentation](https://example.com)_-->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Demonstration
+
+Click on the image below to be taken to a video demonstration of Prompt-ly!
+<br>
+
+[![Prompt-ly: The Chatbot Prompt Analyzer Demo!](https://img.shields.io/badge/Promptly_DEMO-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=HNhDw8j-ne0 "Prompt-ly: The Chatbot Prompt Analyzer Demo!")
 <!-- LICENSE -->
 ## License
 

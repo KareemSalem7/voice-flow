@@ -6,7 +6,6 @@ import '../styleSheets/sass/StyledHeader.scss'
 import '../styleSheets/css/UploadPage.css'
 import { Component, React } from "react";
 import styled from 'styled-components';
-import { render } from "@testing-library/react";
 
 // set the div containing the styled dots to have a width of 5
 const StyledDiv = styled.div`

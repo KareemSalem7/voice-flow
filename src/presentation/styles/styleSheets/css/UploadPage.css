@@ -101,21 +101,6 @@ html {
   color: #999;
 }
 
-.main__form .form-group input:focus:-ms-input-placeholder,
-.main__form .form-group textarea:focus:-ms-input-placeholder {
-  color: #999;
-}
-
-.main__form .form-group input:focus::-ms-input-placeholder,
-.main__form .form-group textarea:focus::-ms-input-placeholder {
-  color: #999;
-}
-
-.main__form .form-group input:focus::placeholder,
-.main__form .form-group textarea:focus::placeholder {
-  color: #999;
-}
-
 .main__form .form-group input:focus + label,
 .main__form .form-group textarea:focus + label {
   background: #fff;
@@ -129,79 +114,8 @@ html {
   color: transparent;
 }
 
-.main__form .form-group input:-ms-input-placeholder,
-.main__form .form-group textarea:-ms-input-placeholder {
-  color: transparent;
-}
-
-.main__form .form-group input::-ms-input-placeholder,
-.main__form .form-group textarea::-ms-input-placeholder {
-  color: transparent;
-}
-
-.main__form .form-group input::placeholder,
-.main__form .form-group textarea::placeholder {
-  color: transparent;
-}
-
 .main__form .form-group input {
   height: 6rem;
-}
-
-.main__form .form-group.form-message label {
- font-family: "Quicksand", sans-serif;
-  font-size: 1.6rem;
-  color: #575757;
-  padding: 2.5rem;
-  position: absolute;
-  top: -5%;
-  -webkit-transform: unset;
-          transform: unset;
-  z-index: 0;
-  -webkit-transition: .3s all;
-  transition: .3s all;
-}
-
-.main__form .form-group.form-message textarea {
-  padding: 2.5rem;
-}
-
-.main__form .form-group.form-message textarea:not(:placeholder-shown) + label {
-  top: -8% !important;
-  background: #fff;
-  z-index: 2;
-  font-weight: 600;
-  padding: 0 2.5rem !important;
-}
-
-.main__form .form-group.form-message textarea:focus {
-  outline: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.main__form .form-group.form-message textarea:focus::-webkit-input-placeholder {
-  color: #999;
-}
-
-.main__form .form-group.form-message textarea:focus:-ms-input-placeholder {
-  color: #999;
-}
-
-.main__form .form-group.form-message textarea:focus::-ms-input-placeholder {
-  color: #999;
-}
-
-.main__form .form-group.form-message textarea:focus::placeholder {
-  color: #999;
-}
-
-.main__form .form-group.form-message textarea:focus + label {
-  background: #fff;
-  z-index: 2;
-  top: -8% !important;
-  font-weight: 600;
-  padding: 0 2.5rem !important;
 }
 
 .main__form label.btn-attached {
@@ -219,17 +133,8 @@ html {
   background: #33077f;
 }
 
-/* .main__form .form-groups.form-check {
-  margin: 1.5rem 0;
-} */
-
 .main__form .form-groups.form-check input {
   position: relative;
-}
-
-.main__form .form-groups.form-check label {
-  font-size: 1.4rem;
-  color: #718399;
 }
 
 .main__form button.btn.btn-get {
@@ -252,30 +157,6 @@ html {
   color: #fff;
 }
 
-.project__form::before {
-  display: none;
-}
-
-.ready__started {
-  background: linear-gradient(150deg, #b70b83, #33077f);
-  background-size: 200% 200%;
-  position: relative;
-}
-
-.ready__started::before {
- 
-  content: '';
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  top: 0;
-}
-
-.ready__started p {
-  color: #fff;
-}
-
 .ready__started-box {
   background: #fff;
   padding: 3rem;
@@ -289,11 +170,7 @@ html {
   font-weight:900;
 }
 
-.ready__started-box p {
-  color: #272727;
-  font-size: 2.2rem;
-  font-family: "Quicksand", sans-serif;
-}
+
 
 /* Form formatting. */
 section.ready__started.project__form {
