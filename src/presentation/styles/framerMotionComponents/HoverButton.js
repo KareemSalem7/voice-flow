@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import styled from 'styled-components';
 import { Button } from '../styledComponents/StyledConstants'
 
 export class HoverButtonNoClick extends Component {

@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as animationConstants from './AnimationConstants.js'
 import '../styleSheets/css/Modal.css'
-import { HoverButtonClick, HoverButtonNoClick } from './HoverButton.js'
+import { HoverButtonClick } from './HoverButton.js'
 import { createVFBlock } from "../../../controllers/UserRequests.js";
-import EndPage from "../../pages/EndPage.js";
 
 
 const Modal = ({ showModal, closer, currIntent }) => {

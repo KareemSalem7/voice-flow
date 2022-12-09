@@ -6,7 +6,6 @@ import '../styleSheets/sass/StyledHeader.scss'
 import '../styleSheets/css/UploadPage.css'
 import { Component, React } from "react";
 import styled from 'styled-components';
-import { render } from "@testing-library/react";
 
 // set the div containing the styled dots to have a width of 5
 const StyledDiv = styled.div`
@@ -52,7 +51,7 @@ export function DrawTextBubble() {
 export function AnimatedTitle() {
   return (
     <motion.h2 variants={animationConstants.stagger}>
-      <motion.span variants={animationConstants.letter}>PROMPT-LY:</motion.span>
+      <motion.span variants={animationConstants.letter}><em>PROMPT-LY:</em></motion.span>
       <motion.span variants={animationConstants.letterR}>The Chatbot</motion.span>
       <motion.span variants={animationConstants.letter}>Analyzer</motion.span>
     </motion.h2>
